@@ -1,66 +1,89 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import React, { useEffect, useRef } from 'react';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import ClientLogos from '../components/ClientLogos';
+import About from '../components/About';
+import Services from '../components/Services';
+import Industries from '../components/Industries';
+import Timeline from '../components/Timeline';
+import CaseStudies from '../components/CaseStudies';
+import TechEcosystem from '../components/TechEcosystem';
+import Stats from '../components/Stats';
+import Testimonials from '../components/Testimonials';
+import Academy from '../components/Academy';
+import CareersForm from '../components/CareersForm';
+import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 
 export default function Home() {
+  const cursorRef = useRef(null);
+  const cursorDotRef = useRef(null);
+
+  useEffect(() => {
+    // Custom Cursor tracking (desktop only)
+    const handleCursorMove = (e) => {
+      if (cursorRef.current && cursorDotRef.current && window.innerWidth > 768) {
+        cursorRef.current.style.left = `${e.clientX}px`;
+        cursorRef.current.style.top = `${e.clientY}px`;
+        cursorDotRef.current.style.left = `${e.clientX}px`;
+        cursorDotRef.current.style.top = `${e.clientY}px`;
+      }
+    };
+    window.addEventListener('mousemove', handleCursorMove);
+
+    // Hover effect listeners for link elements
+    const handleMouseEnterLink = () => {
+      if (cursorRef.current) cursorRef.current.classList.add('hovered');
+    };
+    const handleMouseLeaveLink = () => {
+      if (cursorRef.current) cursorRef.current.classList.remove('hovered');
+    };
+
+    const attachHoverListeners = () => {
+      const hoverables = document.querySelectorAll('a, button, input, select, textarea, .service-card, .tab-btn');
+      hoverables.forEach((el) => {
+        el.addEventListener('mouseenter', handleMouseEnterLink);
+        el.addEventListener('mouseleave', handleMouseLeaveLink);
+      });
+    };
+
+    attachHoverListeners();
+
+    // Re-attach listeners when DOM changes (e.g. tab switches)
+    const observer = new MutationObserver(attachHoverListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleCursorMove);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      {/* Custom Mouse Cursor elements */}
+      <div className="custom-cursor" ref={cursorRef}></div>
+      <div className="custom-cursor-dot" ref={cursorDotRef}></div>
+
+      <Header />
+      <main>
+        <Hero />
+        <ClientLogos />
+        <About />
+        <Services />
+        <Industries />
+        <Timeline />
+        <CaseStudies />
+        <TechEcosystem />
+        <Stats />
+        <Testimonials />
+        <Academy />
+        <CareersForm />
+        <ContactForm />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
