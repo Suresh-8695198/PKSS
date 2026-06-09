@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { UploadCloud, CheckCircle } from 'lucide-react';
 
-export default function CareersForm() {
+export default function CareersForm({ preview = false }) {
   const [formData, setFormData] = useState({
     name: '',
     dob: '',
@@ -55,7 +56,14 @@ export default function CareersForm() {
           </p>
         </div>
 
-        <div className="career-form-container glass-card">
+        {preview ? (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+            <Link href="/careers" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+              <span>Open Careers Application Form</span>
+            </Link>
+          </div>
+        ) : (
+          <div className="career-form-container glass-card">
           {submitted ? (
             <div className="success-state-box text-center">
               <CheckCircle className="success-icon-big green" size={48} />
@@ -240,6 +248,7 @@ export default function CareersForm() {
             </form>
           )}
         </div>
+        )}
       </div>
     </section>
   );

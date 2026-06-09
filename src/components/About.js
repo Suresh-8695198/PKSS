@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
-export default function About() {
+export default function About({ preview = false }) {
   const brandValues = [
     {
       title: 'Our Vision',
@@ -53,19 +54,27 @@ export default function About() {
           </p>
         </div>
 
-        <div className="brand-values-grid">
-          {brandValues.map((value, idx) => (
-            <div className="glass-card value-card" key={idx}>
-              <div className="value-header">
-                <div className="value-icon-wrapper">
-                  {value.icon}
+        {!preview ? (
+          <div className="brand-values-grid">
+            {brandValues.map((value, idx) => (
+              <div className="glass-card value-card" key={idx}>
+                <div className="value-header">
+                  <div className="value-icon-wrapper">
+                    {value.icon}
+                  </div>
+                  <h3>{value.title}</h3>
                 </div>
-                <h3>{value.title}</h3>
+                <p className="value-description">{value.desc}</p>
               </div>
-              <p className="value-description">{value.desc}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
+            <Link href="/about" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+              <span>Read Full Story & Core Values</span>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

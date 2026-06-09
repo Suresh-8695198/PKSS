@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Sun, Moon, ChevronDown, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -44,44 +45,44 @@ export default function Header() {
   }, []);
 
   const links = [
-    { name: 'Home', href: '#hero' },
+    { name: 'Home', href: '/' },
     { 
       name: 'About Us', 
-      href: '#about',
+      href: '/about',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Corporate Values', href: '#about' },
-        { name: 'Process Blueprint', href: '#transformation' },
-        { name: 'Success Cases', href: '#case-studies' }
+        { name: 'Corporate Values', href: '/about#about' },
+        { name: 'Process Blueprint', href: '/about#transformation' },
+        { name: 'Success Cases', href: '/about#case-studies' }
       ]
     },
     { 
       name: 'Services', 
-      href: '#services',
+      href: '/services',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Salesforce Consulting', href: '#services' },
-        { name: 'Zoho Development', href: '#services' },
-        { name: 'HubSpot CRM Solutions', href: '#services' },
-        { name: 'Application Development', href: '#services' },
-        { name: 'Cloud Engineering', href: '#services' },
-        { name: 'AI & Automation', href: '#services' }
+        { name: 'Salesforce Consulting', href: '/services#salesforce' },
+        { name: 'Zoho Development', href: '/services#zoho' },
+        { name: 'HubSpot CRM Solutions', href: '/services#hubspot' },
+        { name: 'Application Development', href: '/services#app-dev' },
+        { name: 'Cloud Engineering', href: '/services#cloud' },
+        { name: 'AI & Automation', href: '/services#ai-automation' }
       ]
     },
     { 
       name: 'Industries', 
-      href: '#industries',
+      href: '/industries',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Healthcare Portals', href: '#industries' },
-        { name: 'Manufacturing ERP', href: '#industries' },
-        { name: 'Retail Commerce', href: '#industries' },
-        { name: 'EdTech Frameworks', href: '#industries' },
-        { name: 'Logistics Operations', href: '#industries' }
+        { name: 'Healthcare Portals', href: '/industries#healthcare' },
+        { name: 'Manufacturing ERP', href: '/industries#manufacturing' },
+        { name: 'Retail Commerce', href: '/industries#retail' },
+        { name: 'EdTech Frameworks', href: '/industries#education' },
+        { name: 'Logistics Operations', href: '/industries#logistics' }
       ]
     },
-    { name: 'Contact Us', href: '#contact' },
-    { name: 'Careers', href: '#careers' }
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'Careers', href: '/careers' }
   ];
 
   const handleDropdownToggle = (idx) => {
@@ -98,14 +99,14 @@ export default function Header() {
       <div className="scroll-progress-indicator"></div>
 
       <div className="nav-container">
-        <a href="#" className="logo-area" aria-label="PK Software Solutions Home">
+        <Link href="/" className="logo-area" aria-label="PK Software Solutions Home">
           <img 
             src="/logo.png" 
             alt="PK Software Solutions" 
             className="logo-img" 
             style={{ height: '48px', width: 'auto', objectFit: 'contain' }} 
           />
-        </a>
+        </Link>
 
         <nav className={`nav-menu ${menuOpen ? 'active' : ''}`}>
           <ul>
@@ -126,20 +127,20 @@ export default function Header() {
                     <ChevronDown size={14} className="dropdown-arrow-icon" />
                   </button>
                 ) : (
-                  <a 
+                  <Link 
                     href={link.href} 
                     className="nav-link" 
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 )}
 
                 {link.hasDropdown && (
                   <div className={`nav-dropdown-menu ${activeDropdown === idx ? 'show' : ''}`}>
                     <div className="dropdown-glow-mesh"></div>
                     {link.dropdownItems.map((subItem) => (
-                      <a 
+                      <Link 
                         key={subItem.name} 
                         href={subItem.href} 
                         className="dropdown-item-link"
@@ -150,17 +151,17 @@ export default function Header() {
                       >
                         <span className="dropdown-item-bullet"></span>
                         <span className="dropdown-item-txt">{subItem.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </li>
             ))}
             <li>
-              <a href="#contact" className="active-nav-btn" onClick={() => setMenuOpen(false)}>
+              <Link href="/contact" className="active-nav-btn" onClick={() => setMenuOpen(false)}>
                 <span>Start Project</span>
                 <ArrowRight size={14} className="btn-arrow" />
-              </a>
+              </Link>
             </li>
             <li className="rope-wrapper-li">
               <div 

@@ -167,30 +167,30 @@ export default function Footer() {
           <div className="footer-links-col">
             <h4>Core Services</h4>
             <ul>
-              <li><a href="#services">Application Development</a></li>
-              <li><a href="#services">Salesforce Consulting</a></li>
-              <li><a href="#services">Zoho Development</a></li>
-              <li><a href="#services">Cloud Engineering</a></li>
+              <li><a href="/services">Application Development</a></li>
+              <li><a href="/services#salesforce">Salesforce Consulting</a></li>
+              <li><a href="/services#zoho">Zoho Development</a></li>
+              <li><a href="/services#cloud">Cloud Engineering</a></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>Solutions</h4>
             <ul>
-              <li><a href="#services">Data Analytics</a></li>
-              <li><a href="#services">HubSpot CRM Setup</a></li>
-              <li><a href="#services">IT Consultancy</a></li>
-              <li><a href="#services">Intelligent AI Automation</a></li>
+              <li><a href="/services#data-analytics">Data Analytics</a></li>
+              <li><a href="/services#hubspot">HubSpot CRM Setup</a></li>
+              <li><a href="/services#consulting">IT Consultancy</a></li>
+              <li><a href="/services#ai-automation">Intelligent AI Automation</a></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4>Company Directory</h4>
             <ul>
-              <li><a href="#about">About PKSS</a></li>
-              <li><a href="#transformation">Methodology Blueprint</a></li>
-              <li><a href="#careers">Careers Portal</a></li>
-              <li><a href="#contact">Contact Support</a></li>
+              <li><a href="/about">About PKSS</a></li>
+              <li><a href="/about#transformation">Methodology Blueprint</a></li>
+              <li><a href="/careers">Careers Portal</a></li>
+              <li><a href="/contact">Contact Support</a></li>
             </ul>
           </div>
 
@@ -412,7 +412,7 @@ export default function Footer() {
             <div className="accent-cta-wrapper">
               <span className="accent-label">Quick Connect</span>
               <div className="cta-buttons">
-                <a href="#contact" className="accent-cta-btn text-btn">Schedule Consultation</a>
+                <a href="/contact" className="accent-cta-btn text-btn">Schedule Consultation</a>
                 <a href="mailto:info@pksoftwaresolutions.com" className="accent-cta-btn email-btn">Email Inquiry</a>
               </div>
             </div>

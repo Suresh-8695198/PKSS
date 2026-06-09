@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Activity, Settings, ShoppingCart, GraduationCap, Truck, Check } from 'lucide-react';
 
-export default function Industries() {
+export default function Industries({ preview = false }) {
   const [activeTab, setActiveTab] = useState('healthcare');
 
   const industriesData = {
@@ -50,56 +51,101 @@ export default function Industries() {
           </p>
         </div>
 
-        <div className="industries-tabs-container">
-          <div className="tab-buttons">
-            {Object.keys(industriesData).map((key) => (
-              <button 
-                key={key} 
-                className={`tab-btn ${activeTab === key ? 'active' : ''}`}
-                onClick={() => setActiveTab(key)}
-              >
-                {industriesData[key].icon}
-                <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="tab-pane-container">
-            <div className="tab-pane active">
-              <div className="pane-content-info">
-                <h3>{industriesData[activeTab].title}</h3>
-                <p>{industriesData[activeTab].desc}</p>
-                <ul className="pane-checklist">
-                  {industriesData[activeTab].features.map((feat, idx) => (
-                    <li key={idx}>
-                      <div className="check-box-icon"><Check size={14} /></div>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pane-content-visual">
-                <div className="visual-mockup-frame">
-                  <div className="mockup-header-bar">
-                    <span className="dot dot-red"></span>
-                    <span className="dot dot-yellow"></span>
-                    <span className="dot dot-green"></span>
-                    <span className="mockup-url">https://pkss.com/telemetry/{activeTab}</span>
+        {preview ? (
+          <>
+            <div className="brand-values-grid" style={{ marginTop: '2.5rem' }}>
+              <div className="glass-card value-card">
+                <div className="value-header">
+                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                    <Activity size={24} />
                   </div>
-                  <div className="mockup-canvas-content">
-                    <div className="mockup-mini-grid">
-                      <div className="mini-card span-2">
-                        <span className="mini-lbl">Operational Efficiency</span>
-                        <div className="mini-progress-bar"><div className="fill" style={{ width: '82%' }}></div></div>
-                      </div>
-                      <div className="mini-card">
-                        <span className="mini-lbl">Node Sync</span>
-                        <span className="mini-val text-green">99.9%</span>
-                      </div>
-                      <div className="mini-card">
-                        <span className="mini-lbl">Alerts</span>
-                        <span className="mini-val text-orange">0 Active</span>
+                  <h3>Healthcare</h3>
+                </div>
+                <p className="value-description" style={{ minHeight: 'auto' }}>
+                  HIPAA-compliant patient portals & secure medical EHR system integrations.
+                </p>
+              </div>
+              <div className="glass-card value-card">
+                <div className="value-header">
+                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                    <Settings size={24} />
+                  </div>
+                  <h3>Manufacturing</h3>
+                </div>
+                <p className="value-description" style={{ minHeight: 'auto' }}>
+                  Warehouse inventory synchronization, ERP nodes, and supply chain telemetry.
+                </p>
+              </div>
+              <div className="glass-card value-card">
+                <div className="value-header">
+                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                    <ShoppingCart size={24} />
+                  </div>
+                  <h3>Retail & Commerce</h3>
+                </div>
+                <p className="value-description" style={{ minHeight: 'auto' }}>
+                  Headless Next.js storefronts, real-time stock registries, and HubSpot loyalty campaigns.
+                </p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+              <Link href="/industries" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+                <span>Explore All Industry Frameworks</span>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="industries-tabs-container">
+            <div className="tab-buttons">
+              {Object.keys(industriesData).map((key) => (
+                <button 
+                  key={key} 
+                  className={`tab-btn ${activeTab === key ? 'active' : ''}`}
+                  onClick={() => setActiveTab(key)}
+                >
+                  {industriesData[key].icon}
+                  <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="tab-pane-container">
+              <div className="tab-pane active">
+                <div className="pane-content-info">
+                  <h3>{industriesData[activeTab].title}</h3>
+                  <p>{industriesData[activeTab].desc}</p>
+                  <ul className="pane-checklist">
+                    {industriesData[activeTab].features.map((feat, idx) => (
+                      <li key={idx}>
+                        <div className="check-box-icon"><Check size={14} /></div>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pane-content-visual">
+                  <div className="visual-mockup-frame">
+                    <div className="mockup-header-bar">
+                      <span className="dot dot-red"></span>
+                      <span className="dot dot-yellow"></span>
+                      <span className="dot dot-green"></span>
+                      <span className="mockup-url">https://pkss.com/telemetry/{activeTab}</span>
+                    </div>
+                    <div className="mockup-canvas-content">
+                      <div className="mockup-mini-grid">
+                        <div className="mini-card span-2">
+                          <span className="mini-lbl">Operational Efficiency</span>
+                          <div className="mini-progress-bar"><div className="fill" style={{ width: '82%' }}></div></div>
+                        </div>
+                        <div className="mini-card">
+                          <span className="mini-lbl">Node Sync</span>
+                          <span className="mini-val text-green">99.9%</span>
+                        </div>
+                        <div className="mini-card">
+                          <span className="mini-lbl">Alerts</span>
+                          <span className="mini-val text-orange">0 Active</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -107,7 +153,7 @@ export default function Industries() {
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

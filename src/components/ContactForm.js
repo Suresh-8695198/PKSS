@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 
-export default function ContactForm() {
+export default function ContactForm({ preview = false }) {
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -35,7 +36,60 @@ export default function ContactForm() {
 
   return (
     <section className="contact-section" id="contact">
-      <div className="container contact-grid">
+      {preview ? (
+        <div className="container">
+          <div className="section-header text-center">
+            <span className="section-tag">Get In Touch</span>
+            <h2 className="section-title">Schedule A Technology Strategy Session</h2>
+            <p className="section-subtitle">
+              Connect directly with our senior integration architects to scope your CRM migrations, server nodes, or custom codebases.
+            </p>
+          </div>
+
+          <div className="brand-values-grid" style={{ marginTop: '2.5rem' }}>
+            <div className="glass-card value-card">
+              <div className="value-header">
+                <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                  <Phone size={24} />
+                </div>
+                <h3>Hotline & Direct Support</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto', color: 'var(--text-muted)' }}>
+                +91 97918 40836<br />0427-2919022
+              </p>
+            </div>
+            <div className="glass-card value-card">
+              <div className="value-header">
+                <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                  <Mail size={24} />
+                </div>
+                <h3>Email Inquiries</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto', color: 'var(--text-muted)' }}>
+                contact@pksoftwaresolutions.com<br />hr@pksoftwaresolutions.com
+              </p>
+            </div>
+            <div className="glass-card value-card">
+              <div className="value-header">
+                <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
+                  <MapPin size={24} />
+                </div>
+                <h3>Salem Headquarters</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto', color: 'var(--text-muted)' }}>
+                Plot No.4, Karumbalai, Karuppur Main road, Salem - 636012
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <Link href="/contact" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+              <span>Request a Custom Consultation</span>
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="container contact-grid">
         {/* Info & Map Column */}
         <div className="contact-info-panel">
           <span className="section-tag">Get In Touch</span>
@@ -183,7 +237,8 @@ export default function ContactForm() {
             </form>
           )}
         </div>
-      </div>
+        </div>
+      )}
     </section>
   );
 }

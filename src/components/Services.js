@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';import Link from 'next/link';
 
-export default function Services() {
+export default function Services({ preview = false }) {
   const [expandedCard, setExpandedCard] = useState(null);
 
   const servicesData = [
@@ -205,7 +205,7 @@ export default function Services() {
         </div>
 
         <div className="services-grid">
-          {servicesData.map((service, idx) => {
+          {(preview ? servicesData.slice(0, 3) : servicesData).map((service, idx) => {
             const isExpanded = expandedCard === service.id;
             const cardColors = ['card-slate', 'card-blue-tint', 'card-green-tint'];
             const colorClass = cardColors[idx % cardColors.length];
@@ -242,6 +242,13 @@ export default function Services() {
             );
           })}
         </div>
+        {preview && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <Link href="/services" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+              <span>View All Services & Specializations</span>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
+import CustomCursor from "../components/CustomCursor";
 
 export const metadata = {
   title: "PK Software Solutions | Enterprise CRM, Cloud & Corporate Training Salem",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ThemeProvider>
+          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>
