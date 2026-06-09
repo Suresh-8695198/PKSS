@@ -72,7 +72,7 @@ export default function Hero() {
 
         .hero-grid {
           display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
+          grid-template-columns: 1.15fr 0.85fr;
           gap: 4rem;
           align-items: center;
           position: relative;
@@ -229,7 +229,7 @@ export default function Hero() {
         .hero-svg-wrapper {
           position: relative;
           width: 100%;
-          max-width: 520px;
+          max-width: 530px;
           margin: 0 auto;
         }
 
@@ -241,16 +241,6 @@ export default function Hero() {
         }
 
         /* SVG Micro animations */
-        .spinning-ring {
-          transform-origin: 0px 0px;
-          animation: spin 30s linear infinite;
-        }
-
-        .spinning-ring-rev {
-          transform-origin: 0px 0px;
-          animation: spinRev 25s linear infinite;
-        }
-
         .pulsing-core {
           transform-origin: 0px 0px;
           animation: pulse 3s infinite alternate ease-in-out;
@@ -261,16 +251,6 @@ export default function Hero() {
         .float-node-3 { animation: float3 6.5s infinite alternate ease-in-out; }
         .float-node-4 { animation: float4 7.5s infinite alternate ease-in-out; }
         .float-node-center { animation: floatC 8s infinite alternate ease-in-out; }
-
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes spinRev {
-          from { transform: rotate(360deg); }
-          to { transform: rotate(0deg); }
-        }
 
         @keyframes pulse {
           0% { transform: scale(0.92); opacity: 0.75; }
@@ -350,8 +330,22 @@ export default function Hero() {
             <div className="hero-svg-wrapper">
               <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="hero-svg-canvas">
                 <defs>
-                  {/* Neon Glow Filter */}
-                  <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  {/* Neon Glow Filters */}
+                  <filter id="neon-glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="neon-glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="neon-glow-purple" x="-30%" y="-30%" width="160%" height="160%">
                     <feGaussianBlur stdDeviation="5" result="blur" />
                     <feMerge>
                       <feMergeNode in="blur" />
@@ -361,154 +355,126 @@ export default function Hero() {
 
                   {/* Gradient Glow */}
                   <radialGradient id="radialGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="rgba(0, 92, 217, 0.25)" />
-                    <stop offset="100%" stopColor="rgba(0, 92, 217, 0)" />
+                    <stop offset="0%" stopColor="rgba(0, 184, 255, 0.25)" />
+                    <stop offset="100%" stopColor="rgba(0, 184, 255, 0)" />
                   </radialGradient>
-
-                  {/* Node Gradients */}
-                  <linearGradient id="blue3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00B8FF" />
-                    <stop offset="100%" stopColor="#002EA6" />
-                  </linearGradient>
-
-                  <linearGradient id="green3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#84D800" />
-                    <stop offset="100%" stopColor="#3d7000" />
-                  </linearGradient>
-
-                  <linearGradient id="accent3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#e28743" />
-                    <stop offset="100%" stopColor="#a35415" />
-                  </linearGradient>
                 </defs>
 
                 {/* Ambient backdrop glow */}
                 <circle cx="300" cy="250" r="180" fill="url(#radialGlow)" />
 
+                {/* Background PCB Motherboard traces */}
+                <g opacity="0.15" stroke="var(--text-muted)" strokeWidth="1">
+                  <line x1="100" y1="250" x2="500" y2="250" strokeDasharray="3 3" />
+                  <line x1="300" y1="100" x2="300" y2="400" strokeDasharray="3 3" />
+                  <path d="M 50 150 L 250 250 L 250 350" fill="none" />
+                  <path d="M 550 150 L 350 250 L 350 350" fill="none" />
+                  <circle cx="250" cy="250" r="3" fill="var(--text-muted)" />
+                  <circle cx="350" cy="250" r="3" fill="var(--text-muted)" />
+                </g>
+
+                {/* 3D platform Base (Under the cube) */}
+                <g className="float-node-center">
+                  {/* Bottom Plate */}
+                  <polygon points="300,310 390,265 300,220 210,265" fill="#080c16" stroke="rgba(0, 184, 255, 0.15)" strokeWidth="1" />
+                  <polygon points="210,265 300,310 300,318 210,273" fill="#04060b" />
+                  <polygon points="300,310 390,265 390,273 300,318" fill="#060910" />
+
+                  {/* Mid Plate (with purple neon glow) */}
+                  <polygon points="300,295 370,260 300,225 230,260" fill="#0c1224" stroke="#d946ef" strokeWidth="1.5" filter="url(#neon-glow-purple)" opacity="0.8" />
+                  <polygon points="230,260 300,295 300,301 230,266" fill="#060912" />
+                  <polygon points="300,295 370,260 370,266 300,301" fill="#090d1a" />
+
+                  {/* Top Plate */}
+                  <polygon points="300,280 350,255 300,230 250,255" fill="#111933" stroke="rgba(0, 184, 255, 0.3)" strokeWidth="1" />
+                  <polygon points="250,255 300,280 300,285 250,260" fill="#090d1a" />
+                  <polygon points="300,280 350,255 350,260 300,285" fill="#0c1224" />
+                </g>
+
                 {/* Glowing Laser Paths */}
-                <path id="laser1" d="M 160 140 Q 220 170 300 250" stroke="#00B8FF" strokeWidth="2.5" filter="url(#neon-glow)" opacity="0.4" />
-                <path id="laser2" d="M 440 140 Q 380 170 300 250" stroke="#00B8FF" strokeWidth="2.5" filter="url(#neon-glow)" opacity="0.4" />
-                <path id="laser3" d="M 160 360 Q 220 330 300 250" stroke="#84D800" strokeWidth="2.5" filter="url(#neon-glow)" opacity="0.4" />
-                <path id="laser4" d="M 440 360 Q 380 330 300 250" stroke="#e28743" strokeWidth="2.5" filter="url(#neon-glow)" opacity="0.4" />
+                <path d="M 175 140 C 220 170, 250 200, 300 210" stroke="#00B8FF" strokeWidth="2.2" filter="url(#neon-glow-cyan)" opacity="0.55" />
+                <path d="M 425 140 C 380 170, 350 200, 300 210" stroke="#00B8FF" strokeWidth="2.2" filter="url(#neon-glow-cyan)" opacity="0.55" />
+                <path d="M 175 360 C 220 330, 250 300, 300 270" stroke="#84D800" strokeWidth="2.2" filter="url(#neon-glow-green)" opacity="0.55" />
+                <path d="M 425 360 C 380 330, 350 300, 300 270" stroke="#00B8FF" strokeWidth="2.2" filter="url(#neon-glow-cyan)" opacity="0.55" />
 
                 {/* Laser pulses flowing between nodes */}
-                <circle r="4" fill="#00B8FF" filter="url(#neon-glow)">
-                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M 160 140 Q 220 170 300 250" />
+                <circle r="3.5" fill="#00B8FF" filter="url(#neon-glow-cyan)">
+                  <animateMotion dur="3s" repeatCount="indefinite" path="M 175 140 C 220 170, 250 200, 300 210" />
                 </circle>
-                <circle r="4" fill="#84D800" filter="url(#neon-glow)">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 440 140 Q 380 170 300 250" />
+                <circle r="3.5" fill="#84D800" filter="url(#neon-glow-green)">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" path="M 425 140 C 380 170, 350 200, 300 210" />
                 </circle>
-                <circle r="4" fill="#59A700" filter="url(#neon-glow)">
-                  <animateMotion dur="3.4s" repeatCount="indefinite" path="M 160 360 Q 220 330 300 250" />
+                <circle r="3.5" fill="#84D800" filter="url(#neon-glow-green)">
+                  <animateMotion dur="3.5s" repeatCount="indefinite" path="M 175 360 C 220 330, 250 300, 300 270" />
                 </circle>
-                <circle r="4" fill="#e28743" filter="url(#neon-glow)">
-                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M 440 360 Q 380 330 300 250" />
+                <circle r="3.5" fill="#00B8FF" filter="url(#neon-glow-cyan)">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M 425 360 C 380 330, 350 300, 300 270" />
                 </circle>
 
-                {/* 1. Top-Left Node: Web Solutions */}
-                <g className="float-node-1">
-                  <g transform="translate(160, 140)">
-                    <circle r="40" fill="var(--bg-deep)" stroke="url(#blue3D)" strokeWidth="1.5" />
-                    <g className="spinning-ring">
-                      <circle r="46" fill="none" stroke="rgba(0, 184, 255, 0.3)" strokeWidth="1" strokeDasharray="6 4" />
-                    </g>
-                    {/* 3D Isometric Cube design for Web Solutions */}
-                    <polygon points="0,-16 18,-6 0,4 -18,-6" fill="#00B8FF" opacity="0.9" />
-                    <polygon points="-18,-6 0,4 0,20 -18,10" fill="#0057D9" />
-                    <polygon points="0,4 18,-6 18,10 0,20" fill="#002EA6" />
-
-                    <g transform="translate(0, 60)">
-                      <rect x="-48" y="-10" width="96" height="20" rx="4" fill="var(--bg-card)" stroke="var(--border-glass)" strokeWidth="1" />
-                      <text textAnchor="middle" y="3" fontFamily="var(--font-heading)" fontWeight="900" fontSize="8" fill="var(--text-primary)" letterSpacing="0.05em">WEB SOLUTIONS</text>
-                    </g>
-                  </g>
-                </g>
-
-                {/* 2. Top-Right Node: Salesforce CRM */}
-                <g className="float-node-2">
-                  <g transform="translate(440, 140)">
-                    <circle r="40" fill="var(--bg-deep)" stroke="url(#blue3D)" strokeWidth="1.5" />
-                    <g className="spinning-ring-rev">
-                      <circle r="46" fill="none" stroke="rgba(0, 87, 217, 0.3)" strokeWidth="1" strokeDasharray="8 4" />
-                    </g>
-                    {/* 3D Cloud Base Isometric Block */}
-                    <polygon points="0,-14 16,-5 0,4 -16,-5" fill="#00B8FF" opacity="0.9" />
-                    <polygon points="-16,-5 0,4 0,16 -16,7" fill="#0057D9" />
-                    <polygon points="0,4 16,-5 16,16 0,16" fill="#002EA6" />
-                    
-                    <g transform="translate(0, 60)">
-                      <rect x="-54" y="-10" width="108" height="20" rx="4" fill="var(--bg-card)" stroke="var(--border-glass)" strokeWidth="1" />
-                      <text textAnchor="middle" y="3" fontFamily="var(--font-heading)" fontWeight="900" fontSize="8" fill="var(--text-primary)" letterSpacing="0.05em">SALESFORCE CLOUD</text>
-                    </g>
-                  </g>
-                </g>
-
-                {/* 3. Bottom-Left Node: Zoho CRM */}
-                <g className="float-node-3">
-                  <g transform="translate(160, 360)">
-                    <circle r="40" fill="var(--bg-deep)" stroke="url(#green3D)" strokeWidth="1.5" />
-                    <g className="spinning-ring">
-                      <circle r="46" fill="none" stroke="rgba(89, 167, 0, 0.3)" strokeWidth="1" strokeDasharray="6 4" />
-                    </g>
-                    {/* 3D Isometric Stack */}
-                    <polygon points="0,-16 18,-6 0,4 -18,-6" fill="#84D800" opacity="0.9" />
-                    <polygon points="-18,-6 0,4 0,9 -18,-1" fill="#59A700" />
-                    <polygon points="0,4 18,-6 18,-1 0,9" fill="#3d7000" />
-                    
-                    <polygon points="0,-4 18,6 0,16 -18,6" fill="#84D800" opacity="0.8" />
-                    <polygon points="-18,6 0,16 0,21 -18,11" fill="#59A700" />
-                    <polygon points="0,16 18,6 18,11 0,21" fill="#3d7000" />
-
-                    <g transform="translate(0, 60)">
-                      <rect x="-50" y="-10" width="100" height="20" rx="4" fill="var(--bg-card)" stroke="var(--border-glass)" strokeWidth="1" />
-                      <text textAnchor="middle" y="3" fontFamily="var(--font-heading)" fontWeight="900" fontSize="8" fill="var(--text-primary)" letterSpacing="0.05em">ZOHO WORKFLOWS</text>
-                    </g>
-                  </g>
-                </g>
-
-                {/* 4. Bottom-Right Node: Cloud Deployment */}
-                <g className="float-node-4">
-                  <g transform="translate(440, 360)">
-                    <circle r="40" fill="var(--bg-deep)" stroke="url(#accent3D)" strokeWidth="1.5" />
-                    <g className="spinning-ring-rev">
-                      <circle r="46" fill="none" stroke="rgba(226, 135, 67, 0.3)" strokeWidth="1" strokeDasharray="8 4" />
-                    </g>
-                    {/* 3D Network Node Pyramid */}
-                    <polygon points="0,-16 18,4 -18,4" fill="#e28743" opacity="0.9" />
-                    <polygon points="-18,4 0,-16 0,18 -18,18" fill="#a35415" />
-                    <polygon points="0,-16 18,4 18,18 0,18" fill="#7a3a08" />
-
-                    <g transform="translate(0, 60)">
-                      <rect x="-52" y="-10" width="104" height="20" rx="4" fill="var(--bg-card)" stroke="var(--border-glass)" strokeWidth="1" />
-                      <text textAnchor="middle" y="3" fontFamily="var(--font-heading)" fontWeight="900" fontSize="8" fill="var(--text-primary)" letterSpacing="0.05em">CLOUD DEPLOYMENT</text>
-                    </g>
-                  </g>
-                </g>
-
-                {/* 5. Center Hub: Core PKSS Engine */}
+                {/* Central Glass Cube (Floating slightly above platform) */}
                 <g className="float-node-center">
-                  <g transform="translate(300, 250)">
-                    <circle r="56" fill="var(--bg-deep)" stroke="var(--border-glass-hover)" strokeWidth="2" />
-                    <g className="spinning-ring">
-                      <circle r="64" fill="none" stroke="url(#blue3D)" strokeWidth="1.5" strokeDasharray="12 6" />
-                    </g>
-                    <g className="spinning-ring-rev">
-                      <circle r="72" fill="none" stroke="url(#green3D)" strokeWidth="1" strokeDasharray="16 8" />
-                    </g>
-                    
-                    {/* Concentric glowing cores */}
-                    <circle r="32" fill="url(#blue3D)" opacity="0.15" filter="url(#neon-glow)" />
-                    <g className="pulsing-core">
-                      <circle r="20" fill="url(#blue3D)" filter="url(#neon-glow)" />
-                    </g>
-                    
-                    {/* Central 3D Isometric Stack */}
-                    <g transform="translate(0, -6)">
-                      <polygon points="0,-12 14,-5 0,2 -14,-5" fill="#FFFFFF" opacity="0.95" />
-                      <polygon points="-14,-5 0,2 0,12 -14,5" fill="#D9E2EC" />
-                      <polygon points="0,2 14,-5 14,5 0,12" fill="#BCCCDC" />
+                  <g transform="translate(0, -25)">
+                    {/* Cube Left Face */}
+                    <polygon points="250,205 300,230 300,280 250,255" fill="rgba(0, 184, 255, 0.08)" stroke="#00B8FF" strokeWidth="1.8" filter="url(#neon-glow-cyan)" />
+                    {/* Cube Right Face */}
+                    <polygon points="300,230 350,205 350,255 300,280" fill="rgba(0, 46, 166, 0.08)" stroke="#00B8FF" strokeWidth="1.8" filter="url(#neon-glow-cyan)" />
+                    {/* Cube Top Face */}
+                    <polygon points="300,230 350,205 300,180 250,205" fill="rgba(0, 184, 255, 0.12)" stroke="#00B8FF" strokeWidth="1.8" filter="url(#neon-glow-cyan)" />
+
+                    {/* Inside the cube: Glowing Swirling P/S Logo */}
+                    <g className="pulsing-core" transform="translate(300, 218)">
+                      {/* Soft back core glow */}
+                      <circle r="14" fill="#00B8FF" opacity="0.35" filter="url(#neon-glow-cyan)" />
+                      {/* Swirling path 1 (Blue) */}
+                      <path d="M -8,-2 C -8,-10 6,-10 6,-4 C 6,4 -10,4 -10,-4 C -10,-12 4,-14 8,-6" stroke="#00B8FF" strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#neon-glow-cyan)" />
+                      {/* Swirling path 2 (Green) */}
+                      <path d="M 8,2 C 8,10 -6,10 -6,4 C -6,-4 10,-4 10,4 C 10,12 -4,14 -8,6" stroke="#84D800" strokeWidth="3" fill="none" strokeLinecap="round" filter="url(#neon-glow-green)" />
                     </g>
                   </g>
+                </g>
+
+                {/* Card 1: Web Solutions */}
+                <g className="float-node-1" transform="translate(70, 110)">
+                  {/* Glass Card Background */}
+                  <rect width="145" height="54" rx="10" fill="rgba(10, 15, 30, 0.72)" stroke="#00B8FF" strokeWidth="1.5" filter="url(#neon-glow-cyan)" opacity="0.95" />
+                  {/* Icon Wrapper Circle */}
+                  <circle cx="28" cy="27" r="14" fill="rgba(0, 184, 255, 0.1)" />
+                  {/* Globe Icon */}
+                  <circle cx="28" cy="27" r="8" stroke="#00B8FF" strokeWidth="1.5" fill="none" />
+                  <path d="M 28 19 A 8 8 0 0 1 28 35 M 20 27 A 8 8 0 0 1 36 27" stroke="#00B8FF" strokeWidth="1" />
+                  {/* Text */}
+                  <text x="52" y="23" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Web</text>
+                  <text x="52" y="36" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Solutions</text>
+                </g>
+
+                {/* Card 2: Salesforce Cloud */}
+                <g className="float-node-2" transform="translate(385, 70)">
+                  <rect width="145" height="54" rx="10" fill="rgba(10, 15, 30, 0.72)" stroke="#00B8FF" strokeWidth="1.5" filter="url(#neon-glow-cyan)" opacity="0.95" />
+                  <circle cx="28" cy="27" r="14" fill="rgba(0, 184, 255, 0.1)" />
+                  {/* Cloud Icon */}
+                  <path d="M 23 29 C 21.5 29 20.5 28 21 26.5 C 20.5 24.5 22 23 24.5 23.5 C 25 21.5 28.5 21.5 29.5 23.5 C 31.5 23.5 32 25.5 30.5 27" stroke="#00B8FF" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                  <text x="52" y="23" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Salesforce</text>
+                  <text x="52" y="36" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Cloud</text>
+                </g>
+
+                {/* Card 3: Zoho Workflows */}
+                <g className="float-node-3" transform="translate(70, 330)">
+                  <rect width="145" height="54" rx="10" fill="rgba(10, 15, 30, 0.72)" stroke="#84D800" strokeWidth="1.5" filter="url(#neon-glow-green)" opacity="0.95" />
+                  <circle cx="28" cy="27" r="14" fill="rgba(132, 216, 0, 0.1)" />
+                  {/* Swirling infinity / Zoho Icon */}
+                  <path d="M 23 27 C 23 24, 27 24, 27 27 C 27 30, 31 30, 31 27 C 31 24, 27 24, 27 27" stroke="#84D800" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+                  <text x="52" y="23" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Zoho</text>
+                  <text x="52" y="36" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Workflows</text>
+                </g>
+
+                {/* Card 4: Cloud Deployment */}
+                <g className="float-node-4" transform="translate(385, 330)">
+                  <rect width="145" height="54" rx="10" fill="rgba(10, 15, 30, 0.72)" stroke="#00B8FF" strokeWidth="1.5" filter="url(#neon-glow-cyan)" opacity="0.95" />
+                  <circle cx="28" cy="27" r="14" fill="rgba(0, 184, 255, 0.1)" />
+                  {/* Cloud upload / Deploy icon */}
+                  <path d="M 22 28 H 34 M 28 22 L 24 26 M 28 22 L 32 26" stroke="#00B8FF" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="52" y="23" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Cloud</text>
+                  <text x="52" y="36" fontFamily="var(--font-heading)" fontWeight="800" fontSize="10.5" fill="#FFFFFF" letterSpacing="0.03em">Deployment</text>
                 </g>
               </svg>
             </div>
