@@ -70,8 +70,8 @@ export default function About({ preview = false }) {
           </div>
         ) : (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
-            <Link href="/about" className="active-nav-btn" style={{ textDecoration: 'none' }}>
-              <span>Read Full Story & Core Values</span>
+            <Link href="/about" className="active-nav-btn" style={{ textDecoration: 'none', color: '#ffffff' }}>
+              <span style={{ color: '#ffffff' }}>Read Full Story &amp; Core Values</span>
             </Link>
           </div>
         )}
