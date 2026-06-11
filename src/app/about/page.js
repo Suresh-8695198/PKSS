@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import Header from '../../components/Header';
-import About from '../../components/About';
-import Timeline from '../../components/Timeline';
-import CaseStudies from '../../components/CaseStudies';
-import Footer from '../../components/Footer';
+import Header from '../../components/layout/Header';
+import About from '../../components/about/About';
+import Timeline from '../../components/about/Timeline';
+import CaseStudies from '../../components/about/CaseStudies';
+import Footer from '../../components/layout/Footer';
 
 export default function AboutPage() {
   return (
