@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import './Footer.css';
 
 export default function Footer() {
   const partnerLogos = [
@@ -226,7 +227,7 @@ export default function Footer() {
           <path d="M780 40 A15 15 0 0 1 805 30 A22 22 0 0 1 845 35 A18 18 0 0 1 865 50 A15 15 0 0 1 850 60 L790 60 A15 15 0 0 1 780 40 Z" fill="rgba(255,255,255,0.04)" className="cloud-float-3" />
           <path d="M1020 20 A12 12 0 0 1 1040 12 A18 18 0 0 1 1075 16 A15 15 0 0 1 1090 28 A12 12 0 0 1 1080 35 L1030 35 A12 12 0 0 1 1020 20 Z" fill="rgba(255,255,255,0.03)" className="cloud-float-4" />
 
-          {/* Deep distant background buildings (Layer 1 - dark navy flat fill) */}
+          {/* Distant background buildings */}
           <rect x="70" y="80" width="50" height="80" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255,255,255,0.02)" />
           <rect x="210" y="90" width="70" height="70" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255,255,255,0.02)" />
           <rect x="380" y="75" width="60" height="85" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255,255,255,0.02)" />
@@ -234,24 +235,20 @@ export default function Footer() {
           <rect x="800" y="80" width="60" height="80" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255,255,255,0.02)" />
           <rect x="980" y="70" width="70" height="90" fill="rgba(255, 255, 255, 0.01)" stroke="rgba(255,255,255,0.02)" />
 
-          {/* Mid-ground detailed buildings (Layer 2) */}
+          {/* Mid-ground detailed buildings */}
           <rect x="110" y="70" width="75" height="90" fill="rgba(255, 255, 255, 0.018)" stroke="rgba(255,255,255,0.04)" />
           <rect x="300" y="55" width="65" height="105" fill="rgba(255, 255, 255, 0.018)" stroke="rgba(255,255,255,0.04)" />
           <rect x="490" y="50" width="80" height="110" fill="rgba(255, 255, 255, 0.018)" stroke="rgba(255,255,255,0.04)" />
           <rect x="740" y="65" width="70" height="95" fill="rgba(255, 255, 255, 0.018)" stroke="rgba(255,255,255,0.04)" />
           <rect x="910" y="60" width="75" height="100" fill="rgba(255, 255, 255, 0.018)" stroke="rgba(255,255,255,0.04)" />
 
-          {/* Cable-Stayed Infrastructure Bridge (Left Connection) */}
-          <path d="M10 160 L15 110 L20 110 L25 160" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          {/* Bridge Infrastructure */}
+          <path d="M10 160 L15 110 L20 110 L25 160" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           <line x1="17" y1="110" x2="17" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-          {/* Cable stays */}
           <path d="M17 70 L5 160 M17 80 L8 160 M17 90 L11 160 M17 70 L30 160 M17 80 L27 160 M17 90 L24 160" stroke="rgba(255,255,255,0.03)" strokeWidth="0.8" />
           
-          {/* Front layer detailed buildings (Layer 3 - Solid Corporate blocks in dark backdrop tone) */}
-          
-          {/* Building 1: Tech Center */}
-          <rect x="45" y="70" width="60" height="90" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-          {/* Subtle Monochromatic Windows */}
+          {/* Front layer detailed buildings */}
+          <rect x="45" y="70" width="60" height="90" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <rect x="55" y="80" width="8" height="6" fill="rgba(255,255,255,0.04)" />
           <rect x="70" y="80" width="8" height="6" fill="rgba(255, 255, 255, 0.06)" />
           <rect x="85" y="80" width="8" height="6" fill="rgba(255, 255, 255, 0.04)" />
@@ -263,24 +260,20 @@ export default function Footer() {
           <rect x="85" y="110" width="8" height="6" fill="rgba(255, 255, 255, 0.06)" />
 
           {/* Pine Trees */}
-          <path d="M115 160 L120 145 L117 145 L121 135 L118 135 L122 125 L126 125 L130 135 L127 135 L131 145 L128 145 L133 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <path d="M115 160 L120 145 L117 145 L121 135 L118 135 L122 125 L126 125 L130 135 L127 135 L131 145 L128 145 L133 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           
-          {/* Building 2: Sail-shaped Glass Architecture */}
-          <path d="M140 160 Q160 30 200 50 L200 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <path d="M140 160 Q160 30 200 50 L200 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <path d="M155 160 Q170 60 190 70" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           <path d="M170 160 Q180 90 195 95" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           
-          {/* Building 3: Classical IT Corporate Dome */}
-          <rect x="225" y="80" width="85" height="80" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-          <path d="M225 80 Q267.5 40 310 80 Z" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="225" y="80" width="85" height="80" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <path d="M225 80 Q267.5 40 310 80 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <circle cx="267.5" cy="80" r="12" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-          {/* Windows */}
           <rect x="240" y="100" width="12" height="20" rx="6" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <rect x="262" y="100" width="12" height="20" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <rect x="284" y="100" width="12" height="20" rx="6" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           
-          {/* Building 4: Server Farm Block */}
-          <rect x="330" y="60" width="70" height="100" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="330" y="60" width="70" height="100" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <rect x="340" y="75" width="50" height="15" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <circle cx="348" cy="82.5" r="2" fill="rgba(255, 255, 255, 0.4)" />
           <line x1="358" y1="82.5" x2="382" y2="82.5" stroke="rgba(255,255,255,0.1)" strokeWidth="2.5" />
@@ -291,46 +284,37 @@ export default function Footer() {
           <circle cx="348" cy="128.5" r="2" fill="rgba(255, 255, 255, 0.4)" />
           <line x1="358" y1="128.5" x2="382" y2="128.5" stroke="rgba(255,255,255,0.1)" strokeWidth="2.5" />
 
-          {/* Building 5 & 6: Connected Double-Tower Complex */}
-          {/* Tower A (Tall) */}
-          <rect x="420" y="20" width="65" height="140" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          {/* Connected Double-Tower Complex */}
+          <rect x="420" y="20" width="65" height="140" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <line x1="452.5" y1="20" x2="452.5" y2="-10" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
           <circle cx="452.5" cy="-10" r="2" fill="rgba(255,255,255,0.5)" />
-          {/* Tower B (Shorter) */}
-          <rect x="515" y="45" width="60" height="115" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-          {/* Skybridge connection */}
-          <rect x="485" y="60" width="30" height="12" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="515" y="45" width="60" height="115" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="485" y="60" width="30" height="12" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <line x1="485" y1="66" x2="515" y2="66" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-          {/* Windows grid on Tower A */}
           <path d="M430 40 H475 M430 60 H475 M430 80 H475 M430 100 H475 M430 120 H475" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           <path d="M440 30 V150 M450 30 V150 M460 30 V150 M470 30 V150" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
 
-          {/* Shrubbery lines at towers */}
-          <circle cx="420" cy="158" r="4" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-          <circle cx="425" cy="158" r="5" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-          <circle cx="431" cy="158" r="4" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <circle cx="420" cy="158" r="4" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <circle cx="425" cy="158" r="5" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <circle cx="431" cy="158" r="4" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           
-          {/* Building 7: Sloped HQ Tower */}
-          <path d="M595 160 L595 50 L655 30 L665 30 L665 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <path d="M595 160 L595 50 L655 30 L665 30 L665 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <circle cx="630" cy="60" r="2" fill="rgba(255,255,255,0.1)" />
           <circle cx="630" cy="80" r="2" fill="rgba(255,255,255,0.1)" />
           <circle cx="630" cy="100" r="2" fill="rgba(255,255,255,0.1)" />
           <circle cx="630" cy="120" r="2" fill="rgba(255,255,255,0.1)" />
           
-          {/* Building 8: Modern Stacked Blocks */}
-          <rect x="690" y="80" width="55" height="80" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-          <rect x="710" y="55" width="55" height="105" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-          <rect x="730" y="30" width="55" height="130" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="690" y="80" width="55" height="80" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="710" y="55" width="55" height="105" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="730" y="30" width="55" height="130" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <line x1="730" y1="30" x2="785" y2="85" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           <line x1="710" y1="55" x2="765" y2="110" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
 
-          {/* Building 9: Curved Sail Tower */}
-          <path d="M805 160 Q790 60 845 40 L855 40 L855 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <path d="M805 160 Q790 60 845 40 L855 40 L855 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <path d="M820 160 Q810 80 845 70" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           <path d="M835 160 Q830 100 845 95" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
 
-          {/* Building 10: R&D Tech Atrium */}
-          <rect x="880" y="75" width="90" height="85" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <rect x="880" y="75" width="90" height="85" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <line x1="880" y1="95" x2="970" y2="95" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
           <line x1="880" y1="115" x2="970" y2="115" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
           <line x1="880" y1="135" x2="970" y2="135" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
@@ -338,15 +322,14 @@ export default function Footer() {
           <line x1="925" y1="75" x2="925" y2="160" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           <line x1="947.5" y1="75" x2="947.5" y2="160" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
 
-          {/* Building 11: Angular Tech Complex */}
-          <path d="M990 160 L990 50 L1060 30 L1060 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+          <path d="M990 160 L990 50 L1060 30 L1060 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
           <line x1="1010" y1="55" x2="1045" y2="45" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <line x1="1010" y1="75" x2="1045" y2="65" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <line x1="1010" y1="95" x2="1045" y2="85" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <line x1="1010" y1="115" x2="1045" y2="105" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
           <line x1="1010" y1="135" x2="1045" y2="125" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
 
-          {/* Wind Turbine 1 (Eco Tech Center, Animated Rotating Blades) */}
+          {/* Wind Turbine 1 */}
           <line x1="1105" y1="160" x2="1105" y2="90" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
           <g transform="translate(1105, 90)">
             <circle cx="0" cy="0" r="1.5" fill="rgba(255, 255, 255, 0.4)" />
@@ -364,11 +347,9 @@ export default function Footer() {
             </path>
           </g>
 
-          {/* Additional Pine Trees at right */}
-          <path d="M1075 160 L1080 148 L1077 148 L1081 138 L1078 138 L1082 128 L1086 128 L1090 138 L1087 138 L1091 148 L1088 148 L1093 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-          <path d="M1135 160 L1140 145 L1137 145 L1141 135 L1138 135 L1142 125 L1146 125 L1150 135 L1147 135 L1151 145 L1148 145 L1153 160 Z" fill="#090e1a" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <path d="M1075 160 L1080 148 L1077 148 L1081 138 L1078 138 L1082 128 L1086 128 L1090 138 L1087 138 L1091 148 L1088 148 L1093 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <path d="M1135 160 L1140 145 L1137 145 L1141 135 L1138 135 L1142 125 L1146 125 L1150 135 L1147 135 L1151 145 L1148 145 L1153 160 Z" fill="var(--skyline-front-fill)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           
-          {/* Ground Line */}
           <line x1="0" y1="160" x2="1200" y2="160" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
         </svg>
       </div>
@@ -377,7 +358,6 @@ export default function Footer() {
       <div className="footer-bottom-accent-bar">
         <div className="container">
           <div className="bottom-accent-flex-row">
-            {/* Logo Group */}
             <div className="accent-logo-wrapper">
               <img 
                 src="/logo.png" 
@@ -386,7 +366,6 @@ export default function Footer() {
               />
             </div>
 
-            {/* Social Block */}
             <div className="accent-social-wrapper">
               <span className="accent-label">Follow Us</span>
               <div className="social-squares">
@@ -408,7 +387,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Newsletter CTA Block */}
             <div className="accent-cta-wrapper">
               <span className="accent-label">Quick Connect</span>
               <div className="cta-buttons">
@@ -418,7 +396,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Legal / Copyright Row */}
           <div className="accent-bottom-row">
             <p>&copy; {new Date().getFullYear()} PK Software Solutions. All Rights Reserved. Salem, Tamilnadu, India.</p>
             <div className="accent-legal-links">

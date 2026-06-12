@@ -1,0 +1,109 @@
+/* ==========================================================================
+   6. TIMELINE METHODOLOGY
+   ========================================================================== */
+.timeline-section {
+    padding: 100px 0;
+    background: var(--bg-deep);
+}
+
+.timeline-nodes-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+}
+
+.timeline-connecting-bar {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--blue), var(--cyan), transparent);
+}
+
+.timeline-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-node {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+
+.node-marker-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.node-marker {
+    width: 52px;
+    height: 52px;
+    background: var(--bg-deep);
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    z-index: 2;
+}
+
+.node-marker svg {
+    width: 20px;
+    height: 20px;
+}
+
+.node-step-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.node-content {
+    flex-grow: 1;
+    padding: 1.5rem 2rem;
+}
+
+.node-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.node-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive media queries */
+@media (max-width: 768px) {
+    .timeline-nodes {
+        gap: 2rem;
+    }
+    
+    .timeline-node {
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 2rem;
+    }
+    
+    .timeline-connecting-bar {
+        left: 0;
+    }
+    
+    .node-marker-wrapper {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .node-step-num {
+        margin-top: 0;
+    }
+}

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
-import CustomCursor from "../components/layout/CustomCursor";
+import CustomCursor from "../components/layout/CustomCursor/CustomCursor";
 
 export const metadata = {
   title: "PK Software Solutions | Enterprise CRM, Cloud & Corporate Training Salem",

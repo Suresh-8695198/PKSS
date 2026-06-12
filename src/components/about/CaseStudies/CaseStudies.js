@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ShieldAlert, Database, CheckCircle } from 'lucide-react';
+import './CaseStudies.css';
 
 export default function CaseStudies() {
   const cases = [

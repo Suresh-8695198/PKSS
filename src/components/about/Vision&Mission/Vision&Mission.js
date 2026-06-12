@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import './Vision&Mission.css';
 
-export default function About({ preview = false }) {
+export default function VisionMission({ preview = false }) {
   const brandValues = [
     {
       title: 'Our Vision',

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Eye, FileCode2, Code, Layers, Send, TrendingUp } from 'lucide-react';
+import './Timeline.css';
 
 export default function Timeline() {
   const steps = [
