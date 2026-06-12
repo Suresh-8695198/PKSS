@@ -104,95 +104,109 @@
     gap: 2.5rem;
 }
 
-/* --- Flat Premium Corporate Cards (No AI Glowing/Neon/Glassmorphism) --- */
+/* --- Flat Premium Corporate Cards --- */
 .stat-card {
-    background: #122113; /* Solid deep corporate pine background */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 2.75rem 2.25rem;
+    background: var(--card-bg, #ffffff); /* Custom card background per card */
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px 45px 10px 45px; /* Distinctive organic/diagonal corners */
     position: relative;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden; /* Contain image corners */
 }
 
-/* Solid Top Accent Line (Corporate Color Coding) */
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Card Image Wrapper with Concave Wave Cut */
+.stat-card-image-wrap {
     width: 100%;
-    height: 4px;
-    background: var(--accent-color);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    transition: height 0.25s ease;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px 44px 0 36px; /* Clean wave curve cut on bottom-left, matching the theme */
+    background: #0d1b10;
+}
+
+.stat-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    filter: brightness(0.9) contrast(1.05);
+}
+
+/* Badge Overlay on Image (Value Highlight) */
+.stat-card-value-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    background: #122113; /* Solid deep corporate green */
+    color: #ffffff;
+    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    padding: 0.4rem 1.4rem;
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card Body spacing */
+.stat-card-body {
+    padding: 2.25rem 2rem 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .stat-card-header {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    margin-top: 0.25rem;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .stat-icon-box {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(40, 88, 23, 0.06); /* Soft green background */
+    border: 1px solid rgba(40, 88, 23, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-color);
+    color: #285817; /* Strong forest green */
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
 }
 
 .corp-svg {
-    transition: transform 0.3s ease;
-}
-
-.stat-header-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-value {
-    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color: #ffffff; /* Solid White */
-    letter-spacing: -0.02em;
+    transition: transform 0.35s ease;
 }
 
 .stat-title-label {
-    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 2px;
+    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a; /* Solid charcoal text */
+    letter-spacing: -0.01em;
 }
 
 .stat-card-divider {
     width: 100%;
     height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 1.65rem 0;
+    background: rgba(0, 0, 0, 0.06);
+    margin: 1.5rem 0;
 }
 
 .stat-desc-text {
     font-family: var(--font-body), system-ui, -apple-system, sans-serif;
     font-size: 0.94rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 2.25rem;
+    color: #475569; /* Soft charcoal body text */
+    margin-bottom: 2rem;
 }
 
 /* --- Concrete Metric Grid --- */
@@ -201,8 +215,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
     margin-top: auto;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 1.65rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 1.5rem;
 }
 
 .stat-sub-unit {
@@ -212,39 +226,41 @@
 
 .stat-sub-val {
     font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
-    font-size: 1.45rem;
-    font-weight: 750;
-    color: #ffffff; /* Solid White */
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a; /* High contrast value */
 }
 
 .stat-sub-lbl {
     font-family: var(--font-body), system-ui, -apple-system, sans-serif;
     font-size: 0.78rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.45);
+    color: #64748b; /* Cool grey label */
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
-/* --- Clean Corporate Card Hover States (No Neon Glowing) --- */
+/* --- Clean Corporate Card Hover States --- */
 .stat-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-.stat-card:hover::before {
-    height: 6px; /* Flat indicator expand */
+.stat-card:hover .stat-card-img {
+    transform: scale(1.06);
+    filter: brightness(1) contrast(1.05);
 }
 
 .stat-card:hover .stat-icon-box {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: transparent;
 }
 
 .stat-card:hover .corp-svg {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* --- Responsive Adjustments --- */
