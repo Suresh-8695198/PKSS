@@ -1928,30 +1928,8 @@ ul {
 }
 
 /* ==========================================================================
-   9. STATS SECTION
+   9. STATS SECTION (Managed by src/components/about/Stats/Stats.css)
    ========================================================================== */
-.stats-section {
-    padding: 80px 0;
-    background: #59a700 !important; /* Premium brand green background */
-    color: #ffffff !important;
-}
-
-.stats-section .stat-card {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-.stats-section .stat-number {
-    color: #ffffff !important;
-}
-
-.stats-section .stat-label {
-    color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.stats-section .stat-icon {
-    color: #ffffff !important;
-}
 
 .stats-grid {
     display: grid;
