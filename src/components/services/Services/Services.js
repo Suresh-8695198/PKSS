@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import SplitText from '../SplitText';
+import { useTheme } from '../../../context/ThemeContext';
 import './Services.css';
 
 export default function Services({ preview = false }) {
+  const { theme } = useTheme();
   // Active card index state
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -268,6 +270,9 @@ export default function Services({ preview = false }) {
               className="srv-title-divider-img"
             />
           </div>
+          <p className="srv-showcase-subtitle-new">
+            Bespoke application systems, intelligent database workflows, and scalable cloud structures built to streamline your business velocity.
+          </p>
         </div>
 
         {/* 3D Cards Carousel Area */}
@@ -340,7 +345,7 @@ export default function Services({ preview = false }) {
                     opacity: opacityStyle,
                     pointerEvents,
                     zIndex: zIndexStyle,
-                    boxShadow: offset === 0 ? `0 35px 70px -15px ${item.colors[0]}40` : 'var(--card-shadow)'
+                    boxShadow: offset === 0 && theme === 'dark' ? `0 35px 70px -15px ${item.colors[0]}40` : 'var(--card-shadow)'
                   }}
                   onClick={() => setActiveIndex(idx)}
                 >
@@ -419,12 +424,18 @@ export default function Services({ preview = false }) {
               {/* Left Side: 3D Flipper based animation container - Delayed flip to trigger clearly after scrolling down */}
               <div className="active-srv-visual-side-left">
                 <motion.div
-                  key={activeSrv.id}
-                  initial={{ opacity: 0, rotateY: -95, scale: 0.8 }}
-                  whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
-                  viewport={{ once: false, margin: "-80px" }}
-                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-                  whileHover={{ scale: 1.04, rotateY: 8 }}
+                  initial={{ opacity: 0, scale: 0.94, rotateY: -15, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, rotateY: 0, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.94, rotateY: 15, y: -15 }}
+                  transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ 
+                    scale: 1.03, 
+                    rotateY: 6,
+                    rotateX: -2,
+                    boxShadow: "0 30px 60px rgba(0,0,0,0.12)",
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                  style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
                   className="active-srv-image-wrapper"
                 >
                   <img

@@ -1,109 +1,486 @@
 /* ==========================================================================
-   6. TIMELINE METHODOLOGY
+   6. TIMELINE METHODOLOGY - SERPENTINE ROADMAP (CLEAN CORPORATE UI)
    ========================================================================== */
 .timeline-section {
-    padding: 100px 0;
+    padding: 60px 0 120px 0; /* Reduced top padding to shift the section upwards */
     background: var(--bg-deep);
-}
-
-.timeline-nodes-wrapper {
     position: relative;
-    max-width: 900px;
-    margin: 4rem auto 0 auto;
+    overflow: hidden;
 }
 
-.timeline-connecting-bar {
-    position: absolute;
-    left: 25px;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--blue), var(--cyan), transparent);
-}
-
-.timeline-nodes {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.timeline-node {
-    display: flex;
-    gap: 2rem;
-    position: relative;
-}
-
-.node-marker-wrapper {
+/* --- Unique Section Header Styles (Fixes Next.js CSS Conflicts) --- */
+.methodology-hdr {
+    text-align: center;
+    margin-bottom: 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 100%;
 }
 
-.node-marker {
-    width: 52px;
-    height: 52px;
-    background: var(--bg-deep);
-    border: 2px solid var(--blue);
-    border-radius: 50%;
+.tech-srv-tag-wrap {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.tech-tag-icon {
+    color: #74c044; /* Brand Logo Green */
+    animation: spin-slow 15s linear infinite;
+}
+
+.tech-srv-tag {
+    color: #74c044; /* Brand Logo Green */
+    font-size: 0.82rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.methodology-title {
+    font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.8rem, 4.5vw, 2.7rem);
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    text-align: center;
+    line-height: 1.25;
+    width: 100%;
+    max-width: 90%;
+    margin-top: 0;
+    margin-bottom: 0px;
+    
+    /* Dynamic color transition based on theme, ensuring 100% visibility */
+    background: linear-gradient(135deg, var(--text-primary) 35%, #74c044 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: color 0.4s ease;
+}
+
+.methodology-divider-container {
+    display: flex;
     justify-content: center;
-    color: var(--cyan);
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
+    margin-top: -42px; /* Pulls the divider curve right below the text descenders neatly */
+    margin-bottom: -36px; /* Crops transparent space below the divider curve */
+    position: relative;
+    z-index: 1;
+}
+
+.methodology-divider-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: filter 0.6s ease, opacity 0.6s ease;
+    display: block;
+}
+
+.dark .methodology-divider-img {
+    filter: invert(0.85) brightness(1.45) contrast(1.1);
+    opacity: 0.9;
+}
+
+.methodology-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    text-align: center;
     z-index: 2;
 }
 
-.node-marker svg {
-    width: 20px;
-    height: 20px;
+/* --- Serpentine Road Layout --- */
+.serpentine-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 2rem auto 0 auto; /* Reduced top margin to pull road map closer to title */
 }
 
-.node-step-num {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-top: 6px;
+/* Background Road SVG */
+.serpentine-svg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.node-content {
-    flex-grow: 1;
+.serpentine-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.road-bed {
+    stroke: #1e293b; /* Solid slate road bed - fully flat, no glow */
+    transition: stroke 0.3s ease;
+}
+
+.dark .road-bed {
+    stroke: #0f172a; /* Solid pitch slate in dark theme */
+}
+
+/* --- Animated Flag-based Milestones (START & GOAL) --- */
+.road-flag-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.flag-start {
+    top: -44px; /* Positioned perfectly above the first marker */
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column; /* Flag on top, pole going down */
+}
+
+.flag-goal {
+    top: -44px; /* Positioned perfectly above the last marker */
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column; /* Flag on top, pole going down */
+}
+
+.flag-pole {
+    width: 2px;
+    height: 14px;
+    background: #74c044; /* Start pole is green */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.flag-goal .flag-pole {
+    background: #002ea6; /* Goal pole is blue */
+}
+
+.flag-banner {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 950;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    padding: 3px 12px 3px 8px;
+    background: #74c044; /* Start banner is green */
+    clip-path: polygon(0% 0%, 100% 0%, 86% 50%, 100% 100%, 0% 100%);
+    text-transform: uppercase;
+    animation: waveFlag 1.6s ease-in-out infinite alternate;
+    transform-origin: left center;
+    min-width: 52px;
+    text-align: center;
+}
+
+.flag-goal .flag-banner {
+    background: #002ea6; /* Goal banner is blue */
+}
+
+@keyframes waveFlag {
+    0% {
+        transform: skewY(-2deg) scaleX(0.97);
+    }
+    100% {
+        transform: skewY(3deg) scaleX(1.03);
+    }
+}
+
+/* Rows & Grid Layout */
+.serpentine-rows {
+    position: relative;
+    z-index: 2;
+}
+
+.serpentine-row {
+    display: grid;
+    grid-template-columns: 1fr 180px 1fr;
+    height: 180px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Columns */
+.serpentine-col {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.col-content-left {
+    justify-content: flex-end;
+    padding-right: 3rem;
+}
+
+.col-content-right {
+    justify-content: flex-start;
+    padding-left: 3rem;
+}
+
+.col-center {
+    justify-content: center;
+}
+
+/* Card Styling - Adapts to Light and Dark Theme Variables (Flat design, no glows) */
+.serpentine-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-glass);
+    border-radius: 12px;
     padding: 1.5rem 2rem;
+    max-width: 380px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-soft);
 }
 
-.node-content h3 {
-    font-size: 1.25rem;
+.serpentine-card h3 {
+    font-size: 1.35rem;
+    font-weight: 850;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
 }
 
-.node-content p {
-    font-size: 0.95rem;
+.serpentine-card p {
+    font-size: 0.92rem;
+    line-height: 1.6;
     color: var(--text-secondary);
 }
 
-/* Responsive media queries */
-@media (max-width: 768px) {
-    .timeline-nodes {
-        gap: 2rem;
+.card-step-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #74c044; /* Brand Green */
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 20px;
+    z-index: 12; /* Sits ABOVE the animated border beam so the numbers are never crossed */
+}
+
+/* Currently Looked Stage - Card Outline Border animation (Blue Glow / Conic Spin) */
+.active-card {
+    border-color: transparent !important;
+    transform: translateY(-5px);
+}
+
+/* Spinning border beam container */
+.border-beam-container {
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 12px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 2px;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.border-beam-spinning {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 50%,
+        #00B8FF 75%, /* Cyan blue */
+        #002ea6 92%, /* Brand deep blue */
+        transparent 100%
+    );
+    animation: border-beam-spin 3s linear infinite;
+}
+
+@keyframes border-beam-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Standard hover state fallback for flat transitions */
+.serpentine-card:hover {
+    transform: translateY(-4px);
+    border-color: #00B8FF; /* Cyan Blue Outline border */
+}
+
+/* Center Marker - Green Circle with Thick Black Border (Flat, no glows) */
+.serpentine-marker.road-marker {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #74c044; /* Brand Logo Green */
+    border: 4px solid #000000; /* Thick Black Border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000; /* Black Icons */
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+}
+
+.serpentine-marker.road-marker svg {
+    width: 25px;
+    height: 25px;
+    stroke-width: 2.25;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-archery-icon {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.4s ease;
+}
+
+.serpentine-row:hover .success-archery-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Gear rotation animation on Strategy */
+.gear-icon {
+    transform-origin: center;
+}
+
+.serpentine-row:hover .gear-icon {
+    animation: rotateGear 4s linear infinite;
+}
+
+@keyframes rotateGear {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Active Row marker highlight - turns blue and white border with scale animation */
+.row-active .serpentine-marker.road-marker {
+    background: #002ea6; /* Brand Blue */
+    color: #ffffff; /* White icon */
+    transform: scale(1.12);
+    border-color: #ffffff; /* High contrast white outline */
+}
+
+/* Mobile Scroll Traveler - Initial desktop state is hidden */
+.mobile-scroll-traveler {
+    display: none;
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 900px) {
+    .serpentine-svg-container {
+        display: none;
     }
     
-    .timeline-node {
-        flex-direction: column;
-        gap: 1rem;
-        padding-left: 2rem;
+    .serpentine-wrapper {
+        margin-top: 1.5rem;
     }
     
-    .timeline-connecting-bar {
+    .serpentine-row {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding-left: 80px;
+        margin-bottom: 2.5rem;
+        position: relative;
+    }
+    
+    /* Center Column - stretched to full height of the row so connectors scale perfectly */
+    .col-center {
+        position: absolute;
         left: 0;
-    }
-    
-    .node-marker-wrapper {
-        flex-direction: row;
-        gap: 1rem;
+        top: 0;
+        bottom: 0; /* Full height stretching */
+        width: 60px;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
+        justify-content: flex-start;
     }
     
-    .node-step-num {
-        margin-top: 0;
+    /* Segmented connectors that end precisely at the next marker center regardless of card height */
+    .mobile-connector-line {
+        position: absolute;
+        left: 29px; /* Centered perfectly behind the 60px circle on mobile */
+        top: 30px; /* Starts at the center of this marker */
+        bottom: calc(-2.5rem - 30px); /* Extends exactly to the center of the next marker! */
+        width: 3px;
+        /* Default subtle dashed line using repeating-linear-gradient */
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 6px, rgba(0, 46, 166, 0.15) 6px, rgba(0, 46, 166, 0.15) 12px);
+        background-size: 3px 12px;
+        z-index: 1;
+        pointer-events: none;
+        transition: background-image 0.3s ease;
+    }
+    
+    /* Active blue dashed line with moving marching ants animation */
+    .mobile-connector-line.line-active {
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 6px, #00B8FF 6px, #00B8FF 12px);
+        background-size: 3px 12px;
+        animation: mobileDashMove 0.8s linear infinite;
+    }
+    
+    @keyframes mobileDashMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 24px; }
+    }
+    
+    /* Active Row marker highlight on mobile - NO SCALE to preserve perfect concentric white gaps! */
+    .row-active .serpentine-marker.road-marker {
+        background: #002ea6; /* Brand Blue */
+        color: #ffffff; /* White icon */
+        transform: none; /* Disable scale on mobile to avoid overlapping outer ring */
+        border-color: #ffffff; /* High contrast white outline */
+    }
+    
+    /* Mobile Scroll Traveler - Ring selector (transparent so icons remain 100% visible) */
+    .mobile-scroll-traveler {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: -5px; /* Centered perfectly around the 62px marker */
+        width: 70px;
+        height: 70px;
+        top: var(--traveler-top, 31px);
+        transform: translateY(-50%);
+        z-index: 8;
+        /* Smooth cubic bezier transition for the traveler sliding down the dashed line */
+        transition: top 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
+    }
+    
+    .traveler-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: transparent; /* Transparent so the lightbulb and other icons are fully visible! */
+        border: 4px solid #002ea6; /* Brand Blue selector ring */
+        box-shadow: none; /* Removed glowing box shadow as requested */
+        position: relative;
+    }
+    
+    .col-content-left, .col-content-right {
+        justify-content: flex-start;
+        padding: 0;
+    }
+    
+    .serpentine-card {
+        max-width: 100%;
+        width: 100%;
     }
 }

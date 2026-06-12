@@ -2,46 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import './Vision&Mission.css';
 
 export default function VisionMission({ preview = false }) {
-  const brandValues = [
-    {
-      title: 'Our Vision',
-      desc: 'Inspire the world with our innovative technologies and products.',
-      icon: (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
-          <path d="M12 3V6M12 18V21M3 12H6M18 12H21" stroke="#3cd0ff" strokeWidth="2" strokeLinecap="round" />
-          <path d="M12 9L14 12L12 15L10 12L12 9Z" fill="#3cd0ff" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      )
-    },
-    {
-      title: 'Our Mission',
-      desc: 'To be a state of art infrastructure supported by highly experienced industry experts, acting as a global leader in software development and IT consulting.',
-      icon: (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
-          <circle cx="12" cy="12" r="5" stroke="#3cd0ff" strokeWidth="1.5" />
-          <path d="M15 9L20 4" stroke="#3cd0ff" strokeWidth="2" strokeLinecap="round" />
-          <path d="M20 7V4H17" stroke="#3cd0ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-        </svg>
-      )
-    },
-    {
-      title: 'Our Commitment',
-      desc: 'To work towards providing innovative solutions for our Global Clients to run their businesses more effectively with certified accuracy.',
-      icon: (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L15 8L22 9L17 14L18 21L12 17L6 21L7 14L2 9L9 8L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-          <path d="M12 6L14 10L18 11L15 14L16 18L12 16L8 18L9 14L6 11L10 10L12 6Z" fill="#3cd0ff" opacity="0.8" />
-        </svg>
-      )
-    }
-  ];
-
   return (
     <section className="about-section" id="about">
       {/* Background Animated SVG Hyper Illustration */}
@@ -57,17 +21,83 @@ export default function VisionMission({ preview = false }) {
 
         {!preview ? (
           <div className="brand-values-grid">
-            {brandValues.map((value, idx) => (
-              <div className="glass-card value-card" key={idx}>
-                <div className="value-header">
-                  <div className="value-icon-wrapper">
-                    {value.icon}
-                  </div>
-                  <h3>{value.title}</h3>
+            {/* Card 1: Vision */}
+            <div className="about-interactive-card card-vision" style={{ '--accent-color': '#3cd0ff' }}>
+              <div className="card-top-content">
+                <span className="card-tag">VISION</span>
+                <h3 className="card-heading">Inspiring Global Innovation</h3>
+
+                <div className="card-hover-desc">
+                  <p className="value-description">
+                    Inspire the world with our innovative technologies, products, and forward-thinking engineering solutions that transform businesses.
+                  </p>
+                  <span className="expand-link">
+                    Explore <ArrowRight size={14} className="arrow-icon" />
+                  </span>
                 </div>
-                <p className="value-description">{value.desc}</p>
               </div>
-            ))}
+
+              <div className="card-graphic-container">
+                <div className="graphic-glow" />
+                <img
+                  src="/images/about/Vision.png"
+                  alt="Vision"
+                  className="card-graphic-img"
+                />
+              </div>
+            </div>
+
+            {/* Card 2: Mission */}
+            <div className="about-interactive-card card-mission" style={{ '--accent-color': '#4ade80' }}>
+              <div className="card-top-content">
+                <span className="card-tag">MISSION</span>
+                <h3 className="card-heading">Leading Software Development</h3>
+
+                <div className="card-hover-desc">
+                  <p className="value-description">
+                    To be a state of the art infrastructure supported by highly experienced industry experts, acting as a global leader in software development and IT consulting.
+                  </p>
+                  <span className="expand-link">
+                    Explore <ArrowRight size={14} className="arrow-icon" />
+                  </span>
+                </div>
+              </div>
+
+              <div className="card-graphic-container">
+                <div className="graphic-glow" />
+                <img
+                  src="/images/about/Mission.png"
+                  alt="Mission"
+                  className="card-graphic-img"
+                />
+              </div>
+            </div>
+
+            {/* Card 3: Commitment */}
+            <div className="about-interactive-card card-commitment" style={{ '--accent-color': '#a855f7' }}>
+              <div className="card-top-content">
+                <span className="card-tag">COMMITMENT</span>
+                <h3 className="card-heading">Delivering Certified Accuracy</h3>
+
+                <div className="card-hover-desc">
+                  <p className="value-description">
+                    To work towards providing innovative solutions for our Global Clients to run their businesses more effectively with certified accuracy and support.
+                  </p>
+                  <span className="expand-link">
+                    Explore <ArrowRight size={14} className="arrow-icon" />
+                  </span>
+                </div>
+              </div>
+
+              <div className="card-graphic-container">
+                <div className="graphic-glow" />
+                <img
+                  src="/images/about/Commitment.png"
+                  alt="Commitment"
+                  className="card-graphic-img"
+                />
+              </div>
+            </div>
           </div>
         ) : (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>

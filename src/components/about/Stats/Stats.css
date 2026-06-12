@@ -1,0 +1,240 @@
+/* ==========================================================================
+   7. STATISTICS & NUMBERS SECTION (GREEN WAVY BRAND DESIGN)
+   ========================================================================== */
+.stats-section {
+    padding: 110px 0;
+    /* Custom SVG Green Brand Geometric Triangle Background */
+    background-color: #74c044;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSI1NDAiIGhlaWdodD0iNDUwIiB2aWV3Qm94PSIwIDAgMTA4MCA5MDAiPjxnIGZpbGwtb3BhY2l0eT0iLjEiPjxwb2x5Z29uIGZpbGw9IiM0NDQiIHBvaW50cz0iOTAgMTUwIDAgMzAwIDE4MCAzMDAiLz48cG9seWdvbiBwb2ludHM9IjkwIDE1MCAxODAgMCAwIDAnLz48cG9seWdvbiBmaWxsPSIjQUFBIiBwb2ludHM9IjI3MCAxNTAgMzYwIDAgMTgwIDAnLz48cG9seWdvbiBmaWxsPSIjRREDSSBwb2ludHM9IjQ1MCAxNTAgMzYwIDMwMCA1NDAgMzAwIi8+PHBvbHlnb24gZmlsbD0iIzk5OSIgcG9pbnRzPSI0NTAgMTUwIDU0MCAwIDM2MCAwIi8+PHBvbHlnb24gcG9pbnRzPSI2MzAgMTUwIDU0MCAzMDAgNzIwIDMwMCIvPjxwb2x5Z29uIGZpbGw9IiNEREQiIHBvaW50cz0iNjMwIDE1MCA3MjAgMCA1NDAgMCIvPjxwb2x5Z29uIGZpbGw9IiM0NDQiIHBvaW50cz0iODEwIDE1MCA3MjAgMzAwIDkwMCAzMDAiLz48cG9seWdvbiBmaWxsPSIjRkZGIiBwb2ludHM9IjgxMCAxNTAgOTAwIDAgNzIwIDAnLz48cG9seWdvbiBmaWxsPSIjREREIiBwb2ludHM9Ijk5MCAxNTAgOTAwIDMwMCAxMDgwIDMwMCIvPjxwb2x5Z29uIGZpbGw9IiM0NDQiIHBvaW50cz0iOTkwIDE1MCAxMDgwIDAgOTAwIDAnLz48cG9seWdvbiBmaWxsPSIjREREIiBwb2ludHM9IjkwIDQ1MCAwIDYwMCAxODAgNjAwIi8+PHBvbHlnb24gcG9pbnRzPSI5MCA0NTAgMTgwIDMwMCAwIDMwMCIvPjxwb2x5Z29uIGZpbGw9IiM2NjYiIHBvaW50cz0iMjcwIDQ1MCAxODAgNjAwIDM2MCA2MDAnLz48cG9seWdvbiBmaWxsPSIjQUFBIiBwb2ludHM9IjI3MCA0NTAgMzYwIDMwMCAxODAgMzAwIi8+PHBvbHlnb24gZmlsbD0iI0RERCIgcG9pbnRzPSI0NTAgNDUwIDM2MCA2MDAgNTQwIDYwMCIvPjxwb2x5Z29uIGZpbGw9IiM5OTknIHBvaW50cz0iNDUwIDQ1MCA1NDAgMzAwIDM2MCAzMDAiLz48cG9seWdvbiBmaWxsPSIjOTk5IiBwb2ludHM9IjYzMCA0NTAgNTQwIDYwMCA3MjAgNjAwIi8+PHBvbHlnb24gZmlsbD0iI0ZGRiIgcG9pbnRzPSI2MzAgNDUwIDcyMCAzMDAgNTQwIDMwMCIvPjxwb2x5Z29uIHBvaW50cz0iODEwIDQ1MCA3MjAgNjAwIDkwMCA2MDAnLz48cG9seWdvbiBmaWxsPSIjREREIiBwb2ludHM9IjgxMCA0NTAgOTAwIDMwMCA3MjAgMzAwIi8+PHBvbHlnb24gZmlsbD0iI0FBQSIgcG9pbnRzPSI5OTAgNDUwIDkwMCA2MDAgMTA4MCA2MDAnLz48cG9seWdvbiBmaWxsPSIjNDQ0IiBwb2ludHM9Ijk5MCA0NTAgMTA4MCAzMDAgOTAwIDMwMCIvPjxwb2x5Z29uIGZpbGw9IiMyMjIiIHBvaW50cz0iOTAgNzUwIDAgOTAwIDE4MCA5MDAnLz48cG9seWdvbiBwb2ludHM9IjI3MCA3NTAgMTgwIDkwMCAzNjAgOTAwIi8+PHBvbHlnb24gZmlsbD0iI0RERCIgcG9pbnRzPSIyNzAgNzUwIDM2MCA2MDAgMTgwIDYwMCIvPjxwb2x5Z29uIHBvaW50cz0iNDUwIDc1MCA1NDAgNjAwIDM2MCA2MDAnLz48cG9seWdvbiBwb2ludHM9IjYzMCA3NTAgNTQwIDkwMCA3MjAgOTAwIi8+PHBvbHlnb24gZmlsbD0iIzQ0NCIgcG9pbnRzPSI2MzAgNzUwIDcyMCA2MDAgNTQwIDYwMCIvPjxwb2x5Z29uIGZpbGw9IiNBQUEiIHBvaW50cz0iODEwIDc1MCA3MjAgOTAwIDkwMCA5MDAnLz48cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjgxMCA3NTAgOTAwIDYwMCA3MjAgNjAwIi8+PHBvbHlnb24gZmlsbD0iIzk5OSIgcG9pbnRzPSI5OTAgNzUwIDkwMCA5MDAgMTA4MCA5MDAnLz48cG9seWdvbiBmaWxsPSIjOTk5IiBwb2ludHM9IjE4MCAwIDkwIDE1MCAyNzAgMTUwIi8+PHBvbHlnb24gZmlsbD0iIzQ0NCIgcG9pbnRzPSUzNjAgMCAyNzAgMTUwIDQ1MCAxNTAiLz48cG9seWdvbiBmaWxsPSIjRkZGIiBwb2ludHM9IjU0MCAwIDQ1MCAxNTAgNjMwIDE1MCIvPjxwb2x5Z29uIHBvaW50cz0iOTAwIDAgODEwIDE1MCA5OTAgMTUwIi8+PHBvbHlnb24gZmlsbD0iIzIyMiIgcG9pbnRzPSIwIDMwMCAtOTAgNDUwIDkwIDQ1MCIvPjxwb2x5Z29uIGZpbGw9IiNGRkYiIHBvaW50cz0iMCAzMDAgOTAgMTUwIC05MCAxNTAiLz48cG9seWdvbiBmaWxsPSIjRkZGIiBwb2ludHM9IjE4MCAzMDAgOTAgNDUwIDI3MCA0NTAiLz48cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjE4MCAzMDAgMjcwIDE1MCA5MCAxNTAiLz48cG9seWdvbiBmaWxsPSIjMjIyIiBwb2ludHM9IjM2MCAzMDAgMjcwIDQ1MCA0NTAgNDUwIi8+PHBvbHlnb24gZmlsbD0iI0ZGRiIgcG9pbnRzPSUzNjAgMzAwIDQ1MCAxNTAgMjcwIDE1MCIvPjxwb2x5Z29uIGZpbGw9IiM0NDQiIHBvaW50cz0iNTQwIDMwMCA0NTAgNDUwIDYzMCA0NTAiLz48cG9seWdvbiBmaWxsPSIjMjIyIiBwb2ludHM9IjU0MCAzMDAgNjMwIDE1MCA0NTAgMTUwIi8+PHBvbHlnb24gZmlsbD0iI0FBQSIgcG9pbnRzPSI3MjAgMzAwIDYzMCA0NTAgODEwIDQ1MCIvPjxwb2x5Z29uIGZpbGw9IiM2NjYiIHBvaW50cz0iNzIwIDMwMCA4MTAgMTUwIDYzMCAxNTAnLz48cG9seWdvbiBmaWxsPSIjRkZGIiBwb2ludHM9IjkwMCAzMDAgODEwIDQ1MCA5OTAgNDUwIi8+PHBvbHlnb24gZmlsbD0iIzk5OSIgcG9pbnRzPSI5MDAgMzAwIDk5MCAxNTAgODEwIDE1MCcvPjxwb2x5Z29uIHBvaW50cz0iMCA2MDAgLTkwIDc1MCA5MCA3NTAiLz48cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjAgNjAwIDkwIDQ1MCAtOTAgNDUwJy8+PHBvbHlnb24gZmlsbD0iI0FBQSIgcG9pbnRzPSIxODAgNjAwIDkwIDc1MCAyNzAgNzUwJy8+PHBvbHlnb24gZmlsbD0iIzQ0NCIgcG9pbnRzPSIxODAgNjAwIDI3MCA0NTAgOTAgNDUwJy8+PHBvbHlnb24gZmlsbD0iIzQ0NCIgcG9pbnRzPSUzNjAgNjAwIDI3MCARefAOMDUwIDc1MCcvPjxwb2x5Z29uIGZpbGw9IiM5OTknIHBvaW50cz0iMzYwIDYwMCA0NTAgNDUwIDI3MCA0NTAnLz48cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjU0MCA2MDAgNjMwIDQ1MCA0NTAgNDUwIi8+PHBvbHlnb24gZmlsbD0iIzIyMiIgcG9pbnRzPSI3MjAgNjAwIDYzMCA3NTAgODEwIDc1MCcvPjxwb2x5Z29uIGZpbGw9IiNGRkYiIHBvaW50cz0iOTAwIDYwMCA4MTAgNzUwIDk5MCA3NTAnLz48cG9seWdvbiBmaWxsPSIjMjIyIiBwb2ludHM9IjkwMCA2MDAgOTkwIDQ1MCA4MTAgNDUwIi8+PHBvbHlnb24gZmlsbD0iI0RERCIgcG9pbnRzPSIwIDkwMCA5MCA3NTAgLTkwIDc1MCcvPjxwb2x5Z29uIGZpbGw9IiM0NDQiIHBvaW50cz0iMTgwIDkwMCAyNzAgNzUwIDkwIDc1MCcvPjxwb2x5Z29uIGZpbGw9IiNGRkYiIHBvaW50cz0iMzYwIDkwMCA0NTAgNzUwIDI3MCA3NTAiLz48cG9seWdvbiBmaWxsPSIjQUFBIiBwb2ludHM9IjU0MCA5MDAgNjMwIDc1MCA0NTAgNzUwIi8+PHBvbHlnb24gZmlsbD0iI0ZGRiIgcG9pbnRzPSI3MjAgOTAwIDgxMCA3NTAgNjMwIDc1MCcvPjxwb2x5Z29uIGZpbGw9IiMyMjIiIHBvaW50cz0iOTAwIDkwMCA5OTAgNzUwIDgxMCA3NTAnLz48cG9seWdvbiBmaWxsPSIjMjIyIiBwb2ludHM9IjEwODAgMzAwIDk5MCA0NTAgMTE3MCA0NTAiLz48cG9seWdvbiBmaWxsPSIjRkZGIiBwb2ludHM9IjEwODAgMzAwIDExNzAgMTUwIDk5MCAxNTAiLz48cG9seWdvbiBwb2ludHM9IjEwODAgNjAwIDk5MCA3NTAgMTE3MCA3NTAnLz48cG9seWdvbiBmaWxsPSIjNjY2IiBwb2ludHM9IjEwODAgNjAwIDExNzAgNDUwIDk5MCA0NTAnLz48cG9seWdvbiBmaWxsPSIjRERESSBwb2ludHM9IjEwODAgOTAwIDExNzAgNzUwIDk5MCA3NTAnLz48L2c+PC9zdmc+");
+    background-repeat: repeat;
+    background-size: 540px 450px;
+    position: relative;
+}
+
+/* Lightened backdrop overlay to let decorative green waves shine through */
+.stats-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.5) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.stats-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Section Header (Corporate Look) --- */
+.stats-hdr {
+    text-align: center;
+    margin-bottom: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.stats-hdr .tech-srv-tag {
+    color: #ffffff; /* Contrast white tag on green background */
+    font-weight: 850;
+    letter-spacing: 0.12em;
+}
+
+.stats-hdr .tech-tag-icon {
+    color: #ffffff;
+}
+
+.stats-title {
+    font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(2rem, 5vw, 2.85rem);
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    text-align: center;
+    line-height: 1.2;
+    width: 100%;
+    max-width: 90%;
+    margin-top: 0;
+    margin-bottom: 0px;
+    
+    /* White-to-soft green gradient */
+    background: linear-gradient(135deg, #ffffff 40%, #c1f299 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.stats-divider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
+    margin-top: -42px;
+    margin-bottom: -36px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Make divider curve pop against the green bg */
+.stats-divider-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.85); /* Force clean high-contrast white */
+    display: block;
+}
+
+.stats-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 650px;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    text-align: center;
+    z-index: 2;
+}
+
+/* --- Stats Grid --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* --- Clean Corporate Glass Cards (No AI Glowing Beams) --- */
+.stat-card {
+    background: rgba(15, 23, 42, 0.8); /* Dense slate corporate glass backdrop */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 2.5rem 2.2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.stat-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.stat-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 850;
+    line-height: 1.1;
+    color: #ffffff; /* Solid flat white */
+    letter-spacing: -0.03em;
+}
+
+.stat-title-label {
+    font-size: 0.95rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 1px;
+}
+
+.stat-card-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+}
+
+.stat-desc-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+/* --- Concrete Metric Grid (Highly Professional Report Look) --- */
+.stat-metrics-subgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+}
+
+.stat-sub-unit {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-sub-val {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.stat-sub-lbl {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+/* --- Professional Card Hover States (Flat High Contrast) --- */
+.stat-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+.stat-card:hover .stat-icon-box {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 85px 0;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

@@ -4,17 +4,17 @@ import React from 'react';
 import Header from '../../components/layout/Header/Header';
 import About from '../../components/about/Vision&Mission/Vision&Mission';
 import Timeline from '../../components/about/Timeline/Timeline';
-import CaseStudies from '../../components/about/CaseStudies/CaseStudies';
+import Stats from '../../components/about/Stats/Stats';
 import Footer from '../../components/layout/Footer/Footer';
 
 export default function AboutPage() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '80px' }}>
+      <main style={{ paddingTop: '90px' }}>
         <About preview={false} />
         <Timeline />
-        <CaseStudies />
+        <Stats />
       </main>
       <Footer />
     </>

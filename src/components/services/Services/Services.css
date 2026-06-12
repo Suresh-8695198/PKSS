@@ -19,7 +19,7 @@
   overflow: hidden;
   z-index: 10;
 
-  --bg-neutral: #f5f5f7;
+  --bg-neutral: var(--bg-dark);
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(255, 255, 255, 0.45);
   --card-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
@@ -33,7 +33,7 @@
 
 /* Dark Mode Theme overrides with premium glassmorphism pop */
 .dark .services-showcase-section {
-  --bg-neutral: #09090b;
+  --bg-neutral: var(--bg-dark);
   --card-bg: rgba(24, 24, 28, 0.85); /* Brightened cards slightly in dark mode */
   --card-border: rgba(255, 255, 255, 0.16); /* More visible borders in dark mode */
   --card-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
@@ -49,21 +49,25 @@
   z-index: 5;
 }
 
-/* ── Title Redesigned Style ── */
 .srv-showcase-hdr {
   text-align: center;
-  margin-bottom: -20px; /* Pulls the carousel deck upward to remove the excessive gap below the border line image */
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  width: 100%;
 }
 
 .srv-showcase-title-new {
   font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  font-size: clamp(1.6rem, 4.2vw, 2.7rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.7rem);
   font-weight: 850;
   letter-spacing: -0.03em;
-  white-space: nowrap; /* Ensures title fits in a single line on mobile screen sizes */
+  text-align: center;
+  line-height: 1.25;
+  width: 100%;
+  max-width: 90%;
   
   /* Linear effect gradient: black (or white in dark theme) transitioning to Green logo color */
   background: linear-gradient(135deg, var(--text-main) 35%, #74c044 100%);
@@ -71,7 +75,7 @@
   -webkit-text-fill-color: transparent;
   
   margin-top: 0;
-  margin-bottom: 4px; /* Reduced gap exactly below heading text */
+  margin-bottom: 0px;
   transition: color 0.4s ease;
 }
 
@@ -79,16 +83,33 @@
 .title-curve-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  margin-top: -50px; /* Reduced gap exactly above border line */
+  max-width: 280px;
+  margin-top: -42px; /* Pulls the divider curve right below the text descenders neatly, cropping transparent space */
+  margin-bottom: -36px; /* Crops transparent space below the divider curve */
+  position: relative;
+  z-index: 1;
 }
 
 .srv-title-divider-img {
-  width: 260px;
+  width: 100%;
   height: auto;
   object-fit: contain;
   opacity: 0.95;
   transition: filter 0.6s ease, opacity 0.6s ease;
+  display: block;
+}
+
+.srv-showcase-subtitle-new {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  text-align: center;
+  z-index: 2;
 }
 
 /* Invert filter applied in dark mode so the dark navy turns silver-cyan to look spectacular on dark UI */

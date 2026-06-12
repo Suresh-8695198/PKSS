@@ -293,26 +293,26 @@ ul {
     background: rgba(255,255,255,0.92); /* clean white glassy base */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0,46,166,0.08);
+    border-bottom: 1px solid var(--border-glass);
     transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
 }
 
 .dark .main-header {
     background: rgba(10, 10, 10, 0.85); /* dark mode base */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-glass);
 }
 
 .main-header.scrolled {
     background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(248,250,255,0.97));
-    border-bottom: 1px solid rgba(0,46,166,0.12);
-    box-shadow: 0 8px 28px rgba(0,46,166,0.08);
+    border-bottom: 1px solid var(--border-glass);
+    box-shadow: none;
     transform: none;
 }
 
 .dark .main-header.scrolled {
     background: linear-gradient(180deg, rgba(5,5,5,0.95), rgba(0,0,0,0.98));
-    border-bottom: 1px solid rgba(0, 184, 255, 0.15);
-    box-shadow: 0 8px 28px rgba(0, 184, 255, 0.08);
+    border-bottom: 1px solid var(--border-glass);
+    box-shadow: none;
 }
 
 .nav-container {

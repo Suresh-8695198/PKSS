@@ -1,0 +1,389 @@
+.tech-services-section {
+  position: relative;
+  background-color: var(--bg-dark);
+  padding: 60px 0 80px 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Header Styling */
+.tech-srv-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tech-srv-tag-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.tech-tag-icon {
+  color: var(--cyan);
+  animation: spin-slow 15s linear infinite;
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tech-srv-tag {
+  color: var(--cyan);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tech-srv-title {
+  font-family: 'Plus Jakarta Sans', var(--font-heading), sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 0;
+  max-width: 90%;
+  background: linear-gradient(135deg, var(--text-primary) 50%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tech-srv-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-top: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Dynamic Filter Tabs */
+.tech-srv-tabs-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.tech-srv-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  padding: 6px;
+  background: transparent;
+  border-radius: 40px;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+}
+
+.tech-srv-tabs::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar Chrome/Safari/Edge */
+}
+
+.dark .tech-srv-tabs {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tech-tab-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0.65rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.tab-btn-text {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.tech-tab-btn:hover .tab-btn-text {
+  color: var(--text-primary);
+}
+
+.tech-tab-btn.active .tab-btn-text {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.dark .tech-tab-btn.active .tab-btn-text {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+.tech-tab-bg-indicator {
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  border-radius: inherit;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0, 46, 166, 0.25);
+}
+
+.dark .tech-tab-bg-indicator {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Staggered Responsive Grid */
+.tech-srv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+/* Custom Interactive Technology Card */
+.tech-srv-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 240px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  will-change: transform;
+}
+
+/* Colorful custom glowing border on hover */
+.card-border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease, background 0.4s ease;
+}
+
+.tech-srv-card:hover {
+  border-color: transparent;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 0 25px var(--accent-color)15;
+}
+
+.dark .tech-srv-card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-color)20;
+}
+
+.tech-srv-card:hover .card-border-glow {
+  opacity: 1;
+  background: linear-gradient(135deg, var(--accent-color) 0%, transparent 60%, var(--accent-color) 100%);
+}
+
+/* Card Header: Icon & Category */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tech-srv-icon-box {
+  width: auto;
+  height: 64px;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dark .tech-srv-icon-box {
+  background: transparent !important;
+}
+
+.tech-srv-card:hover .tech-srv-icon-box {
+  transform: scale(1.15) rotate(4deg);
+}
+
+.tech-srv-logo-img,
+.tech-srv-logo-svg {
+  width: 60px;
+  height: 60px;
+  max-height: 60px;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+  transition: all 0.3s ease;
+}
+
+.dark .tech-srv-logo-img,
+.dark .tech-srv-logo-svg {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+
+/* Specific inner zoom for Salesforce logo to crop internal margins and match sizing */
+img[alt="Salesforce"] {
+  transform: scale(1.45);
+}
+
+.tech-srv-category-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0;
+  background: transparent !important;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.dark .tech-srv-category-tag {
+  background: transparent !important;
+}
+
+.tech-srv-card:hover .tech-srv-category-tag {
+  background: transparent !important;
+  color: var(--accent-color);
+}
+
+/* Card Content Body */
+.tech-srv-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.tech-srv-card-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.tech-srv-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Card Footer action and features */
+.tech-srv-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.footer-spec-dot {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.footer-spec-icon {
+  color: var(--accent-color);
+}
+
+.footer-arrow {
+  color: var(--text-muted);
+  transform: translateX(0);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tech-srv-card:hover .footer-arrow {
+  transform: translateX(4px);
+  color: var(--accent-color);
+}
+
+/* Responsive adjust */
+@media (max-width: 768px) {
+  .tech-services-section {
+    padding: 60px 0 80px 0;
+  }
+
+  .tech-srv-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .tech-srv-tabs-container {
+    justify-content: center;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-srv-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    width: 100%;
+    max-width: 100%;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .tech-tab-btn {
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid var(--border-glass) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+  }
+
+  .dark .tech-tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tab-btn-text {
+    font-size: 0.8rem;
+  }
+
+  .tech-srv-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Sun, Moon, ChevronDown, ArrowRight } from 'lucide-react';
 import { useTheme } from '../../../context/ThemeContext';
 import './Header.css';
@@ -12,6 +13,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { theme, toggleTheme } = useTheme();
   const [isPulling, setIsPulling] = useState(false);
+  const pathname = usePathname();
 
   const handleRopePull = () => {
     if (isPulling) return;
@@ -47,29 +49,8 @@ export default function Header() {
 
   const links = [
     { name: 'Home', href: '/' },
-    { 
-      name: 'About Us', 
-      href: '/about',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: 'Corporate Values', href: '/about#about' },
-        { name: 'Process Blueprint', href: '/about#transformation' },
-        { name: 'Success Cases', href: '/about#case-studies' }
-      ]
-    },
-    { 
-      name: 'Services', 
-      href: '/services',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: 'Salesforce Consulting', href: '/services#salesforce' },
-        { name: 'Zoho Development', href: '/services#zoho' },
-        { name: 'HubSpot CRM Solutions', href: '/services#hubspot' },
-        { name: 'Application Development', href: '/services#app-dev' },
-        { name: 'Cloud Engineering', href: '/services#cloud' },
-        { name: 'AI & Automation', href: '/services#ai-automation' }
-      ]
-    },
+    { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/services' },
     { 
       name: 'Industries', 
       href: '/industries',
@@ -111,33 +92,35 @@ export default function Header() {
 
         <nav className={`nav-menu ${menuOpen ? 'active' : ''}`}>
           <ul>
-            {links.map((link, idx) => (
-              <li 
-                key={link.name} 
-                className={`nav-item-li ${link.hasDropdown ? 'has-dropdown' : ''}`}
-                onMouseEnter={() => link.hasDropdown && setActiveDropdown(idx)}
-                onMouseLeave={() => link.hasDropdown && setActiveDropdown(null)}
-              >
-                {link.hasDropdown ? (
-                  <button 
-                    className="nav-link dropdown-toggle-btn"
-                    onClick={() => handleDropdownToggle(idx)}
-                    aria-expanded={activeDropdown === idx}
-                  >
-                    <span>{link.name}</span>
-                    <ChevronDown size={14} className="dropdown-arrow-icon" />
-                  </button>
-                ) : (
-                  <Link 
-                    href={link.href} 
-                    className="nav-link" 
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                )}
-
-                {link.hasDropdown && (
+            {links.map((link, idx) => {
+              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+              return (
+                <li 
+                  key={link.name} 
+                  className={`nav-item-li ${link.hasDropdown ? 'has-dropdown' : ''}`}
+                  onMouseEnter={() => link.hasDropdown && setActiveDropdown(idx)}
+                  onMouseLeave={() => link.hasDropdown && setActiveDropdown(null)}
+                >
+                  {link.hasDropdown ? (
+                    <button 
+                      className={`nav-link dropdown-toggle-btn ${isActive ? 'active' : ''}`}
+                      onClick={() => handleDropdownToggle(idx)}
+                      aria-expanded={activeDropdown === idx}
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown size={14} className="dropdown-arrow-icon" />
+                    </button>
+                  ) : (
+                    <Link 
+                      href={link.href} 
+                      className={`nav-link ${isActive ? 'active' : ''}`} 
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+  
+                  {link.hasDropdown && (
                   <div className={`nav-dropdown-menu ${activeDropdown === idx ? 'show' : ''}`}>
                     <div className="dropdown-glow-mesh"></div>
                     {link.dropdownItems.map((subItem) => (
@@ -157,7 +140,7 @@ export default function Header() {
                   </div>
                 )}
               </li>
-            ))}
+            )})}
             <li>
               <Link href="/contact" className="active-nav-btn" onClick={() => setMenuOpen(false)}>
                 <span>Start Project</span>
