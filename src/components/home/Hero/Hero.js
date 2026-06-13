@@ -2,12 +2,216 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Sparkles, Globe, Cloud, RefreshCw, UploadCloud } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Hero.css';
 
 export default function Hero() {
+  const canvasRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+
+    const resizeCanvas = () => {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const particleCount = 24;
+    const colors = ['#00B8FF', '#59A700', '#0057D9', '#84D800'];
+
+    class Particle {
+      constructor() {
+        this.reset();
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+      }
+
+      reset() {
+        this.x = canvas.width * 0.5 + Math.random() * (canvas.width * 0.5);
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = Math.random() * 2 + 1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.alpha = Math.random() * 0.5 + 0.3;
+        this.fadeSpeed = 0.002 + Math.random() * 0.003;
+        this.fading = Math.random() > 0.5;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < canvas.width * 0.4 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+
+        if (this.fading) {
+          this.alpha -= this.fadeSpeed;
+          if (this.alpha <= 0.2) this.fading = false;
+        } else {
+          this.alpha += this.fadeSpeed;
+          if (this.alpha >= 0.8) this.fading = true;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const beams = [];
+    const beamCount = 3;
+    class LightBeam {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = canvas.width * 0.6 + Math.random() * (canvas.width * 0.3);
+        this.y = -50;
+        this.speed = 1 + Math.random() * 1.5;
+        this.length = 60 + Math.random() * 80;
+        this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.width = Math.random() * 1.2 + 0.5;
+        this.alpha = Math.random() * 0.3 + 0.15;
+      }
+
+      update() {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (this.y > canvas.height + 100 || this.x > canvas.width + 100) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - Math.cos(this.angle) * this.length, this.y - Math.sin(this.angle) * this.length);
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = this.width;
+        ctx.globalAlpha = this.alpha;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = this.color;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < beamCount; i++) {
+      beams.push(new LightBeam());
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      beams.forEach(beam => {
+        beam.update();
+        beam.draw();
+      });
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            const grad = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
+            grad.addColorStop(0, particles[i].color);
+            grad.addColorStop(1, particles[j].color);
+            ctx.strokeStyle = grad;
+            ctx.globalAlpha = (1 - dist / 120) * 0.12 * ((particles[i].alpha + particles[j].alpha) / 2);
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  const words = ["Software Solutions", "CRM Ecosystems", "Cloud Applications", "Zoho Workflows"];
+  const [currentWordIdx, setCurrentWordIdx] = React.useState(0);
+  const [displayedText, setDisplayedText] = React.useState("");
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    let timer;
+    const currentFullWord = words[currentWordIdx];
+
+    const tick = () => {
+      if (!isDeleting) {
+        setDisplayedText(currentFullWord.substring(0, displayedText.length + 1));
+        if (displayedText === currentFullWord) {
+          timer = setTimeout(() => setIsDeleting(true), 2000);
+          return;
+        }
+      } else {
+        setDisplayedText(currentFullWord.substring(0, displayedText.length - 1));
+        if (displayedText === "") {
+          setIsDeleting(false);
+          setCurrentWordIdx((prev) => (prev + 1) % words.length);
+          return;
+        }
+      }
+
+      const speed = isDeleting ? 30 : 65;
+      timer = setTimeout(tick, speed);
+    };
+
+    timer = setTimeout(tick, 100);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentWordIdx]);
+
   return (
     <section className="hero-section" id="hero">
+      {/* ── Background Image Layer (animated) ── */}
+      <div className="hero-bg-image" />
+      <div className="hero-bg-overlay" />
+
+      {/* ── Canvas Animation Overlay ── */}
+      <canvas ref={canvasRef} className="hero-canvas-animation" />
+
       <div className="modern-bg-element bg-shape-1" />
       <div className="modern-bg-element bg-shape-2" />
 
@@ -16,15 +220,12 @@ export default function Hero() {
 
           {/* ── LEFT: copy ── */}
           <div className="hero-left-column">
-            <div className="hero-badge">
-              <Sparkles size={13} style={{ marginRight: '.15rem' }} />
-              <span>Leading Software &amp; CRM Engineering</span>
-            </div>
-
             <h1 className="hero-title">
               We Architect Custom <br />
-              <span className="gradient-accent">Software Solutions</span><br />
-              &amp;&nbsp;<span className="gradient-green">CRM Ecosystems</span>
+              <span className="typewriter-container">
+                <span className="gradient-accent">{displayedText || '\u00A0'}</span>
+                <span className="typewriter-cursor">|</span>
+              </span>
             </h1>
 
             <p className="hero-subtitle">
@@ -34,11 +235,11 @@ export default function Hero() {
             </p>
 
             <div className="hero-actions">
-              <Link href="/contact" className="btn btn-primary" style={{ borderRadius: '50px' }}>
+              <Link href="/contact" className="btn btn-primary">
                 <span>Start Your Project</span>
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/services" className="btn btn-secondary" style={{ borderRadius: '50px' }}>
+              <Link href="/services" className="btn btn-secondary">
                 <span>Explore Services</span>
               </Link>
             </div>
@@ -48,151 +249,27 @@ export default function Hero() {
               <p className="partners-label">Authorized Technology Competencies</p>
               <div className="partners-row">
 
-                {/* Salesforce – blue */}
-                <div className="partner-pill" style={{ borderColor: 'rgba(0,112,210,.35)', boxShadow: '0 0 10px rgba(0,112,210,.12)' }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" />
-                </div>
+                {/* Salesforce */}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" className="partner-logo-img" />
 
-                {/* HubSpot – orange */}
-                <div className="partner-pill" style={{ borderColor: 'rgba(255,122,0,.35)', boxShadow: '0 0 10px rgba(255,122,0,.12)' }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="HubSpot" />
-                </div>
+                {/* HubSpot */}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="HubSpot" className="partner-logo-img" />
 
-                {/* Zoho – red/orange */}
-                <div className="partner-pill" style={{ borderColor: 'rgba(220,56,36,.35)', boxShadow: '0 0 10px rgba(220,56,36,.12)' }}>
-                  <img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" alt="Zoho" style={{ height: '18px' }} />
-                </div>
+                {/* Zoho */}
+                <img src="https://cdn.worldvectorlogo.com/logos/zoho-1.svg" alt="Zoho" className="partner-logo-img zoho-logo-fix" />
 
-                {/* Azure – blue */}
-                <div className="partner-pill" style={{ borderColor: 'rgba(0,114,206,.35)', boxShadow: '0 0 10px rgba(0,114,206,.12)' }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure" />
-                </div>
+                {/* Azure */}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Microsoft Azure" className="partner-logo-img" />
 
-                {/* Google Cloud – multicolour */}
-                <div className="partner-pill" style={{ borderColor: 'rgba(66,133,244,.35)', boxShadow: '0 0 10px rgba(66,133,244,.12)' }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" />
-                </div>
+                {/* Google Cloud */}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="partner-logo-img" />
 
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT: 3-D cube + cards ── */}
-          <div className="hero-right-column">
-            <div className="hero-3d-visual">
-
-              {/* ambient glow & platform */}
-              <div className="cube-glow-orb" />
-              <div className="platform-base-3d" />
-
-              {/* laser trace SVG */}
-              <svg viewBox="0 0 500 500" className="svg-connection-lines" fill="none">
-                <defs>
-                  <filter id="glow-ln" x="-40%" y="-40%" width="180%" height="180%">
-                    <feGaussianBlur stdDeviation="4" result="b" />
-                    <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-                  </filter>
-                </defs>
-
-                {/* lines */}
-                <path d="M80 150 Q180 170 250 250" stroke="#00B8FF" strokeWidth="2" filter="url(#glow-ln)">
-                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.5s" repeatCount="indefinite" />
-                </path>
-                <path d="M420 130 Q320 160 250 250" stroke="#7850ff" strokeWidth="2" filter="url(#glow-ln)">
-                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" />
-                </path>
-                <path d="M80 350 Q180 320 250 250" stroke="#64d200" strokeWidth="2" filter="url(#glow-ln)">
-                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite" />
-                </path>
-                <path d="M420 350 Q320 320 250 250" stroke="#f58c28" strokeWidth="2" filter="url(#glow-ln)">
-                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.2s" repeatCount="indefinite" />
-                </path>
-
-                {/* traveling pulses */}
-                <circle r="4" fill="#00B8FF" filter="url(#glow-ln)">
-                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M80 150 Q180 170 250 250" />
-                </circle>
-                <circle r="4" fill="#7850ff" filter="url(#glow-ln)">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M420 130 Q320 160 250 250" />
-                </circle>
-                <circle r="4" fill="#64d200" filter="url(#glow-ln)">
-                  <animateMotion dur="3.4s" repeatCount="indefinite" path="M80 350 Q180 320 250 250" />
-                </circle>
-                <circle r="4" fill="#f58c28" filter="url(#glow-ln)">
-                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M420 350 Q320 320 250 250" />
-                </circle>
-              </svg>
-
-              {/* ── CSS 3-D Cube ── */}
-              <div className="scene-3d">
-                <div className="cube-3d">
-                  <div className="cube-face face-front" />
-                  <div className="cube-face face-back" />
-                  <div className="cube-face face-left" />
-                  <div className="cube-face face-right" />
-                  <div className="cube-face face-top" />
-                  <div className="cube-face face-bottom" />
-
-                  <div className="cube-logo-center">
-                    <svg viewBox="0 0 40 40" width="32" height="32" fill="none">
-                      <circle r="12" cx="20" cy="20" fill="#00B8FF" opacity=".15" />
-                      <path d="M12,18 C12,10 26,10 26,16 C26,24 10,24 10,16 C10,8 24,6 28,14"
-                        stroke="#00B8FF" strokeWidth="3.5" strokeLinecap="round" />
-                      <path d="M28,22 C28,30 14,30 14,24 C14,16 30,16 30,24 C30,32 16,34 12,26"
-                        stroke="#84D800" strokeWidth="3.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              {/* ── 4 coloured cards ── */}
-
-              {/* Card 1 – Web Solutions  (cyan) */}
-              <div className="iso-card card-web">
-                <div className="c-icon">
-                  <Globe size={17} color="#00B8FF" />
-                </div>
-                <div>
-                  <div className="c-label">Web</div>
-                  <div className="c-label">Solutions</div>
-                </div>
-              </div>
-
-              {/* Card 2 – Salesforce Cloud  (purple) */}
-              <div className="iso-card card-sf">
-                <div className="c-icon">
-                  <Cloud size={17} color="#a080ff" />
-                </div>
-                <div>
-                  <div className="c-label">Salesforce</div>
-                  <div className="c-label">Cloud</div>
-                </div>
-              </div>
-
-              {/* Card 3 – Zoho Workflows  (green) */}
-              <div className="iso-card card-zoho">
-                <div className="c-icon">
-                  <RefreshCw size={17} color="#84D800" />
-                </div>
-                <div>
-                  <div className="c-label">Zoho</div>
-                  <div className="c-label">Workflows</div>
-                </div>
-              </div>
-
-              {/* Card 4 – Cloud Deployment  (amber) */}
-              <div className="iso-card card-cloud">
-                <div className="c-icon">
-                  <UploadCloud size={17} color="#f58c28" />
-                </div>
-                <div>
-                  <div className="c-label">Cloud</div>
-                  <div className="c-label">Deployment</div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          {/* ── RIGHT: Spacer for Background Graphic ── */}
+          <div className="hero-right-spacer" />
         </div>
       </div>
     </section>
