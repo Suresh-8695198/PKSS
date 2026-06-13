@@ -1,0 +1,876 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+
+/* ==========================================================================
+   HEALTHCARE SOLUTIONS - TCS STYLE 5-SECTION LAYOUT
+   ========================================================================== */
+
+
+/* --- SECTION 1: HERO BANNER (Zoom BG Effect) --- */
+.ind-hero-banner {
+    position: relative;
+    height: 75vh;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #060913; /* Fallback */
+    width: 100%;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark gradient overlay for readability - lightened to show background more clearly */
+.ind-hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 60%, rgba(0, 0, 0, 0.05) 100%);
+    z-index: 1;
+}
+
+/* Zoom effect on hover/active state */
+.ind-hero-banner:hover .hero-bg-wrapper {
+    transform: scale(1.05);
+}
+
+/* Use standard global .container wrapper inside the hero for exact alignment */
+.ind-hero-banner .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ind-hero-content {
+    max-width: 750px;
+    color: #FFFFFF;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.ind-hero-path {
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00E676; /* Brighter neon green */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Extra shadow for legibility */
+    margin-bottom: 1.25rem;
+    display: block;
+    text-align: left;
+}
+
+.ind-hero-title-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.75rem;
+    display: block;
+    text-align: left;
+}
+
+.ind-hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 850;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.ind-hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+}
+
+
+/* --- SECTION 2: SHORT INTRO --- */
+.ind-intro-section {
+    padding: 90px 0 50px 0;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 5rem;
+    align-items: flex-start;
+}
+
+.intro-left-tag {
+    font-size: 1rem;
+    font-weight: 950;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.dark .intro-left-tag {
+    color: #FFFFFF;
+}
+
+.intro-desc-p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.intro-desc-p + .intro-desc-p {
+    margin-top: 1.5rem;
+}
+
+/* Side Callout Box - Interactive Hover Card (Green/Blue brand gradient) */
+.intro-right-callout-card {
+    height: 380px;
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #09452F;
+}
+
+.callout-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle black shade overlay only at the bottom behind the text for high contrast */
+.callout-card-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 30%, transparent 60%);
+    z-index: 1;
+}
+
+/* Base content overlay */
+.callout-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.callout-card-header {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.callout-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 0;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover Slide-Up Overlay - Exact matching deep green shade color */
+.callout-card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #09452F;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-right-callout-card:hover .callout-card-hover-overlay {
+    transform: translateY(0);
+}
+
+.intro-right-callout-card:hover .callout-card-bg {
+    transform: scale(1.05);
+}
+
+/* Hover Overlay Contents */
+.callout-overlay-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.callout-overlay-category {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.95;
+}
+
+.callout-overlay-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #FFFFFF;
+}
+
+.callout-overlay-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.75rem;
+}
+
+.callout-overlay-readlink {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFFFFF;
+    transition: opacity 0.3s ease;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.callout-overlay-readlink:hover {
+    opacity: 0.8;
+}
+
+
+/* --- SECTION 3: DETAILED STUDY BLOCK --- */
+.ind-study-section {
+    padding: 50px 0 110px 0;
+    background: var(--bg-dark);
+}
+
+.study-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.study-left-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.study-tagline {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 0.75rem;
+    display: block;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.dark .study-tagline {
+    color: #FFFFFF;
+}
+
+.study-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    background: linear-gradient(135deg, #1d1d1f 10%, #4a8a2a 45%, #74c044 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+}
+
+.dark .study-title {
+    background: linear-gradient(135deg, #f5f5f7 10%, #74c044 50%, #9bda52 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.study-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Connect PK button - matches header active-nav-btn style */
+.study-connect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: transparent;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1.65rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 2px solid var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    width: fit-content;
+    text-decoration: none;
+}
+
+.light .study-connect-btn {
+    color: #000000 !important;
+}
+
+.study-connect-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -115%;
+    width: 120%;
+    height: 100%;
+    background: var(--cyan);
+    transform: skewX(-20deg);
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -2;
+}
+
+.study-connect-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -16px;
+    width: 22px;
+    height: 100%;
+    background: var(--cyan);
+    transform: skewX(-20deg);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.study-connect-btn .btn-arrow {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: currentColor;
+}
+
+.study-connect-btn:hover {
+    border-color: var(--blue);
+    color: #FFFFFF !important;
+}
+
+.light .study-connect-btn:hover {
+    color: #FFFFFF !important;
+}
+
+.study-connect-btn:hover::before {
+    left: -10%;
+    background: var(--blue);
+}
+
+.study-connect-btn:hover::after {
+    background: var(--cyan);
+    left: -12px;
+}
+
+.study-connect-btn:hover .btn-arrow {
+    transform: translate(3px, -3px) rotate(-45deg);
+}
+
+/* Shorter visual layout for study block image */
+.study-right-visual {
+    width: 100%;
+}
+
+.study-image-frame {
+    width: 100%;
+    height: 350px; /* Reduced tall image height to 350px */
+    position: relative;
+    border-radius: 10px 45px 10px 45px; /* Signature diagonal curve */
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-glass);
+}
+
+.study-image-frame img {
+    width: 100%;
+    height: 100%; /* Force image to fill frame */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.study-image-frame:hover img {
+    transform: scale(1.03);
+}
+
+
+/* --- SECTION 4: RELATED QUOTES --- */
+.ind-quote-section {
+    padding: 20px 0 50px 0;
+    background: var(--bg-dark);
+}
+
+.quote-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.35fr 0.65fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.quote-left-info {
+    border-right: 1px solid var(--border-glass);
+    padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.quote-avatar-badge {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.quote-author-role {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.quote-right-content {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.quote-icon {
+    color: rgba(16, 185, 129, 0.15);
+    margin-bottom: 1rem;
+}
+
+.quote-text-p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+
+/* --- SECTION 5: GRID OF ARTICLES / RELATED TRENDS (Slide-Up Hover Panel) --- */
+.ind-trends-section {
+    padding: 40px 0 110px 0;
+    background: var(--bg-dark);
+}
+
+.trends-header {
+    margin-bottom: 3rem;
+}
+
+.trends-section-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #1d1d1f 10%, #4a8a2a 45%, #74c044 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .trends-section-title {
+    background: linear-gradient(135deg, #f5f5f7 10%, #74c044 50%, #9bda52 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.trends-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* ============================================================
+   CARD 1 — Full image, content at TOP, light white shade, hover: content slides up
+   ============================================================ */
+.trend-card {
+    height: 420px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Content stays at TOP */
+    text-decoration: none;
+    border: 1px solid var(--border-glass);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.trend-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 1: full image, content at top */
+.trend-card:nth-child(1) .trend-card-bg {
+    opacity: 1;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 2: BG2 image — bottom half only visible at rest */
+.trend-card:nth-child(2) .trend-card-bg {
+    top: auto;
+    bottom: 0;
+    height: 50%;
+    opacity: 1;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 3: full image visible */
+.trend-card:nth-child(3) .trend-card-bg {
+    opacity: 1;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 3: green block at bottom-right (like reference image), disappears on hover */
+.trend-card:nth-child(3) .trend-card-deco-rect {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 58%;
+    height: 62%;
+    background: linear-gradient(145deg, #10B981 0%, #059669 60%, #047857 100%);
+    border-radius: 8px 0 12px 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Base content block — TOP of card */
+.trend-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 2.25rem;
+    width: 100%;
+    background: transparent;
+    color: #FFFFFF;
+    transition: opacity 0.3s ease;
+}
+
+/* Card 1: light glassmorphic shade at top to make blue text perfectly visible on bright background image */
+.trend-card:nth-child(1) .trend-card-content {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 70%, transparent 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Card 2 & 3: minimal shade at top */
+.trend-card:nth-child(2) .trend-card-content,
+.trend-card:nth-child(3) .trend-card-content {
+    background: linear-gradient(to bottom, rgba(10, 15, 30, 0.12) 0%, transparent 100%);
+}
+
+.trend-card-category {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #10B981;
+    margin-bottom: 0.65rem;
+    display: block;
+}
+
+.trend-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+    color: #0057D9;
+}
+
+/* ============================================================
+   HOVER OVERLAY — Dark navy, three different slide directions
+   ============================================================ */
+.trend-card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 18, 40, 0.93);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2.25rem;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card 1: Bottom → Top */
+.trend-card:nth-child(1) .trend-card-hover-overlay {
+    transform: translateY(100%);
+}
+.trend-card:nth-child(1):hover .trend-card-hover-overlay {
+    transform: translateY(0);
+}
+
+/* Card 2: Left → Right */
+.trend-card:nth-child(2) .trend-card-hover-overlay {
+    transform: translateX(-100%);
+}
+.trend-card:nth-child(2):hover .trend-card-hover-overlay {
+    transform: translateX(0);
+}
+
+/* Card 3: Right → Left */
+.trend-card:nth-child(3) .trend-card-hover-overlay {
+    transform: translateX(100%);
+}
+.trend-card:nth-child(3):hover .trend-card-hover-overlay {
+    transform: translateX(0);
+}
+
+/* Image fade on hover for all cards */
+.trend-card:nth-child(1):hover .trend-card-bg {
+    opacity: 0.08;
+}
+.trend-card:nth-child(2):hover .trend-card-bg {
+    opacity: 0.1;
+}
+.trend-card:nth-child(3):hover .trend-card-bg {
+    opacity: 0.1;
+}
+
+/* Card 3: hide green box on hover */
+.trend-card:nth-child(3):hover .trend-card-deco-rect {
+    opacity: 0;
+}
+
+/* Hover Overlay Contents */
+.overlay-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: auto;
+}
+
+.overlay-category {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #10B981;
+}
+
+.overlay-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #FFFFFF;
+}
+
+.overlay-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 1rem;
+}
+
+.overlay-readlink {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFFFFF;
+    transition: color 0.3s ease;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.overlay-readlink:hover {
+    color: #10B981;
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 991px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .study-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .quote-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .quote-left-info {
+        border-right: none;
+        border-bottom: 1px solid var(--border-glass);
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+    }
+    
+    .trends-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ==========================================================================
+   VIBRANT BRAND COLOR CHASSIS (BLUE & GREEN NEON TECH MESHES)
+   ========================================================================== */
+
+/* Pattern 1: Glowing Blue-Green tech grid mesh */
+.tech-bg-cyan-green {
+    background: linear-gradient(135deg, #040814 0%, #081d24 100%);
+    position: relative;
+    overflow: hidden;
+}
+.tech-bg-cyan-green::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 184, 255, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.35) 0%, transparent 60%);
+    z-index: 1;
+}
+.tech-bg-cyan-green::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(0, 184, 255, 0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 184, 255, 0.1) 1px, transparent 1px);
+    background-size: 25px 25px;
+    z-index: 2;
+    opacity: 0.95;
+}
+
+/* Pattern 2: Cyberpunk diagonal stripe circuits in green/blue */
+.tech-bg-circuit {
+    background: linear-gradient(135deg, #030712 0%, #0c162b 100%);
+    position: relative;
+    overflow: hidden;
+}
+.tech-bg-circuit::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 30% 25%, rgba(16, 185, 129, 0.35) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(0, 184, 255, 0.35) 0%, transparent 65%);
+    z-index: 1;
+}
+.tech-bg-circuit::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(0, 184, 255, 0.05) 0px, rgba(0, 184, 255, 0.05) 2px, transparent 2px, transparent 12px),
+                      repeating-linear-gradient(-45deg, rgba(16, 185, 129, 0.05) 0px, rgba(16, 185, 129, 0.05) 2px, transparent 2px, transparent 12px);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* Pattern 3: Tech connections node particle grid in green/blue */
+.tech-bg-dots {
+    background: linear-gradient(135deg, #02050f 0%, #091326 100%);
+    position: relative;
+    overflow: hidden;
+}
+.tech-bg-dots::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 184, 255, 0.3) 0%, transparent 70%),
+                radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.3) 0%, transparent 50%);
+    z-index: 1;
+}
+.tech-bg-dots::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(rgba(16, 185, 129, 0.18) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+    z-index: 2;
+    opacity: 0.9;
+}

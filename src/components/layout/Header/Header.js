@@ -124,7 +124,7 @@ export default function Header() {
                   <div className={`nav-dropdown-menu ${activeDropdown === idx ? 'show' : ''}`}>
                     <div className="dropdown-glow-mesh"></div>
                     {link.dropdownItems.map((subItem) => (
-                      <Link 
+                      <a 
                         key={subItem.name} 
                         href={subItem.href} 
                         className="dropdown-item-link"
@@ -135,7 +135,7 @@ export default function Header() {
                       >
                         <span className="dropdown-item-bullet"></span>
                         <span className="dropdown-item-txt">{subItem.name}</span>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 )}

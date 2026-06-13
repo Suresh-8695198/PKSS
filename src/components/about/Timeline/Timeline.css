@@ -235,11 +235,11 @@
 .serpentine-card {
     background: var(--bg-card);
     border: 1.5px solid var(--border-glass);
-    border-radius: 12px;
+    border-radius: 10px 45px 10px 45px; /* Diagonal organic corners matching stats cards */
     padding: 1.5rem 2rem;
     max-width: 380px;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -273,17 +273,22 @@
     z-index: 12; /* Sits ABOVE the animated border beam so the numbers are never crossed */
 }
 
-/* Currently Looked Stage - Card Outline Border animation (Blue Glow / Conic Spin) */
+/* Currently Looked Stage - Card Outline Border with previous spinning border beam animation */
 .active-card {
     border-color: transparent !important;
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Spinning border beam container */
+.dark .active-card {
+    border-color: transparent !important;
+}
+
+/* Spinning border beam container - adjusted to match the 10px 45px 10px 45px radius */
 .border-beam-container {
     position: absolute;
     inset: -1.5px;
-    border-radius: 12px;
+    border-radius: 10px 45px 10px 45px;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
@@ -315,10 +320,11 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Standard hover state fallback for flat transitions */
+/* Standard hover state matching stats cards transition */
 .serpentine-card:hover {
-    transform: translateY(-4px);
-    border-color: #00B8FF; /* Cyan Blue Outline border */
+    transform: translateY(-8px);
+    border-color: #74c044; /* Brand Green outline */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* Center Marker - Green Circle with Thick Black Border (Flat, no glows) */

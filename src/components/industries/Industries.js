@@ -1,160 +1,122 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Activity, Settings, ShoppingCart, GraduationCap, Truck, Check } from 'lucide-react';
+import { Activity, Settings, ShoppingCart, GraduationCap, Truck, ArrowRight } from 'lucide-react';
+import HealthcareIndustries from './healthcare/healthcare_industries';
+import ManufacturingIndustries from './manufacturing/manufacturing_industries';
+import RetailIndustries from './retail/retail_industries';
+import EducationIndustries from './education/education_industries';
+import LogisticsIndustries from './logistics/logistics_industries';
+import './Industries.css';
 
 export default function Industries({ preview = false }) {
   const [activeTab, setActiveTab] = useState('healthcare');
 
-  const industriesData = {
-    healthcare: {
-      title: 'HIPAA-Compliant Healthcare Infrastructure',
-      desc: 'Connecting patient records databases, optimizing practitioner pipelines, and deploying secure portals that streamline medical workflows while keeping absolute HIPAA compliance.',
-      features: ['Patient Care Portals & Apps', 'EHR System Integrations', 'High-grade Medical Encryption'],
-      icon: <Activity />
-    },
-    manufacturing: {
-      title: 'Manufacturing & Smart Supply Chains',
-      desc: 'Synchronizing warehouse management nodes with ERP operations. We integrate legacy database registries to enable real-time tracking of asset efficiency, raw supply lines, and shipping stats.',
-      features: ['Overall Equipment Effectiveness (OEE)', 'Warehouse Inventory Sync', 'Cloud Supply-Chain Workflows'],
-      icon: <Settings />
-    },
-    retail: {
-      title: 'Omnichannel Retail & E-commerce Operations',
-      desc: 'Developing headless digital storefronts integrated with inventory databases, order pipelines, and custom HubSpot campaigns to boost repeat sales.',
-      features: ['Headless Next.js Commerce', 'Real-time Stock Registries', 'Automated Loyalty Pipelines'],
-      icon: <ShoppingCart />
-    },
-    education: {
-      title: 'EdTech & Student Journey Portals',
-      desc: 'Automating student lifecycles from initial admissions lead tracking to student portals and alumni relations using custom CRM pipelines.',
-      features: ['Student Intake Workflow', 'Multi-tenant LMS Dashboards', 'Alumni Engagement Pipelines'],
-      icon: <GraduationCap />
-    },
-    logistics: {
-      title: 'Automated Logistics & Fleet Tracking',
-      desc: 'Engineering high-scale routing pipelines, delivery status trackers, and dispatch dashboards that integrate warehouse databases with customer portals.',
-      features: ['Real-time Shipment Trackers', 'Automated Fleet Dispatch APIs', 'Central Distribution Ledger'],
-      icon: <Truck />
-    }
-  };
+  // Track hash changes in full page mode
+  useEffect(() => {
+    if (preview) return;
 
-  return (
-    <section className="industries-section" id="industries">
-      <div className="container">
-        <div className="section-header text-center">
-          <span className="section-tag">Industries</span>
-          <h2 className="section-title">Scale-Tailored Software Solutions</h2>
-          <p className="section-subtitle">
-            Providing custom operational frameworks designed around the regulatory needs and metrics of your industry.
-          </p>
-        </div>
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const validTabs = ['healthcare', 'manufacturing', 'retail', 'education', 'logistics'];
+      if (hash && validTabs.includes(hash)) {
+        setActiveTab(hash);
+      }
+    };
 
-        {preview ? (
-          <>
-            <div className="brand-values-grid" style={{ marginTop: '2.5rem' }}>
-              <div className="glass-card value-card">
-                <div className="value-header">
-                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
-                    <Activity size={24} />
-                  </div>
-                  <h3>Healthcare</h3>
-                </div>
-                <p className="value-description" style={{ minHeight: 'auto' }}>
-                  HIPAA-compliant patient portals & secure medical EHR system integrations.
-                </p>
-              </div>
-              <div className="glass-card value-card">
-                <div className="value-header">
-                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
-                    <Settings size={24} />
-                  </div>
-                  <h3>Manufacturing</h3>
-                </div>
-                <p className="value-description" style={{ minHeight: 'auto' }}>
-                  Warehouse inventory synchronization, ERP nodes, and supply chain telemetry.
-                </p>
-              </div>
-              <div className="glass-card value-card">
-                <div className="value-header">
-                  <div className="value-icon-wrapper" style={{ color: 'var(--color-primary, #00B8FF)' }}>
-                    <ShoppingCart size={24} />
-                  </div>
-                  <h3>Retail & Commerce</h3>
-                </div>
-                <p className="value-description" style={{ minHeight: 'auto' }}>
-                  Headless Next.js storefronts, real-time stock registries, and HubSpot loyalty campaigns.
-                </p>
-              </div>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
-              <Link href="/industries" className="active-nav-btn" style={{ textDecoration: 'none' }}>
-                <span>Explore All Industry Frameworks</span>
-              </Link>
-            </div>
-          </>
-        ) : (
-          <div className="industries-tabs-container">
-            <div className="tab-buttons">
-              {Object.keys(industriesData).map((key) => (
-                <button 
-                  key={key} 
-                  className={`tab-btn ${activeTab === key ? 'active' : ''}`}
-                  onClick={() => setActiveTab(key)}
-                >
-                  {industriesData[key].icon}
-                  <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                </button>
-              ))}
-            </div>
+    // Initial check
+    handleHashChange();
 
-            <div className="tab-pane-container">
-              <div className="tab-pane active">
-                <div className="pane-content-info">
-                  <h3>{industriesData[activeTab].title}</h3>
-                  <p>{industriesData[activeTab].desc}</p>
-                  <ul className="pane-checklist">
-                    {industriesData[activeTab].features.map((feat, idx) => (
-                      <li key={idx}>
-                        <div className="check-box-icon"><Check size={14} /></div>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    // Check periodically for client-side routing changes that don't trigger hashchange natively in Next.js
+    const interval = setInterval(handleHashChange, 100);
 
-                <div className="pane-content-visual">
-                  <div className="visual-mockup-frame">
-                    <div className="mockup-header-bar">
-                      <span className="dot dot-red"></span>
-                      <span className="dot dot-yellow"></span>
-                      <span className="dot dot-green"></span>
-                      <span className="mockup-url">https://pkss.com/telemetry/{activeTab}</span>
-                    </div>
-                    <div className="mockup-canvas-content">
-                      <div className="mockup-mini-grid">
-                        <div className="mini-card span-2">
-                          <span className="mini-lbl">Operational Efficiency</span>
-                          <div className="mini-progress-bar"><div className="fill" style={{ width: '82%' }}></div></div>
-                        </div>
-                        <div className="mini-card">
-                          <span className="mini-lbl">Node Sync</span>
-                          <span className="mini-val text-green">99.9%</span>
-                        </div>
-                        <div className="mini-card">
-                          <span className="mini-lbl">Alerts</span>
-                          <span className="mini-val text-orange">0 Active</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
+  }, [preview]);
+
+  // Homepage Preview Mode
+  if (preview) {
+    return (
+      <section className="industries-section" id="industries">
+        <div className="container">
+          <div className="section-header text-center">
+            <span className="section-tag">INDUSTRIES</span>
+            <h2 className="section-title">Scale-Tailored Software Solutions</h2>
+            <div className="methodology-divider-container" style={{ margin: '-40px auto -34px auto', maxWidth: '280px' }}>
+              <img
+                src="/images/services/Border_line.png"
+                alt="Section Divider"
+                className="methodology-divider-img"
+              />
             </div>
+            <p className="section-subtitle" style={{ marginTop: '0.5rem' }}>
+              Providing custom operational frameworks designed around the regulatory needs and metrics of your industry.
+            </p>
           </div>
-        )}
-      </div>
-    </section>
+
+          <div className="brand-values-grid" style={{ marginTop: '3rem' }}>
+            <Link href="/industries#healthcare" className="glass-card value-card" style={{ textDecoration: 'none' }}>
+              <div className="value-header">
+                <div className="value-icon-wrapper">
+                  <Activity size={24} />
+                </div>
+                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 800 }}>Healthcare</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto' }}>
+                Secure clinical EHR integrations, database scaling & patient triage portals.
+              </p>
+            </Link>
+            
+            <Link href="/industries#manufacturing" className="glass-card value-card" style={{ textDecoration: 'none' }}>
+              <div className="value-header">
+                <div className="value-icon-wrapper">
+                  <Settings size={24} />
+                </div>
+                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 800 }}>Manufacturing</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto' }}>
+                Factory telemetry dashboards, legacy ERP consolidations & warehouse dispatch.
+              </p>
+            </Link>
+            
+            <Link href="/industries#retail" className="glass-card value-card" style={{ textDecoration: 'none' }}>
+              <div className="value-header">
+                <div className="value-icon-wrapper">
+                  <ShoppingCart size={24} />
+                </div>
+                <h3 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', fontWeight: 800 }}>Retail & Commerce</h3>
+              </div>
+              <p className="value-description" style={{ minHeight: 'auto' }}>
+                Headless e-commerce storefronts, stock sync APIs & checkout CRM flows.
+              </p>
+            </Link>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3.5rem' }}>
+            <Link href="/industries#healthcare" className="active-nav-btn" style={{ textDecoration: 'none' }}>
+              <span>Explore All Industry Solutions</span>
+              <ArrowRight size={14} className="btn-arrow" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Full Page Mode: Render ONLY the single active component selected via the URL hash
+  return (
+    <div key={activeTab} className="active-industry-container animate-fade-slide">
+      {activeTab === 'healthcare' && <HealthcareIndustries />}
+      {activeTab === 'manufacturing' && <ManufacturingIndustries />}
+      {activeTab === 'retail' && <RetailIndustries />}
+      {activeTab === 'education' && <EducationIndustries />}
+      {activeTab === 'logistics' && <LogisticsIndustries />}
+    </div>
   );
 }

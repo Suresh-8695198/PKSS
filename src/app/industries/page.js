@@ -9,7 +9,7 @@ export default function IndustriesPage() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '80px' }}>
+      <main style={{ paddingTop: '88px' }}>
         <Industries preview={false} />
       </main>
       <Footer />
