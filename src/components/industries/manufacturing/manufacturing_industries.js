@@ -96,7 +96,7 @@ export default function ManufacturingIndustries() {
             <div className="study-right-visual">
               <div className="study-image-frame">
                 <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
+                  src="/images/industries/manufacturing.png"
                   alt="PKSS Manufacturing Database Readiness Study"
                 />
               </div>

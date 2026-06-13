@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '80px' }}>
+      <main style={{ paddingTop: '90px' }}>
         <ContactForm preview={false} />
       </main>
       <Footer />

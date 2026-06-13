@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import './ContactForm.css';
 
 export default function ContactForm({ preview = false }) {
   const [form, setForm] = useState({
@@ -18,8 +19,13 @@ export default function ContactForm({ preview = false }) {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    // Map hyphenated IDs to camelCase state properties
-    const stateKey = id === 'first-name' ? 'firstName' : id === 'last-name' ? 'lastName' : id === 'contact-email' ? 'email' : id === 'contact-subject' ? 'subject' : id === 'contact-message' ? 'message' : id;
+    // Map hyphenated IDs or names to camelCase state properties
+    const stateKey = id === 'first-name' || id === 'firstName' ? 'firstName' 
+                   : id === 'last-name' || id === 'lastName' || id === 'company' ? 'lastName'
+                   : id === 'contact-email' || id === 'email' ? 'email' 
+                   : id === 'contact-subject' || id === 'subject' ? 'subject' 
+                   : id === 'contact-message' || id === 'message' ? 'message' 
+                   : id;
     setForm((prev) => ({ ...prev, [stateKey]: value }));
   };
 
@@ -34,9 +40,9 @@ export default function ContactForm({ preview = false }) {
     }, 1200);
   };
 
-  return (
-    <section className="contact-section" id="contact">
-      {preview ? (
+  if (preview) {
+    return (
+      <section className="contact-section" id="contact">
         <div className="container">
           <div className="section-header text-center">
             <span className="section-tag">Get In Touch</span>
@@ -88,157 +94,189 @@ export default function ContactForm({ preview = false }) {
             </Link>
           </div>
         </div>
-      ) : (
-        <div className="container contact-grid">
-        {/* Info & Map Column */}
-        <div className="contact-info-panel">
-          <span className="section-tag">Get In Touch</span>
-          <h2 className="section-title">Schedule A Technology Strategy Session</h2>
-          <p className="section-subtitle">
-            Connect directly with our senior integration architects to scope your CRM migrations, server nodes, or custom codebases.
+      </section>
+    );
+  }
+
+  return (
+    <div className="contact-page-wrapper">
+      {/* HERO SECTION */}
+      <section className="contact-hero">
+        <div className="contact-hero-bg"></div>
+        <div className="contact-hero-content">
+          <h1>Contact us</h1>
+          <p>PKSS is ready to provide the right technology solution according to your business needs</p>
+        </div>
+      </section>
+
+      {/* OVERLAPPING MAIN CONTAINER */}
+      <div className="contact-main-container">
+        
+        {/* LEFT COLUMN: INFO */}
+        <div className="contact-info-col">
+          <h2>Get in touch</h2>
+          <p className="contact-info-desc">
+            Partner with our integration architects to modernize your IT operations, orchestrate CRM migrations, and engineer resilient custom applications.
           </p>
 
-          <div className="contact-links-list">
-            <div className="contact-card-unit">
-              <MapPin className="contact-icon cyan" />
-              <div>
-                <h4>PKSS Salem Headquarters</h4>
-                <p>Plot No.4, Karumbalai, Karuppur Main road, Karuppur, Salem - 636012, Tamilnadu, India.</p>
+          <div className="contact-details-list">
+            <div className="contact-detail-item">
+              <div className="contact-icon-circle">
+                <MapPin size={20} strokeWidth={2.5} />
+              </div>
+              <div className="contact-detail-text">
+                <h4>Head Office</h4>
+                <p>Plot No.4, Karumbalai, Karuppur Main road<br />Salem - 636012, Tamilnadu, India</p>
               </div>
             </div>
 
-            <div className="contact-card-unit">
-              <Phone className="contact-icon blue" />
-              <div>
-                <h4>Hotline & Direct Support</h4>
-                <p>+91 97918 40836, 0427-2919022</p>
+            <div className="contact-detail-item">
+              <div className="contact-icon-circle">
+                <Mail size={20} strokeWidth={2.5} />
               </div>
-            </div>
-
-            <div className="contact-card-unit">
-              <Mail className="contact-icon orange" />
-              <div>
-                <h4>Email Inquiries</h4>
+              <div className="contact-detail-text">
+                <h4>Email Us</h4>
                 <p>contact@pksoftwaresolutions.com<br />hr@pksoftwaresolutions.com</p>
               </div>
             </div>
+
+            <div className="contact-detail-item">
+              <div className="contact-icon-circle">
+                <Phone size={20} strokeWidth={2.5} />
+              </div>
+              <div className="contact-detail-text">
+                <h4>Call Us</h4>
+                <p>Phone : +91 97918 40836<br />Phone : 0427-2919022</p>
+              </div>
+            </div>
           </div>
 
-          {/* Interactive World Map Node */}
-          <div className="visual-map-container glass-card">
-            <div className="map-glow-underlay"></div>
-            <svg className="world-map-svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#00B8FF" stopOpacity="0.4"/>
-                  <stop offset="100%" stopColor="#00B8FF" stopOpacity="0"/>
-                </radialGradient>
-              </defs>
-              <path d="M 30 50 Q 80 40 120 70 T 200 60 T 300 90 T 380 50" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="2"/>
-              <path d="M 50 120 Q 110 110 160 140 T 260 110 T 350 150" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="2"/>
-              
-              <circle cx="100" cy="70" r="12" fill="url(#glow)" className="ping-wave"/>
-              <circle cx="100" cy="70" r="3" fill="#00B8FF"/>
-              <text x="100" y="55" fontSize="8" fill="var(--text-muted)" textAnchor="middle">US Client Node</text>
-
-              <circle cx="280" cy="110" r="18" fill="url(#glow)" className="ping-wave"/>
-              <circle cx="280" cy="110" r="4.5" fill="#FF7A00"/>
-              <text x="280" y="95" fontSize="9" fill="#FF7A00" textAnchor="middle" fontWeight="600">HQ (Salem, IN)</text>
-            </svg>
+          <div className="social-media-block">
+            <h4>Follow our social media</h4>
+            <div className="social-icons-row">
+              <a href="#" className="social-icon-btn" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" className="social-icon-btn" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" className="social-icon-btn" aria-label="Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+              </a>
+              <a href="#" className="social-icon-btn" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Contact Form Container */}
-        <div className="contact-form-container glass-card">
-          <h3>Consultation Request</h3>
+        {/* RIGHT COLUMN: FORM */}
+        <div className="contact-form-col">
+          <h2>Send us a message</h2>
+          
           {submitted ? (
-            <div className="success-state-box text-center">
-              <CheckCircle className="success-icon-big green" size={48} />
+            <div className="premium-success-state">
+              <CheckCircle size={56} color="#10b981" />
               <h3>Request Received</h3>
               <p>
                 A certified technology consultant will analyze your details and contact you within 24 hours.
               </p>
-              <button className="btn btn-secondary" onClick={() => { setSubmitted(false); setForm({
-                firstName: '', lastName: '', email: '', subject: '', message: ''
-              }); }}>
+              <button className="btn-reset" onClick={() => { 
+                setSubmitted(false); 
+                setForm({ firstName: '', lastName: '', email: '', subject: '', message: '' }); 
+              }}>
                 Send Another Message
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="form-grid-2">
+            <form className="premium-form" onSubmit={handleSubmit}>
+              <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="first-name">First Name *</label>
+                  <label htmlFor="firstName">Name</label>
                   <input 
                     type="text" 
-                    id="first-name" 
+                    id="firstName" 
+                    placeholder="Name" 
                     required 
-                    placeholder="Suresh"
                     value={form.firstName}
                     onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="last-name">Last Name *</label>
+                  <label htmlFor="company">Company</label>
                   <input 
                     type="text" 
-                    id="last-name" 
-                    required 
-                    placeholder="Kumar"
+                    id="company" 
+                    placeholder="Company" 
                     value={form.lastName}
                     onChange={handleInputChange}
                   />
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="contact-email">Email Address *</label>
-                <input 
-                  type="email" 
-                  id="contact-email" 
-                  required 
-                  placeholder="suresh@email.com"
-                  value={form.email}
-                  onChange={handleInputChange}
-                />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">Phone</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    placeholder="Phone" 
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Email" 
+                    required 
+                    value={form.email}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="contact-subject">Subject *</label>
+              <div className="form-group-full">
+                <label htmlFor="subject">Subject</label>
                 <input 
                   type="text" 
-                  id="contact-subject" 
+                  id="subject" 
+                  placeholder="Subject" 
                   required 
-                  placeholder="Web Development / Salesforce Project"
                   value={form.subject}
                   onChange={handleInputChange}
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="contact-message">Your Message *</label>
+              <div className="form-group-full">
+                <label htmlFor="message">Message</label>
                 <textarea 
-                  id="contact-message" 
-                  rows="5" 
+                  id="message" 
+                  placeholder="Message" 
                   required 
-                  placeholder="Describe your current system context, goals, and metrics..."
                   value={form.message}
                   onChange={handleInputChange}
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
-                className="btn btn-primary btn-block"
-                disabled={loading}
-              >
-                <span>{loading ? 'Transmitting details...' : 'Schedule Call'}</span>
+              <button type="submit" className="btn-premium-send" disabled={loading}>
+                {loading ? 'Sending...' : 'Send'}
               </button>
             </form>
           )}
         </div>
-        </div>
-      )}
-    </section>
+
+      </div>
+
+      {/* FULL WIDTH MAP SECTION */}
+      <div className="contact-map-section">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.181977227188!2d78.0776735!3d11.691763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf055fc18e5f5%3A0xc6fb69829801ec6a!2sKaruppur%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          allowFullScreen="" 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
   );
 }
