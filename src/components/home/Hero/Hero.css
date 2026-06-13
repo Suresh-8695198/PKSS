@@ -2,67 +2,59 @@
 .hero-section {
   position: relative;
   margin-top: 90px;
-  padding-top: 40px;
-  padding-bottom: 30px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   overflow: hidden;
   background-color: #050508;
-  min-height: 50vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
 }
 
-/* Animated background image layer */
-.hero-bg-image {
+/* Background video layer */
+.hero-bg-video {
   position: absolute;
   inset: 0;
-  background-image: url('/images/home/hero_bg.jpg');
-  background-size: cover;
-  background-position: 90% center;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 90% center;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.95;
+  transition: opacity 0.5s ease;
 }
 
 /* Background overlay gradient for contrast */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to right, rgba(5, 5, 8, 0.98) 15%, rgba(5, 5, 8, 0.6) 40%, transparent 65%);
+  background-image: linear-gradient(to right, rgba(5, 5, 8, 0.98) 15%, rgba(5, 5, 8, 0.75) 45%, rgba(5, 5, 8, 0.25) 100%);
   z-index: 1;
-  pointer-events: none;
-}
-
-/* Canvas animation overlay */
-.hero-canvas-animation {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
   pointer-events: none;
 }
 
 
 
 @media (max-width: 1400px) {
-  .hero-bg-image {
-    background-position: 85% center;
+  .hero-bg-video {
+    object-position: 85% center;
   }
 }
 
 @media (max-width: 1200px) {
-  .hero-bg-image {
-    background-position: 80% center;
+  .hero-bg-video {
+    object-position: 80% center;
   }
 }
 
 @media (max-width: 991px) {
-  .hero-bg-image {
-    background-position: center;
+  .hero-bg-video {
+    object-position: center;
   }
   .hero-bg-overlay {
-    background-image: linear-gradient(to bottom, rgba(5, 5, 8, 0.92) 0%, rgba(5, 5, 8, 0.4) 50%, rgba(5, 5, 8, 0.92) 100%);
+    background-image: linear-gradient(to bottom, rgba(5, 5, 8, 0.95) 0%, rgba(5, 5, 8, 0.5) 50%, rgba(5, 5, 8, 0.95) 100%);
   }
 }
 
