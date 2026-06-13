@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+
 /* ==========================================================================
    PREMIUM CONTACT US PAGE (Kassapay Style)
    ========================================================================== */
@@ -5,7 +7,7 @@
 .contact-page-wrapper {
   background-color: #f8fafc;
   /* Light gray background */
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
   padding-bottom: 0;
 }
 
@@ -62,8 +64,9 @@
 }
 
 .contact-page-wrapper .contact-hero-content h1 {
+  font-family: 'ABeeZee', sans-serif;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   color: #ffffff !important;
@@ -101,9 +104,9 @@
 
 .contact-page-wrapper .contact-info-col h2,
 .contact-page-wrapper .contact-form-col h2 {
-  font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 850;
+  font-weight: 500;
   margin-bottom: 2.5rem;
   background: linear-gradient(135deg, #000000 35%, #74c044 100%);
   -webkit-background-clip: text;
@@ -180,8 +183,9 @@
 }
 
 .contact-page-wrapper .contact-detail-text h4 {
+  font-family: 'ABeeZee', sans-serif;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #000000 !important;
   margin-bottom: 0.25rem;
 }
@@ -195,8 +199,9 @@
 }
 
 .contact-page-wrapper .social-media-block h4 {
+  font-family: 'ABeeZee', sans-serif;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #000000 !important;
   margin-bottom: 1rem;
 }
@@ -346,7 +351,9 @@
 }
 
 .contact-page-wrapper .premium-success-state h3 {
+  font-family: 'ABeeZee', sans-serif;
   font-size: 1.5rem;
+  font-weight: 500;
   color: #10b981;
   margin: 1rem 0;
 }
