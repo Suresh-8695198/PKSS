@@ -129,7 +129,7 @@ export default function ManufacturingIndustries() {
             </div>
 
             <div className="quote-right-content">
-              <Quote className="quote-icon" size={48} />
+              <Quote className="quote-icon" size={120} />
               <p className="quote-text-p">
                 "PKSS's database consolidation framework transformed our warehouse scheduling pipelines. By merging legacy ERP systems into a single cloud ledger, we eliminated catalog latency and gained real-time visibility into overall equipment effectiveness."
               </p>

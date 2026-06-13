@@ -54,7 +54,7 @@
     padding: 1rem 2rem;
     border-radius: 12px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1rem;
     color: var(--text-secondary);
     display: flex;
@@ -132,7 +132,7 @@
 
 .pane-content-info h3 {
     font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    font-weight: 850;
+    font-weight: 500;
     margin-bottom: 1.25rem;
     line-height: 1.25;
     background: linear-gradient(135deg, var(--text-primary) 35%, var(--blue) 100%);
@@ -166,7 +166,7 @@
     align-items: center;
     gap: 0.85rem;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-primary);
 }
 

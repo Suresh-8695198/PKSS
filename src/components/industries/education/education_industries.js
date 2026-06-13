@@ -129,7 +129,7 @@ export default function EducationIndustries() {
             </div>
 
             <div className="quote-right-content">
-              <Quote className="quote-icon" size={48} />
+              <Quote className="quote-icon" size={120} />
               <p className="quote-text-p">
                 "PKSS's student registry database consolidation eliminated manual admissions data entry completely. Our students now enjoy a single, responsive LMS interface for classes and records."
               </p>

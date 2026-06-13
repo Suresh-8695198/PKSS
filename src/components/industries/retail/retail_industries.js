@@ -129,7 +129,7 @@ export default function RetailIndustries() {
             </div>
 
             <div className="quote-right-content">
-              <Quote className="quote-icon" size={48} />
+              <Quote className="quote-icon" size={120} />
               <p className="quote-text-p">
                 "Working with PKSS allowed us to transition to a headless commerce architecture with zero downtime. Our page load speed improved by 60%, and our multi-warehouse inventory sync is now completely automated."
               </p>
