@@ -129,7 +129,7 @@ export default function LogisticsIndustries() {
             </div>
 
             <div className="quote-right-content">
-              <Quote className="quote-icon" size={48} />
+              <Quote className="quote-icon" size={120} />
               <p className="quote-text-p">
                 "With PKSS's route optimization engine and carrier API sync, our dispatchers coordinate hundreds of shipments with zero manual tracking delays. Delivery efficiency improved by 25%."
               </p>

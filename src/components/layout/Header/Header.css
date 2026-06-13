@@ -66,14 +66,14 @@
 
 .brand-pk {
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1;
     color: var(--text-primary);
 }
 
 .brand-sub {
     font-size: 0.55rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.15em;
     color: var(--text-muted);
 }

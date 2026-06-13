@@ -113,23 +113,13 @@ export default function HealthcareIndustries() {
 
             <div className="quote-left-info">
               <div className="quote-avatar-badge">
-                <svg viewBox="0 0 64 64" width="90" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="32" cy="32" r="32" fill="url(#avatarGrad)" />
-                  <circle cx="32" cy="26" r="10" fill="rgba(255,255,255,0.85)" />
-                  <ellipse cx="32" cy="52" rx="16" ry="10" fill="rgba(255,255,255,0.85)" />
-                  <defs>
-                    <linearGradient id="avatarGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#10B981" />
-                      <stop offset="1" stopColor="#0057D9" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <img src="/images/industries/healthcare_client.png" alt="Clinical Systems Director" className="client-avatar-img" />
               </div>
               <span className="quote-author-role">Clinical Systems Director<br />Healthcare Partner</span>
             </div>
 
             <div className="quote-right-content">
-              <Quote className="quote-icon" size={48} />
+              <Quote className="quote-icon" size={120} />
               <p className="quote-text-p">
                 "PKSS's comprehensive approach to database transformation in healthcare represents a significant departure from legacy, piecemeal software modernization efforts. By combining systematic planning, practical dashboard tools, and custom API synchronization workflows, they position themselves as a trusted engineering partner for institutions ready to embrace fundamental change."
               </p>

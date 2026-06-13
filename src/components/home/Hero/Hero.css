@@ -183,7 +183,7 @@
 /* ── Headline ── */
 .hero-title {
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -.03em;
   margin-bottom: 0.8rem;
@@ -247,7 +247,7 @@
 }
 .partners-label {
   font-size: .72rem;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .12em;
   color: var(--text-muted);
