@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Rocket } from 'lucide-react';
 import './ContactForm.css';
 
 export default function ContactForm({ preview = false }) {
@@ -172,6 +172,9 @@ export default function ContactForm({ preview = false }) {
 
         {/* RIGHT COLUMN: FORM */}
         <div className="contact-form-col">
+          <div className="floating-rocket-wrapper">
+            <Rocket size={48} strokeWidth={1.5} />
+          </div>
           <h2>Send us a message</h2>
           
           {submitted ? (
@@ -271,7 +274,7 @@ export default function ContactForm({ preview = false }) {
       {/* FULL WIDTH MAP SECTION */}
       <div className="contact-map-section">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15632.181977227188!2d78.0776735!3d11.691763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf055fc18e5f5%3A0xc6fb69829801ec6a!2sKaruppur%2C%20Salem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          src="https://maps.google.com/maps?q=PK+Software+Solutions,+Karumbalai,+Karuppur+Main+road,+Salem&t=&z=16&ie=UTF8&iwloc=&output=embed" 
           allowFullScreen="" 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"

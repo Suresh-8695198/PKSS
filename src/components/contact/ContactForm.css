@@ -32,7 +32,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80');
+  background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -254,6 +254,25 @@
   padding: 3.5rem 3.5rem;
   background-color: #ffffff;
   animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: relative;
+}
+
+/* Floating Rocket Animation */
+.contact-page-wrapper .floating-rocket-wrapper {
+  position: absolute;
+  top: 3.5rem;
+  right: 3.5rem;
+  color: #74c044;
+  animation: floatRocket 5s ease-in-out infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes floatRocket {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) translateX(10px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 /* Headings style is shared with left col above */

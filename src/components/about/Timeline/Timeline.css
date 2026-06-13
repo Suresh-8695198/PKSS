@@ -284,7 +284,6 @@
     border-color: transparent !important;
 }
 
-/* Spinning border beam container - adjusted to match the 10px 45px 10px 45px radius */
 .border-beam-container {
     position: absolute;
     inset: -1.5px;
@@ -293,10 +292,12 @@
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;
-    padding: 2px;
+    padding: 1.5px; /* Matched precisely to border width */
     pointer-events: none;
     z-index: 10;
     overflow: hidden;
+    transform: translateZ(0); /* Hardware acceleration to prevent mask glitches */
+    -webkit-transform: translateZ(0);
 }
 
 .border-beam-spinning {
@@ -313,6 +314,7 @@
         transparent 100%
     );
     animation: border-beam-spin 3s linear infinite;
+    will-change: transform;
 }
 
 @keyframes border-beam-spin {
