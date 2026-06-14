@@ -2,41 +2,27 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { UploadCloud, CheckCircle, Briefcase, MapPin, Clock, ArrowRight, ChevronLeft } from 'lucide-react';
+import { UploadCloud, CheckCircle, MapPin, Clock, ArrowRight, ChevronLeft, Heart, Zap, Award } from 'lucide-react';
 import './CareersForm.css';
 
 const JOBS = [
   { 
     id: 1, 
-    title: 'Senior Frontend Developer', 
+    department: 'Software Development',
+    title: 'Full Stack Web Developer', 
     type: 'Full-time', 
     location: 'Salem, IN / Remote', 
-    exp: '3-5 Years', 
-    desc: 'Join our core engineering team to build premium, high-performance web applications using React, Next.js, and modern CSS architecture. You will be responsible for translating UI/UX designs into pixel-perfect code.' 
+    exp: '2-5 Years', 
+    desc: 'Join our core engineering team to build premium, high-performance web applications. You will be responsible for translating UI/UX designs into pixel-perfect code using React and Next.js, while building robust backend services with Node.js.' 
   },
   { 
     id: 2, 
-    title: 'Integration Architect', 
+    department: 'Data Analytics',
+    title: 'Data Analyst', 
     type: 'Full-time', 
     location: 'Salem, IN', 
-    exp: '5+ Years', 
-    desc: 'Design and deploy scalable cloud infrastructure and complex CRM integration solutions for enterprise clients. Strong knowledge of Node.js, AWS, and API orchestration is required.' 
-  },
-  { 
-    id: 3, 
-    title: 'UI/UX Designer', 
-    type: 'Full-time', 
-    location: 'Remote', 
-    exp: '2-4 Years', 
-    desc: 'Craft beautiful, intuitive digital experiences with a strong focus on modern glassmorphism, corporate aesthetics, and responsive web design. Figma expertise is essential.' 
-  },
-  { 
-    id: 4, 
-    title: 'Business Development Manager', 
-    type: 'Full-time', 
-    location: 'Salem, IN', 
-    exp: '4+ Years', 
-    desc: 'Drive business growth by identifying new enterprise opportunities, managing client relationships, and presenting technical solutions to C-level executives.' 
+    exp: '1-3 Years', 
+    desc: 'Analyze complex datasets to drive business decisions. Strong knowledge of SQL, Python, and data visualization tools (like PowerBI or Tableau) is required to help our clients engineer the future of digital enterprise software.' 
   }
 ];
 
@@ -125,20 +111,19 @@ export default function CareersForm({ preview = false }) {
       </section>
 
       {/* MAIN CONTAINER */}
-      <div className="careers-main-container container">
+      <div className={`careers-main-container container ${selectedJob ? 'is-application-view' : ''}`}>
         
-        {/* VIEW 1: JOBS LIST */}
+        {/* VIEW 1: JOBS LIST & CULTURE */}
         {!selectedJob && (
-          <div className="jobs-list-view">
-            <div className="jobs-grid">
-              {JOBS.map(job => (
-                <div key={job.id} className="job-card">
-                  <div className="job-card-header">
-                    <div className="job-icon-box">
-                      <Briefcase size={24} />
+          <div className="careers-landing-view">
+            <div className="jobs-list-view">
+              <div className="jobs-grid">
+                {JOBS.map(job => (
+                  <div key={job.id} className="job-card">
+                    <div className="job-card-header">
+                      <span className="job-department-badge">{job.department}</span>
+                      <span className="job-type-badge">{job.type}</span>
                     </div>
-                    <span className="job-type-badge">{job.type}</span>
-                  </div>
                   
                   <h3>{job.title}</h3>
                   
@@ -169,6 +154,30 @@ export default function CareersForm({ preview = false }) {
               ))}
             </div>
           </div>
+            
+          {/* BENEFITS SECTION TO FILL SPACE */}
+          <div className="culture-benefits-section">
+              <h2 className="culture-title">Why Work With Us?</h2>
+              <div className="benefits-grid">
+                <div className="benefit-card">
+                  <div className="benefit-icon"><Heart size={28} /></div>
+                  <h3>Health & Wellness</h3>
+                  <p>Comprehensive healthcare coverage for you and your family.</p>
+                </div>
+                <div className="benefit-card">
+                  <div className="benefit-icon"><Zap size={28} /></div>
+                  <h3>Fast-Paced Growth</h3>
+                  <p>Work on cutting-edge enterprise projects and rapidly accelerate your career.</p>
+                </div>
+                <div className="benefit-card">
+                  <div className="benefit-icon"><Award size={28} /></div>
+                  <h3>Continuous Learning</h3>
+                  <p>Gain access to premium corporate training and certification sponsorships.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
         )}
 
         {/* VIEW 2: APPLICATION FORM */}
@@ -185,8 +194,13 @@ export default function CareersForm({ preview = false }) {
             </button>
             
             <div className="application-header">
-              <h2>Applying for: {selectedJob.title}</h2>
-              <p>{selectedJob.location} • {selectedJob.type} • {selectedJob.exp}</p>
+              <h2>Applying for: <span>{selectedJob.title}</span></h2>
+              <p className="application-meta">
+                <span className="meta-location">{selectedJob.location}</span>
+                <span className="meta-details">
+                  <span className="desktop-dot">&bull;</span> {selectedJob.type} &bull; {selectedJob.exp}
+                </span>
+              </p>
             </div>
 
             {submitted ? (

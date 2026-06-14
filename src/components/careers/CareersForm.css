@@ -5,10 +5,11 @@
    ========================================================================== */
 
 .careers-page-wrapper {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   font-family: var(--font-body), system-ui, -apple-system, sans-serif;
   padding-bottom: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* --- HERO SECTION --- */
@@ -114,46 +115,21 @@
   flex-direction: column;
 }
 
-.job-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background-color: #74c044;
-  /* PKSS Green */
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
-  transform-origin: bottom;
-}
-
-.job-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: #e2e8f0;
-}
-
-.job-card:hover::before {
-  transform: scaleY(1);
-}
-
 .job-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.job-icon-box {
-  width: 50px;
-  height: 50px;
-  background-color: #f0fdf4;
-  color: #74c044;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.job-department-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .job-type-badge {
@@ -165,6 +141,7 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .job-card h3 {
@@ -225,6 +202,78 @@
   transition: transform 0.2s;
 }
 
+/* --- CULTURE & BENEFITS SECTION --- */
+.culture-benefits-section {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.culture-title {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 2.2rem;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #000000 35%, #74c044 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem auto;
+  background: #f8fafc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #74c044;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.benefit-card:hover .benefit-icon {
+  background: #74c044;
+  color: #ffffff;
+}
+
+.benefit-card h3 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
 /* --- APPLICATION FORM VIEW --- */
 .application-view {
   background-color: #ffffff;
@@ -271,9 +320,13 @@
   display: inline-block;
 }
 
-.application-header p {
+.application-header p.application-meta {
   color: #64748b;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .career-form .form-section {
@@ -494,6 +547,25 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  .careers-main-container {
+    margin-top: -110px;
+  }
+
+  .careers-main-container.is-application-view {
+    margin-top: -80px;
+  }
+
+  .application-meta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+  }
+
+  .jobs-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
   .career-form .form-row {
     flex-direction: column;
     gap: 1.5rem;
@@ -574,8 +646,30 @@
   color: #ffffff;
 }
 
-.dark .job-icon-box {
-  background-color: rgba(116, 192, 68, 0.1);
+.dark .job-department-badge {
+  color: #94a3b8;
+}
+
+.dark .benefit-card {
+  background: #121212;
+  border-color: #222;
+}
+
+.dark .benefit-card:hover {
+  border-color: #333;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.dark .benefit-card h3 {
+  color: #ffffff;
+}
+
+.dark .benefit-card p {
+  color: #a1a1aa;
+}
+
+.dark .benefit-icon {
+  background: #1a1a1a;
 }
 
 .dark .job-type-badge {
