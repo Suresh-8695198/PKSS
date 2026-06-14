@@ -1,0 +1,647 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+
+/* ==========================================================================
+   PREMIUM CAREERS PAGE
+   ========================================================================== */
+
+.careers-page-wrapper {
+  background-color: #f8fafc;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  padding-bottom: 0;
+  min-height: 100vh;
+}
+
+/* --- HERO SECTION --- */
+.careers-hero {
+  position: relative;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.careers-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.careers-hero:hover .careers-hero-bg {
+  transform: scale(1.05);
+}
+
+.careers-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 40, 80, 0.75);
+  /* Match Contact Page overlay */
+  z-index: 1;
+}
+
+.careers-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-top: 80px;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.careers-hero-content h1 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: #ffffff !important;
+}
+
+.careers-hero-content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.9;
+  color: #e2e8f0;
+}
+
+/* --- MAIN CONTENT CONTAINER --- */
+.careers-main-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: -120px auto 80px auto;
+  padding: 0 20px;
+}
+
+/* --- JOBS LISTING --- */
+.jobs-list-view {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #74c044;
+  /* PKSS Green */
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #e2e8f0;
+}
+
+.job-card:hover::before {
+  transform: scaleY(1);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.job-icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: #f0fdf4;
+  color: #74c044;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-type-badge {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.job-card h3 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.job-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.job-card p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.btn-apply-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #0057D9;
+  /* PKSS Blue */
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+
+.btn-apply-trigger:hover {
+  color: #74c044;
+}
+
+.btn-apply-trigger:hover svg {
+  transform: translateX(4px);
+}
+
+.btn-apply-trigger svg {
+  transition: transform 0.2s;
+}
+
+/* --- APPLICATION FORM VIEW --- */
+.application-view {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  padding: 3rem;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #64748b;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.back-btn:hover {
+  color: #0f172a;
+}
+
+.application-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.application-header h2 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #000000 35%, #74c044 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.application-header p {
+  color: #64748b;
+  font-size: 1.05rem;
+}
+
+.career-form .form-section {
+  margin-bottom: 2.5rem;
+}
+
+.career-form .form-section-title {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #000000 35%, #74c044 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.career-form .form-section-title::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #74c044;
+  border-radius: 50%;
+}
+
+.career-form .form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.career-form .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.career-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.career-form input,
+.career-form select,
+.career-form textarea {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #0f172a;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.career-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.career-form input:focus,
+.career-form select:focus,
+.career-form textarea:focus {
+  outline: none;
+  border-color: #74c044;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(116, 192, 68, 0.15);
+}
+
+.drag-upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.drag-upload-box:hover {
+  border-color: #74c044;
+  background-color: #f0fdf4;
+}
+
+.drag-upload-box input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.drag-upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.upload-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.drag-upload-box:hover .upload-icon-wrapper {
+  background-color: #74c044;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.drag-upload-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.drag-upload-content p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.btn-submit-app {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background-color: #74c044;
+  /* PKSS Green */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(116, 192, 68, 0.25);
+  margin-top: 2rem;
+}
+
+.btn-submit-app:hover {
+  background-color: #0057D9;
+  /* PKSS Blue */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 87, 217, 0.3);
+}
+
+.btn-submit-app:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- SUCCESS STATE --- */
+.career-success-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.career-success-state .success-icon {
+  color: #10b981;
+  margin-bottom: 1.5rem;
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.career-success-state h3 {
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.career-success-state p {
+  color: #64748b;
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+}
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .career-form .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .careers-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .application-view {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- DARK THEME OVERRIDES --- */
+.dark .careers-page-wrapper {
+  background-color: #050505;
+}
+
+.dark .job-card {
+  background-color: #121212;
+  border-color: #222;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.dark .job-card:hover {
+  border-color: #333;
+}
+
+.dark .job-card h3 {
+  color: #ffffff;
+}
+
+.dark .job-icon-box {
+  background-color: rgba(116, 192, 68, 0.1);
+}
+
+.dark .job-type-badge {
+  background-color: rgba(2, 132, 199, 0.2);
+  color: #38bdf8;
+}
+
+.dark .application-view {
+  background-color: #121212;
+  border-color: #222;
+}
+
+.dark .application-header h2 {
+  color: #ffffff;
+}
+
+.dark .application-header {
+  border-color: #333;
+}
+
+.dark .career-form .form-section-title {
+  color: #ffffff;
+}
+
+.dark .career-form label {
+  color: #e2e8f0;
+}
+
+.dark .career-form input,
+.dark .career-form select,
+.dark .career-form textarea {
+  background-color: #1a1a1a;
+  border-color: #2d3748;
+  color: #ffffff;
+}
+
+.dark .career-form input:focus,
+.dark .career-form select:focus,
+.dark .career-form textarea:focus {
+  border-color: #74c044;
+  background-color: #121212;
+}
+
+.dark .drag-upload-box {
+  background-color: #1a1a1a;
+  border-color: #2d3748;
+}
+
+.dark .drag-upload-box:hover {
+  background-color: rgba(116, 192, 68, 0.05);
+  border-color: #74c044;
+}
+
+.dark .drag-upload-content h4 {
+  color: #ffffff;
+}
+
+.dark .career-success-state h3 {
+  color: #ffffff;
+}
+
+.dark .btn-secondary {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #2d3748;
+}
