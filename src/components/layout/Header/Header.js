@@ -58,8 +58,8 @@ export default function Header() {
         { name: 'Logistics Operations', href: '/industries#logistics' }
       ]
     },
-    { name: 'Contact Us', href: '/contact' },
-    { name: 'Careers', href: '/careers' }
+    { name: 'Careers', href: '/careers' },
+    { name: 'Contact Us', href: '/contact' }
   ];
 
   const handleDropdownToggle = (idx) => {
