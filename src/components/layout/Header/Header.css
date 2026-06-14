@@ -15,7 +15,7 @@
 }
 
 .dark .main-header {
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(18, 18, 18, 0.92);
     border-bottom: 1px solid var(--border-glass);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .dark .main-header.scrolled {
-    background: rgba(0, 0, 0, 0.97);
+    background: rgba(18, 18, 18, 0.97);
     border-bottom: 1px solid var(--border-glass);
     box-shadow: none;
 }
