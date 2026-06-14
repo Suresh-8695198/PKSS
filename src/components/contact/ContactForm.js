@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, CheckCircle, Rocket } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import './ContactForm.css';
 
 export default function ContactForm({ preview = false }) {
@@ -172,9 +172,6 @@ export default function ContactForm({ preview = false }) {
 
         {/* RIGHT COLUMN: FORM */}
         <div className="contact-form-col">
-          <div className="floating-rocket-wrapper">
-            <Rocket size={48} strokeWidth={1.5} />
-          </div>
           <h2>Send us a message</h2>
           
           {submitted ? (
@@ -267,6 +264,13 @@ export default function ContactForm({ preview = false }) {
               </button>
             </form>
           )}
+          <div className="contact-form-bottom-rocket-wrapper">
+            <img 
+              src="/images/contact/rocket_img.png" 
+              alt="Rocket Launch" 
+              className="contact-form-bottom-rocket" 
+            />
+          </div>
         </div>
 
       </div>
@@ -280,6 +284,9 @@ export default function ContactForm({ preview = false }) {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+
+      {/* CONTACT BANNER SECTION */}
+      <div className="contact-banner-section"></div>
     </div>
   );
 }
