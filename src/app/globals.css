@@ -2763,11 +2763,10 @@ ul {
     }
     
     .professionals-banner-bg {
-        inset: -20% 0; /* top/bottom overflow margin for parallax scroll buffer */
-        will-change: transform;
-        animation: professionals-parallax linear both;
-        animation-timeline: view();
-        animation-range: entry 0% exit 100%;
+        inset: 0 !important;
+        background-attachment: fixed !important;
+        animation: none !important;
+        will-change: auto;
     }
 
     /* ── Height & Spacing Compression for Tall Sections ── */
