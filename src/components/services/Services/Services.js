@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import SplitText from '../SplitText';
@@ -264,10 +265,13 @@ export default function Services({ preview = false }) {
           </h2>
           {/* Custom border line image as requested by the user, formatted for light and dark themes */}
           <div className="title-curve-container">
-            <img
+            <Image
               src="/images/services/Border_line.png"
               alt="Section Divider"
               className="srv-title-divider-img"
+              width={280}
+              height={15}
+              style={{ objectFit: 'contain' }}
             />
           </div>
           <p className="srv-showcase-subtitle-new">
@@ -350,10 +354,16 @@ export default function Services({ preview = false }) {
                   onClick={() => setActiveIndex(idx)}
                 >
                   {/* Card Image Background */}
-                  <div
-                    className="card-bg-image"
-                    style={{ backgroundImage: `url(/images/services/${item.imageName})` }}
-                  />
+                  <div className="card-bg-image">
+                    <Image
+                      src={`/images/services/${item.imageName}`}
+                      alt={item.title}
+                      fill
+                      sizes="230px"
+                      style={{ objectFit: 'cover' }}
+                      priority={idx < 3}
+                    />
+                  </div>
 
                   {/* Glassmorphic Overlay Gradient */}
                   <div className="card-glass-overlay" />
@@ -417,10 +427,6 @@ export default function Services({ preview = false }) {
 
             {/* Grid wrapper for the lower content (image left, copy right) */}
             <div className="active-srv-body-grid">
-              {/* Floating center brand symbol icon */}
-              <div className="active-srv-center-logo-badge" title="PKSS Accent">
-                <img src="/icon.png" alt="PKSS Icon" className="pk-badge-img" />
-              </div>
               {/* Left Side: 3D Flipper based animation container - Delayed flip to trigger clearly after scrolling down */}
               <div className="active-srv-visual-side-left">
                 <motion.div
@@ -438,10 +444,14 @@ export default function Services({ preview = false }) {
                   style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
                   className="active-srv-image-wrapper"
                 >
-                  <img
+                  <Image
                     src={`/images/services/${activeSrv.imageName}`}
                     alt={activeSrv.title}
                     className="active-srv-image-media"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 450px"
+                    style={{ objectFit: 'cover' }}
+                    priority
                   />
                 </motion.div>
               </div>

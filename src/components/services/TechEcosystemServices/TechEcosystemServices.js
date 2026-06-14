@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Settings, ChevronRight } from 'lucide-react';
 import './TechEcosystemServices.css';
@@ -162,10 +163,13 @@ export default function TechEcosystemServices() {
             Our Development & Integration Stack
           </h2>
           <div className="title-curve-container">
-            <img
+            <Image
               src="/images/services/Border_line.png"
               alt="Section Divider"
               className="srv-title-divider-img"
+              width={280}
+              height={15}
+              style={{ objectFit: 'contain' }}
             />
           </div>
           <p className="tech-srv-subtitle">

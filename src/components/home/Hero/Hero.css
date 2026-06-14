@@ -6,7 +6,7 @@
   padding-bottom: 80px;
   overflow: hidden;
   background-color: #050508;
-  min-height: 70vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
@@ -95,7 +95,7 @@
 
 /* Button light/dark mode overrides for hero section background image */
 .hero-section .btn-primary {
-  border-radius: 4px !important;
+  border-radius: 0px !important;
   padding: 0.75rem 1.6rem !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
@@ -119,7 +119,7 @@
 }
 
 .hero-section .btn-secondary {
-  border-radius: 4px !important;
+  border-radius: 0px !important;
   padding: 0.75rem 1.6rem !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;

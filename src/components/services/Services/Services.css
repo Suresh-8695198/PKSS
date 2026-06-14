@@ -268,28 +268,7 @@
   position: relative; /* Containing block for center badge logo */
 }
 
-/* Floating center brand symbol icon styling */
-.active-srv-center-logo-badge {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1; /* Floats behind text and image content */
-  pointer-events: none;
-}
 
-.pk-badge-img {
-  width: 380px;
-  height: 380px;
-  object-fit: contain;
-  opacity: 0.14; /* Decreased opacity (capacity) for clean watermark styling */
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  pointer-events: auto;
-}
 
 /* Conic Spinning laser outline border beam (Magic UI style replica) */
 .border-beam-container {
@@ -352,10 +331,7 @@
     height: 100% !important;
     object-fit: cover !important;
   }
-  /* Hide center logo badge on mobile to prevent clutter */
-  .active-srv-center-logo-badge {
-    display: none !important;
-  }
+
 }
 
 /* Left Side: Stretched Image Layout to match Content Column Height exactly */

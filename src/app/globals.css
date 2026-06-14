@@ -411,7 +411,7 @@ ul {
     background: transparent;
     color: var(--text-primary) !important; /* Dynamic text color (initially unfilled) */
     padding: 0.55rem 1.35rem; /* Reduced size */
-    border-radius: 4px; /* Sleek rounded corporate corners */
+    border-radius: 0px; /* Sleek sharp corporate corners */
     font-family: var(--font-nav);
     font-size: 0.8rem; /* Reduced size */
     font-weight: 700; /* Lato Bold */
@@ -2690,4 +2690,422 @@ ul {
 .dark .service-card.card-green-tint {
     background: #081208 !important;
     border: 1px solid rgba(89, 167, 0, 0.15) !important;
+}
+
+.dark .service-card.card-green-tint {
+    background: #081208 !important;
+    border: 1px solid rgba(89, 167, 0, 0.15) !important;
+}
+
+/* Base professionals banner styles */
+.professionals-banner-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* preserves aspect ratio, showing the full image */
+    box-shadow: inset 0 15px 30px rgba(0,0,0,0.45), inset 0 -15px 30px rgba(0,0,0,0.45);
+    overflow: hidden;
+}
+
+.professionals-banner-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/home/professionals_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sticky-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 5, 8, 0.45) 0%, rgba(5, 5, 8, 0.2) 50%, rgba(5, 5, 8, 0.45) 100%);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   STICKY STACKING SECTIONS (DESKTOP ONLY WITH SCROLL-DRIVEN ANIMATIONS)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    .sticky-stack-container {
+        position: relative;
+        background-color: var(--bg-dark);
+    }
+    
+    .sticky-stack-section {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-dark);
+        box-shadow: 0 -15px 45px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+        transition: box-shadow 0.3s ease;
+        transform-origin: center center;
+    }
+    
+    /* Ensure content inside doesn't spill or break sticky flow */
+    .sticky-stack-section > section {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        padding-top: 80px; /* offset header height */
+    }
+    
+    .professionals-banner-wrapper {
+        aspect-ratio: 16 / 9 !important; /* matches full image proportion */
+        box-shadow: inset 0 25px 50px rgba(0,0,0,0.5), inset 0 -25px 50px rgba(0,0,0,0.5);
+    }
+    
+    .professionals-banner-bg {
+        inset: -20% 0; /* top/bottom overflow margin for parallax scroll buffer */
+        will-change: transform;
+        animation: professionals-parallax linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+    }
+
+    /* ── Height & Spacing Compression for Tall Sections ── */
+    
+    /* 1. Services Section Spacing Optimizations */
+    .services-showcase-section {
+        padding: 40px 0 20px 0 !important;
+    }
+    .carousel-deck-wrapper {
+        margin: 0 auto 1.5rem auto !important;
+        height: 280px !important;
+    }
+    .carousel-card {
+        width: 190px !important;
+        height: 250px !important;
+        border-radius: 16px !important;
+    }
+    .carousel-card-title {
+        font-size: 1.15rem !important;
+    }
+    .carousel-card-inner {
+        padding: 1.5rem 1.25rem !important;
+    }
+    .active-service-details-card {
+        padding: 1.75rem 2.5rem !important;
+        border-radius: 30px 6px 30px 6px !important;
+        max-width: 850px !important;
+    }
+    .active-srv-heading {
+        font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .active-srv-desc {
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.6 !important;
+    }
+    .active-srv-body-grid {
+        gap: 2.5rem !important;
+    }
+    .srv-showcase-hdr {
+        margin-bottom: 0px !important;
+    }
+    .srv-showcase-subtitle-new {
+        font-size: 0.95rem !important;
+        margin-top: 0.25rem !important;
+    }
+    .active-srv-image-wrapper {
+        border-radius: 12px !important;
+    }
+    .active-srv-image-media {
+        border-radius: 12px !important;
+    }
+
+    /* 2. Academy Section Spacing Optimizations */
+    .academy-section {
+        padding: 40px 0 !important;
+    }
+    .academy-grid {
+        gap: 2.5rem !important;
+    }
+    .acad-desc {
+        margin-bottom: 1.25rem !important;
+    }
+    .acad-badges-list {
+        margin-bottom: 1.5rem !important;
+    }
+    .acad-point-card {
+        padding: 1.15rem !important;
+        gap: 1rem !important;
+    }
+
+    /* 3. Tech Ecosystem Section Spacing Optimizations */
+    .tech-ecosystem-section {
+        padding: 40px 0 !important;
+    }
+    .tech-filters {
+        margin-bottom: 2rem !important;
+    }
+    .tech-grid {
+        gap: 1rem !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .tech-card {
+        padding: 1rem !important;
+    }
+
+    /* ── Scroll-Driven Stacking Timelines & Bindings ── */
+
+    #slide-hero {
+        position: relative !important;
+        height: auto !important;
+        min-height: 100vh;
+        background-color: var(--bg-dark);
+        box-shadow: none !important;
+        z-index: 1;
+        animation: none !important;
+    }
+
+    #slide-about {
+        animation: slide-about-enter linear both, slide-about-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-services {
+        animation: slide-services-enter linear both, slide-services-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-industries {
+        animation: slide-industries-enter linear both, slide-industries-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-techecosystem {
+        animation: slide-techecosystem-enter linear both, slide-techecosystem-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-stats {
+        animation: slide-stats-enter linear both, slide-stats-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-testimonials {
+        animation: slide-testimonials-enter linear both, slide-testimonials-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-academy {
+        animation: slide-academy-enter linear both, slide-academy-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+
+    #slide-careers {
+        animation: slide-careers-enter linear both, slide-careers-exit linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 100%, exit 0% exit 100%;
+    }
+}
+
+/* ── Scroll-Driven Animation Keyframes (Enterprise Scale) ── */
+
+@keyframes slide-hero-exit {
+    to {
+        transform: scale(0.93) translateY(-30px) rotateX(3deg);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-professionals-enter {
+    from {
+        transform: scale(1.15);
+        filter: brightness(0.6);
+    }
+    to {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+@keyframes slide-professionals-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-about-enter {
+    from {
+        transform: translateY(100vh) rotateX(-8deg);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateY(0) rotateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-about-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-services-enter {
+    from {
+        transform: scale(0.9) translateX(50px) rotateY(-8deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateX(0) rotateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-services-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-industries-enter {
+    from {
+        transform: translateY(100vh) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+@keyframes slide-industries-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-techecosystem-enter {
+    from {
+        transform: translateX(-40px) translateY(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-techecosystem-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-stats-enter {
+    from {
+        transform: translateY(100vh) rotateY(15deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-stats-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-testimonials-enter {
+    from {
+        filter: blur(10px);
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes slide-testimonials-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-academy-enter {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-academy-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-careers-enter {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes slide-careers-exit {
+    to {
+        transform: scale(0.93) translateY(-30px);
+        opacity: 0.5;
+        filter: brightness(0.4) blur(1px);
+    }
+}
+
+@keyframes slide-contact-enter {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes professionals-parallax {
+    from {
+        transform: translateY(-15%) scale(1.05);
+    }
+    to {
+        transform: translateY(15%) scale(1.05);
+    }
 }

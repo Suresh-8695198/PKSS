@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { TrendingUp } from 'lucide-react';
 import './Stats.css';
 
@@ -142,10 +143,13 @@ export default function Stats() {
             Empowering Growth Through Numbers
           </h2>
           <div className="stats-divider-container">
-            <img
+            <Image
               src="/images/services/Border_line.png"
               alt="Section Divider"
               className="stats-divider-img"
+              width={280}
+              height={15}
+              style={{ objectFit: 'contain' }}
             />
           </div>
           <p className="stats-subtitle">
@@ -166,10 +170,13 @@ export default function Stats() {
             >
               {/* Card Image with curved wave bottom cut */}
               <div className="stat-card-image-wrap">
-                <img 
+                <Image 
                   src={item.image} 
                   alt={item.title} 
                   className="stat-card-img" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                  style={{ objectFit: 'cover' }}
                 />
                 <div className="stat-card-value-badge">
                   <AnimatedCounter target={item.target} suffix={item.suffix} />

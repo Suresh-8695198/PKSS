@@ -19,31 +19,39 @@ export default function CustomCursor() {
     };
     window.addEventListener('mousemove', handleCursorMove);
 
-    // Hover effect listeners for link elements
-    const handleMouseEnterLink = () => {
-      if (cursorRef.current) cursorRef.current.classList.add('hovered');
-    };
-    const handleMouseLeaveLink = () => {
-      if (cursorRef.current) cursorRef.current.classList.remove('hovered');
+    // Helper check to identify hoverable elements
+    const isHoverable = (el) => {
+      if (!el || typeof el.closest !== 'function') return null;
+      return el.closest('a, button, input, select, textarea, .service-card, .tab-btn, .carousel-card, .active-nav-btn');
     };
 
-    const attachHoverListeners = () => {
-      const hoverables = document.querySelectorAll('a, button, input, select, textarea, .service-card, .tab-btn');
-      hoverables.forEach((el) => {
-        el.addEventListener('mouseenter', handleMouseEnterLink);
-        el.addEventListener('mouseleave', handleMouseLeaveLink);
-      });
+    // Event delegation for mouseover
+    const handleMouseOver = (e) => {
+      if (!cursorRef.current) return;
+      if (isHoverable(e.target)) {
+        cursorRef.current.classList.add('hovered');
+      }
     };
 
-    attachHoverListeners();
+    // Event delegation for mouseout
+    const handleMouseOut = (e) => {
+      if (!cursorRef.current) return;
+      const current = isHoverable(e.target);
+      const next = isHoverable(e.relatedTarget);
+      
+      // Remove hover state if cursor leaves the hoverable zone
+      if (current && !next) {
+        cursorRef.current.classList.remove('hovered');
+      }
+    };
 
-    // Re-attach listeners when DOM changes (e.g. tab switches)
-    const observer = new MutationObserver(attachHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mouseout', handleMouseOut);
 
     return () => {
       window.removeEventListener('mousemove', handleCursorMove);
-      observer.disconnect();
+      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mouseout', handleMouseOut);
     };
   }, []);
 

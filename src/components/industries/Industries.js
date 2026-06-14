@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Activity, Settings, ShoppingCart, GraduationCap, Truck, ArrowRight } from 'lucide-react';
 import HealthcareIndustries from './healthcare/healthcare_industries';
 import ManufacturingIndustries from './manufacturing/manufacturing_industries';
@@ -49,10 +50,13 @@ export default function Industries({ preview = false }) {
             <span className="section-tag">INDUSTRIES</span>
             <h2 className="section-title">Scale-Tailored Software Solutions</h2>
             <div className="methodology-divider-container" style={{ margin: '-40px auto -34px auto', maxWidth: '280px' }}>
-              <img
+              <Image
                 src="/images/services/Border_line.png"
                 alt="Section Divider"
                 className="methodology-divider-img"
+                width={280}
+                height={15}
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <p className="section-subtitle" style={{ marginTop: '0.5rem' }}>

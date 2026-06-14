@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Lightbulb, Search, Settings, Users, BarChart3 } from 'lucide-react';
 import './Timeline.css';
 
@@ -124,10 +125,13 @@ export default function Timeline() {
             The Digital Transformation Blueprint
           </h2>
           <div className="methodology-divider-container">
-            <img
+            <Image
               src="/images/services/Border_line.png"
               alt="Section Divider"
               className="methodology-divider-img"
+              width={280}
+              height={15}
+              style={{ objectFit: 'contain' }}
             />
           </div>
           <p className="methodology-subtitle">
