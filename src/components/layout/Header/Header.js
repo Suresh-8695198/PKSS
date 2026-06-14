@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, ChevronDown, ArrowRight } from 'lucide-react';
+import { Sun, Moon, ChevronDown } from 'lucide-react';
 import { useTheme } from '../../../context/ThemeContext';
 import './Header.css';
 
@@ -12,36 +12,11 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { theme, toggleTheme } = useTheme();
-  const [isPulling, setIsPulling] = useState(false);
   const pathname = usePathname();
-
-  const handleRopePull = () => {
-    if (isPulling) return;
-    setIsPulling(true);
-    
-    // Toggle theme at the peak of the pull
-    setTimeout(() => {
-      toggleTheme();
-    }, 150);
-
-    // Reset pulling animation state
-    setTimeout(() => {
-      setIsPulling(false);
-    }, 550);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-      
-      const progressIndicator = document.querySelector('.scroll-progress-indicator');
-      if (progressIndicator) {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (totalHeight > 0) {
-          const progress = (window.scrollY / totalHeight) * 100;
-          progressIndicator.style.width = `${progress}%`;
-        }
-      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -77,9 +52,6 @@ export default function Header() {
 
   return (
     <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>
-      {/* Top glowing progress line */}
-      <div className="scroll-progress-indicator"></div>
-
       <div className="nav-container">
         <Link href="/" className="logo-area" aria-label="PK Software Solutions Home">
           <img 
@@ -141,26 +113,30 @@ export default function Header() {
                 )}
               </li>
             )})}
-            <li>
-              <Link href="/contact" className="active-nav-btn" onClick={() => setMenuOpen(false)}>
-                <span>Start Project</span>
-                <ArrowRight size={14} className="btn-arrow" />
-              </Link>
-            </li>
-            <li className="rope-wrapper-li">
-              <div 
-                className={`theme-rope-container ${isPulling ? 'pulling' : ''}`}
-                onClick={handleRopePull}
-                title="Pull to Switch Theme"
-              >
-                <div className="rope-line"></div>
-                <div className="rope-handle">
-                  {theme === 'dark' ? <Sun size={14} className="rope-icon sun" /> : <Moon size={14} className="rope-icon moon" />}
-                </div>
-              </div>
-            </li>
           </ul>
         </nav>
+
+        {/* iOS-style Theme Toggle Switch */}
+        <div className="header-right-actions">
+          <button
+            className="theme-toggle-switch"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            <div className="toggle-track">
+              <Sun size={12} className="toggle-icon toggle-icon-sun" />
+              <Moon size={12} className="toggle-icon toggle-icon-moon" />
+              <div className="toggle-thumb">
+                {theme === 'dark' ? (
+                  <Moon size={11} className="thumb-icon" />
+                ) : (
+                  <Sun size={11} className="thumb-icon" />
+                )}
+              </div>
+            </div>
+          </button>
+        </div>
 
         <button 
           className={`mobile-toggle ${menuOpen ? 'active' : ''}`} 

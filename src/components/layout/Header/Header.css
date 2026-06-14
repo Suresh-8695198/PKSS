@@ -136,84 +136,6 @@
     background: #4ade80 !important; /* Vibrant green in dark mode */
 }
 
-.active-nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    background: transparent;
-    color: var(--text-primary) !important;
-    padding: 0.55rem 1.35rem;
-    border-radius: 0px;
-    font-family: var(--font-nav);
-    font-size: 0.8rem;
-    font-weight: 700;
-    border: 2px solid var(--cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.light .active-nav-btn {
-    color: #000000 !important;
-}
-
-.active-nav-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -115%;
-    width: 120%;
-    height: 100%;
-    background: var(--cyan);
-    transform: skewX(-20deg);
-    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: -2;
-}
-
-.active-nav-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -16px;
-    width: 22px;
-    height: 100%;
-    background: var(--cyan);
-    transform: skewX(-20deg);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: -1;
-}
-
-.active-nav-btn .btn-arrow {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    color: currentColor;
-}
-
-.active-nav-btn:hover {
-    border-color: var(--blue);
-    color: #FFFFFF !important;
-}
-
-.light .active-nav-btn:hover {
-    color: #FFFFFF !important;
-}
-
-.active-nav-btn:hover::before {
-    left: -10%;
-    background: var(--blue);
-}
-
-.active-nav-btn:hover::after {
-    background: var(--cyan);
-    left: -12px;
-}
-
-.active-nav-btn:hover .btn-arrow {
-    transform: translate(3px, -3px) rotate(-45deg);
-}
-
 .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -234,115 +156,135 @@
     display: none !important;
 }
 
-/* Theme Pull-Rope Switch */
-@keyframes ropeSway {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(10deg); }
-    30% { transform: rotate(-7deg); }
-    45% { transform: rotate(4deg); }
-    60% { transform: rotate(-2deg); }
-    75% { transform: rotate(1deg); }
-    100% { transform: rotate(0deg); }
-}
+/* ==========================================================================
+   iOS-STYLE THEME TOGGLE SWITCH
+   ========================================================================== */
 
-.main-header,
-.nav-container,
-.nav-menu,
-.nav-menu ul,
-.rope-wrapper-li {
-    overflow: visible !important;
-}
-
-.rope-wrapper-li {
-    width: 40px;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.theme-rope-container {
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    transform-origin: top center;
-    animation: ropeSway 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.theme-rope-container.pulling {
-    animation: none;
-}
-
-.rope-line {
-    width: 3.5px;
-    height: 75px;
-    background: repeating-linear-gradient(-45deg, #475569, #475569 2.5px, #94a3b8 2.5px, #94a3b8 5px);
-    box-shadow: inset 1px 0 1px rgba(0, 0, 0, 0.15);
-    transition: height 0.6s cubic-bezier(0.25, 1.5, 0.5, 1.25);
-}
-
-.dark .rope-line {
-    background: repeating-linear-gradient(-45deg, #1e293b, #1e293b 2.5px, #475569 2.5px, #475569 5px);
-}
-
-.rope-handle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--bg-deep);
-    border: 2px solid var(--blue);
+.header-right-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.theme-toggle-switch {
     position: relative;
-    transition: transform 0.6s cubic-bezier(0.25, 1.5, 0.5, 1.25), background 0.3s, border-color 0.3s;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.rope-handle::before {
-    content: '';
+.toggle-track {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.08),
+        0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .toggle-track {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-icon {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.toggle-icon-sun {
+    color: #f59e0b;
+    opacity: 0.5;
+}
+
+.dark .toggle-icon-sun {
+    opacity: 0.3;
+}
+
+.toggle-icon-moon {
+    color: #6366f1;
+    opacity: 0.3;
+}
+
+.dark .toggle-icon-moon {
+    color: #818cf8;
+    opacity: 0.5;
+}
+
+.toggle-thumb {
     position: absolute;
-    top: -7px;
-    left: calc(50% - 3.5px);
-    width: 7px;
-    height: 8px;
-    background: linear-gradient(90deg, #64748b 0%, #cbd5e1 50%, #475569 100%);
-    border-radius: 1px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    z-index: 2;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 
+        0 2px 6px rgba(0, 0, 0, 0.15),
+        0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.dark .rope-handle::before {
-    background: linear-gradient(90deg, #334155 0%, #94a3b8 50%, #1e293b 100%);
-    border-color: rgba(0, 0, 0, 0.3);
+.dark .toggle-thumb {
+    left: calc(100% - 24px);
+    background: #1e1e2e;
+    box-shadow: 
+        0 2px 6px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(99, 102, 241, 0.15);
 }
 
-.dark .rope-handle {
-    border-color: var(--cyan);
+.thumb-icon {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.rope-icon {
-    transition: transform 0.4s ease;
-    z-index: 3;
+.light .thumb-icon {
+    color: #f59e0b;
 }
 
-.rope-icon.sun { color: #f59e0b; }
-.rope-icon.moon { color: var(--blue); }
-
-.theme-rope-container:hover .rope-line { height: 80px; }
-.theme-rope-container:hover .rope-handle { transform: scale(1.08); }
-
-.theme-rope-container.pulling .rope-line {
-    height: 105px;
-    transition: height 0.12s ease-in;
+.dark .thumb-icon {
+    color: #818cf8;
 }
 
-.theme-rope-container.pulling .rope-handle {
+/* Toggle hover effect */
+.theme-toggle-switch:hover .toggle-track {
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 46, 166, 0.12);
+}
+
+.dark .theme-toggle-switch:hover .toggle-track {
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(99, 102, 241, 0.2);
+}
+
+.theme-toggle-switch:hover .toggle-thumb {
+    transform: scale(1.05);
+}
+
+/* Toggle active/pressed effect */
+.theme-toggle-switch:active .toggle-thumb {
     transform: scale(0.92);
-    transition: transform 0.12s ease-in;
 }
 
 /* Dropdown Menu */
@@ -512,25 +454,6 @@
     .nav-menu.active { right: 0; }
     .nav-menu ul { flex-direction: column; gap: 2.5rem; }
 
-    .rope-wrapper-li {
-        width: 100%;
-        height: auto;
-        padding: 1.5rem 0;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .theme-rope-container {
-        position: relative;
-        top: 0;
-        margin: 0 auto;
-        animation: none;
-    }
-
-    .rope-line { height: 40px; }
-    .theme-rope-container:hover .rope-line { height: 44px; }
-    .theme-rope-container.pulling .rope-line { height: 65px; }
-
     .nav-item-li {
         width: 100%;
         text-align: center;
@@ -557,4 +480,12 @@
 
     .nav-dropdown-menu.show { display: block; }
     .dropdown-item-link { padding: 0.5rem 1rem; }
+
+    /* Theme toggle on mobile */
+    .header-right-actions {
+        position: absolute;
+        top: 50%;
+        right: 4rem;
+        transform: translateY(-50%);
+    }
 }
