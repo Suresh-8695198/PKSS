@@ -54,6 +54,17 @@
     gap: 0.75rem;
 }
 
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-header.scrolled .logo-img {
+    height: 48px;
+}
+
 .logo-svg {
     width: 34px;
     height: 34px;
@@ -81,18 +92,21 @@
 .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    gap: 3.5rem;
 }
 
 .nav-link {
     font-family: var(--font-nav);
-    font-size: 0.98rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     color: var(--text-primary);
     position: relative;
     padding: 0.5rem 0;
     transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
 }
 
 .light .nav-link {
@@ -124,7 +138,7 @@
 /* Active navigation link state (Blue text + Green underline) */
 .nav-link.active {
     color: var(--blue) !important;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .nav-link.active::after {
@@ -182,109 +196,96 @@
     width: 52px;
     height: 28px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    background: #e3e3e5;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 7px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 
-        inset 0 1px 3px rgba(0, 0, 0, 0.08),
-        0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .dark .toggle-track {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 
-        inset 0 1px 3px rgba(0, 0, 0, 0.3),
-        0 1px 2px rgba(0, 0, 0, 0.2);
+    background: #323236;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-icon {
     position: relative;
     z-index: 1;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 
 .toggle-icon-sun {
-    color: #f59e0b;
-    opacity: 0.5;
+    color: #8e8e93;
+    opacity: 0.8;
 }
 
 .dark .toggle-icon-sun {
-    opacity: 0.3;
+    color: #8e8e93;
+    opacity: 0.4;
 }
 
 .toggle-icon-moon {
-    color: #6366f1;
-    opacity: 0.3;
+    color: #8e8e93;
+    opacity: 0.4;
 }
 
 .dark .toggle-icon-moon {
-    color: #818cf8;
-    opacity: 0.5;
+    color: #8e8e93;
+    opacity: 0.8;
 }
 
 .toggle-thumb {
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 
-        0 2px 6px rgba(0, 0, 0, 0.15),
-        0 1px 2px rgba(0, 0, 0, 0.1);
+        0 3px 8px rgba(0, 0, 0, 0.12),
+        0 3px 1px rgba(0, 0, 0, 0.04);
 }
 
 .dark .toggle-thumb {
-    left: calc(100% - 24px);
-    background: #1e1e2e;
+    left: calc(100% - 26px);
+    background: #ffffff;
     box-shadow: 
-        0 2px 6px rgba(0, 0, 0, 0.4),
-        0 0 12px rgba(99, 102, 241, 0.15);
+        0 3px 8px rgba(0, 0, 0, 0.3),
+        0 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 .thumb-icon {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .light .thumb-icon {
-    color: #f59e0b;
+    color: #ff9500; /* Apple iOS orange accent */
 }
 
 .dark .thumb-icon {
-    color: #818cf8;
+    color: #5856d6; /* Apple iOS purple accent */
 }
 
 /* Toggle hover effect */
-.theme-toggle-switch:hover .toggle-track {
-    box-shadow: 
-        inset 0 1px 3px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 46, 166, 0.12);
-}
-
-.dark .theme-toggle-switch:hover .toggle-track {
-    box-shadow: 
-        inset 0 1px 3px rgba(0, 0, 0, 0.3),
-        0 2px 8px rgba(99, 102, 241, 0.2);
-}
-
 .theme-toggle-switch:hover .toggle-thumb {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-/* Toggle active/pressed effect */
+/* Toggle active/pressed stretch morph effect */
 .theme-toggle-switch:active .toggle-thumb {
-    transform: scale(0.92);
+    width: 28px;
+}
+
+.dark .theme-toggle-switch:active .toggle-thumb {
+    left: calc(100% - 30px);
 }
 
 /* Dropdown Menu */
@@ -296,18 +297,11 @@
 .dropdown-toggle-btn {
     background: transparent;
     border: none;
-    padding: 0.5rem 0;
-    display: flex;
+    margin: 0;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    cursor: pointer;
-    font-family: var(--font-nav);
-    font-size: 0.98rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
-    position: relative;
-    transition: color var(--transition-fast);
 }
 
 .light .dropdown-toggle-btn { color: #000000; }
@@ -382,8 +376,8 @@
     border-radius: 0px;
     font-family: var(--font-nav);
     color: var(--text-secondary);
-    font-size: 0.88rem;
-    font-weight: 400;
+    font-size: 0.95rem;
+    font-weight: 500;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     text-align: left;
@@ -488,4 +482,48 @@
         right: 4rem;
         transform: translateY(-50%);
     }
+}
+
+/* ==========================================================================
+   STAGGERED CHARACTER VERTICAL ROLL ANIMATION
+   ========================================================================== */
+.animated-text-container {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.char-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1.2em;
+    line-height: 1.2em;
+}
+
+.char-primary,
+.char-secondary {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* staggered delay using index custom property */
+    transition-delay: calc(var(--char-index) * 20ms);
+}
+
+.char-secondary {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Hover transitions on links */
+.nav-link:hover .char-primary,
+.nav-item-li:hover .nav-link .char-primary {
+    transform: translateY(-100%);
+}
+
+.nav-link:hover .char-secondary,
+.nav-item-li:hover .nav-link .char-secondary {
+    transform: translateY(-100%);
 }

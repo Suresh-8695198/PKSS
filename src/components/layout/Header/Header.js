@@ -22,6 +22,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const renderAnimatedText = (text) => {
+    return (
+      <span className="animated-text-container">
+        {text.split('').map((char, index) => {
+          const isSpace = char === ' ';
+          return (
+            <span
+              key={index}
+              className="char-wrapper"
+              style={{ '--char-index': index }}
+            >
+              <span className="char-primary">{isSpace ? '\u00A0' : char}</span>
+              <span className="char-secondary">{isSpace ? '\u00A0' : char}</span>
+            </span>
+          );
+        })}
+      </span>
+    );
+  };
+
   const links = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
@@ -58,7 +78,6 @@ export default function Header() {
             src="/logo.png" 
             alt="PK Software Solutions" 
             className="logo-img" 
-            style={{ height: '48px', width: 'auto', objectFit: 'contain' }} 
           />
         </Link>
 
@@ -79,7 +98,7 @@ export default function Header() {
                       onClick={() => handleDropdownToggle(idx)}
                       aria-expanded={activeDropdown === idx}
                     >
-                      <span>{link.name}</span>
+                      {renderAnimatedText(link.name.toUpperCase())}
                       <ChevronDown size={14} className="dropdown-arrow-icon" />
                     </button>
                   ) : (
@@ -88,7 +107,7 @@ export default function Header() {
                       className={`nav-link ${isActive ? 'active' : ''}`} 
                       onClick={() => setMenuOpen(false)}
                     >
-                      {link.name}
+                      {renderAnimatedText(link.name.toUpperCase())}
                     </Link>
                   )}
   

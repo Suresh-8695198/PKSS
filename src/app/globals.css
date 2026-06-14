@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ==========================================================================
    PK SOFTWARE SOLUTIONS - NEXT.JS GLOBAL STYLING SYSTEM
@@ -8,7 +8,7 @@
     /* Shared Constants */
     --font-heading: 'Lato', system-ui, -apple-system, sans-serif;
     --font-body: 'Lato', system-ui, -apple-system, sans-serif;
-    --font-nav: 'Lato', system-ui, -apple-system, sans-serif;
+    --font-nav: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
     --font-syne: 'Lato', system-ui, sans-serif;
     --font-space-grotesk: 'Lato', sans-serif;
     --font-outfit: 'Lato', sans-serif;
@@ -672,8 +672,8 @@ ul {
     border-radius: 0px;
     font-family: var(--font-nav);
     color: var(--text-secondary);
-    font-size: 0.88rem;
-    font-weight: 400;
+    font-size: 0.95rem;
+    font-weight: 500;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     text-align: left;
@@ -1262,8 +1262,8 @@ ul {
     border-radius: 0px;
     font-family: var(--font-nav);
     color: var(--text-secondary);
-    font-size: 0.88rem;
-    font-weight: 400; /* Lato Regular */
+    font-size: 0.95rem;
+    font-weight: 500; /* Modern Sans Medium */
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     text-align: left;
