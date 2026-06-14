@@ -9,7 +9,7 @@ export default function CareersPage() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '80px' }}>
+      <main>
         <CareersForm preview={false} />
       </main>
       <Footer />
