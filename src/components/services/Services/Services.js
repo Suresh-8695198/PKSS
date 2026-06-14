@@ -247,7 +247,99 @@ export default function Services({ preview = false }) {
 
   const activeRgb = getAccentRgb(activeSrv.colors[0]);
 
+  if (preview) {
+    return (
+      <section
+        className={`services-showcase-section ${theme === 'light' ? 'light-theme' : 'dark-theme'}`}
+        id="services"
+        style={{
+          '--accent-rgb': activeRgb,
+          '--accent-theme': activeSrv.colors[0]
+        }}
+      >
+        <div className="container srv-showcase-container">
+          
+          {/* Header Title Section (matches screenshot layout) */}
+          <div className="srv-showcase-hdr">
+            <h2 className="srv-showcase-title-new">Solutions we<br />provide</h2>
+            <p className="srv-showcase-subtitle-new">
+              Elevate your brand, boost your online presence, and unlock the full potential of your business with PK Software Solutions as your digital partner.
+            </p>
+          </div>
+
+          {/* Interactive Split Showcase (matches screenshot) */}
+          <div className="home-services-split-showcase">
+            
+            {/* Left: Tilted active image display */}
+            <div className="home-services-visual-col">
+              <div className="home-services-accent-bg" style={{ '--accent-theme': activeSrv.colors[0] }} />
+              
+              <div className="home-services-image-frame">
+                {services.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: idx === activeIndex ? 1 : 0,
+                      transition: 'opacity 0.12s ease-in-out',
+                      pointerEvents: idx === activeIndex ? 'auto' : 'none'
+                    }}
+                  >
+                    <Image
+                      src={`/images/services/${item.imageName}`}
+                      alt={item.title}
+                      className="home-services-image-media"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      style={{ objectFit: 'cover' }}
+                      priority={idx === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Numbered vertical accordion hover list */}
+            <div className="home-services-list-col">
+              {services.map((item, idx) => (
+                <Link
+                  key={item.id}
+                  href={`/services#${item.id}`}
+                  className={`home-service-item ${idx === activeIndex ? 'active' : ''}`}
+                  onMouseEnter={() => setActiveIndex(idx)}
+                >
+                  <span className="home-service-item-num">
+                    {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                  </span>
+                  
+                  <h3 className="home-service-item-title">{item.title}</h3>
+                  <p className="home-service-item-desc">{item.desc}</p>
+                  
+                  <div className="home-service-item-arrow">
+                    <ArrowUpRight size={26} strokeWidth={2.5} />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Catalog CTA Footer */}
+          <div className="srv-showcase-footer">
+            <Link href="/services" className="srv-view-all-link">
+              <span>Explore full catalog</span>
+              <ArrowUpRight size={15} />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+    );
+  }
+
   return (
+
     <section
       className="services-showcase-section"
       id="services"
