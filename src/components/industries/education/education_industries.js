@@ -23,10 +23,10 @@ export default function EducationIndustries() {
             <span className="ind-hero-path">Industry / Education</span>
             <span className="ind-hero-title-tag">Connected Campus Solutions</span>
             <h1 className="ind-hero-title">
-              Education next: Adaptive, unified, accessible
+              Elevating Education with Custom LMS Frameworks
             </h1>
             <p className="ind-hero-subtitle">
-              We design secure multi-tenant LMS software, candidate admissions pipelines, and automated student success dashboards.
+              We engineer secure multi-tenant learning management systems and unified administration portals for modern institutions.
             </p>
           </div>
         </div>

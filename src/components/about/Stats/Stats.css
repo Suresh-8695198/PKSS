@@ -40,7 +40,7 @@
 }
 
 .stats-hdr .tech-srv-tag {
-    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     color: #ffffff; 
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -52,7 +52,7 @@
 }
 
 .stats-title {
-    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: clamp(2rem, 5vw, 2.75rem);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -87,7 +87,7 @@
 }
 
 .stats-subtitle {
-    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.05rem;
     color: rgba(255, 255, 255, 0.85);
     max-width: 650px;
@@ -142,7 +142,7 @@
     left: 20px;
     background: #122113; /* Solid deep corporate green */
     color: #ffffff;
-    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.65rem;
     font-weight: 800;
     padding: 0.4rem 1.4rem;
@@ -171,13 +171,10 @@
 .stat-icon-box {
     width: 48px;
     height: 48px;
-    border-radius: 8px;
-    background: rgba(40, 88, 23, 0.06); /* Soft green background */
-    border: 1px solid rgba(40, 88, 23, 0.12);
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #285817; /* Strong forest green */
+    justify-content: flex-start;
+    color: var(--accent-color);
     flex-shrink: 0;
     transition: all 0.35s ease;
 }
@@ -187,7 +184,7 @@
 }
 
 .stat-title-label {
-    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.25rem;
     font-weight: 800;
     color: #0f172a; /* Solid charcoal text */
@@ -202,7 +199,7 @@
 }
 
 .stat-desc-text {
-    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 0.94rem;
     line-height: 1.6;
     color: #475569; /* Soft charcoal body text */
@@ -225,14 +222,14 @@
 }
 
 .stat-sub-val {
-    font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.4rem;
     font-weight: 800;
     color: #0f172a; /* High contrast value */
 }
 
 .stat-sub-lbl {
-    font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 0.78rem;
     font-weight: 600;
     color: #64748b; /* Cool grey label */
@@ -254,9 +251,7 @@
 }
 
 .stat-card:hover .stat-icon-box {
-    background: var(--accent-color);
-    color: #ffffff;
-    border-color: transparent;
+    /* No box background on hover */
 }
 
 .stat-card:hover .corp-svg {

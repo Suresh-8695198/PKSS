@@ -11,6 +11,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeHash, setActiveHash] = useState('');
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
 
@@ -18,8 +19,18 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
+    const handleHash = () => {
+      setActiveHash(window.location.hash);
+    };
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleHash);
+    handleHash(); // Set initial hash
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHash);
+    };
   }, []);
 
   const renderAnimatedText = (text) => {
@@ -114,20 +125,24 @@ export default function Header() {
                   {link.hasDropdown && (
                   <div className={`nav-dropdown-menu ${activeDropdown === idx ? 'show' : ''}`}>
                     <div className="dropdown-glow-mesh"></div>
-                    {link.dropdownItems.map((subItem) => (
-                      <a 
-                        key={subItem.name} 
-                        href={subItem.href} 
-                        className="dropdown-item-link"
-                        onClick={() => {
-                          setMenuOpen(false);
-                          setActiveDropdown(null);
-                        }}
-                      >
-                        <span className="dropdown-item-bullet"></span>
-                        <span className="dropdown-item-txt">{subItem.name}</span>
-                      </a>
-                    ))}
+                    {link.dropdownItems.map((subItem) => {
+                      const isSubActive = pathname === link.href && activeHash === subItem.href.split('#')[1] ? true : 
+                                          (pathname === link.href && !activeHash && subItem.href.includes('healthcare'));
+                      return (
+                        <a 
+                          key={subItem.name} 
+                          href={subItem.href} 
+                          className={`dropdown-item-link ${isSubActive || (pathname === link.href && activeHash === '#' + subItem.href.split('#')[1]) ? 'active-subitem' : ''}`}
+                          onClick={() => {
+                            setMenuOpen(false);
+                            setActiveDropdown(null);
+                          }}
+                        >
+                          <span className="dropdown-item-bullet"></span>
+                          <span className="dropdown-item-txt">{subItem.name}</span>
+                        </a>
+                      );
+                    })}
                   </div>
                 )}
               </li>

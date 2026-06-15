@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
 
 /* Custom @font-face fallback setup for Allomira font family requested by user */
 @font-face {
@@ -9,7 +9,7 @@
 }
 
 .services-showcase-section {
-  font-family: 'Inter', sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   background-color: var(--bg-neutral);
   transition: background-color 0.6s ease;
   
@@ -60,7 +60,7 @@
 }
 
 .srv-showcase-title-new {
-  font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-size: clamp(1.8rem, 4.5vw, 2.7rem);
   font-weight: 850;
   letter-spacing: -0.03em;

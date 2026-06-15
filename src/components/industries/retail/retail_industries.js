@@ -23,10 +23,10 @@ export default function RetailIndustries() {
             <span className="ind-hero-path">Industry / Retail & Commerce</span>
             <span className="ind-hero-title-tag">High-Performance Commerce</span>
             <h1 className="ind-hero-title">
-              Retail next: Headless, synchronized, personalized
+              Driving Retail Growth through Seamless Digital Storefronts
             </h1>
             <p className="ind-hero-subtitle">
-              We build lightning-fast storefronts, real-time inventory databases, and custom CRM checkouts to boost sales conversions.
+              We design lightning-fast headless e-commerce platforms and automated inventory databases to maximize customer conversion.
             </p>
           </div>
         </div>

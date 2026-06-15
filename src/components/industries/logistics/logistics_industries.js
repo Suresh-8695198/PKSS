@@ -23,10 +23,10 @@ export default function LogisticsIndustries() {
             <span className="ind-hero-path">Industry / Logistics & Transit</span>
             <span className="ind-hero-title-tag">Dynamic Transit Systems</span>
             <h1 className="ind-hero-title">
-              Logistics next: Real-time, synchronized, efficient
+              Automating Logistics with Synchronized Telemetry
             </h1>
             <p className="ind-hero-subtitle">
-              We engineer carrier API integrations, route optimization engines, and dispatch boards to automate supply lines.
+              We build robust route optimization engines and real-time fleet dashboards to streamline global supply chains.
             </p>
           </div>
         </div>

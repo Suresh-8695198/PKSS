@@ -45,7 +45,7 @@
 }
 
 .methodology-title {
-    font-family: 'Allomira', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: clamp(1.8rem, 4.5vw, 2.7rem);
     font-weight: 850;
     letter-spacing: -0.03em;
@@ -91,7 +91,7 @@
 }
 
 .methodology-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 1.05rem;
     color: var(--text-secondary);
     max-width: 650px;
@@ -168,7 +168,7 @@
 }
 
 .flag-banner {
-    font-family: 'Inter', sans-serif;
+    font-family: 'ABeeZee', sans-serif;
     font-size: 0.65rem;
     font-weight: 950;
     letter-spacing: 0.1em;

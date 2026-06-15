@@ -21,12 +21,12 @@ export default function HealthcareIndustries() {
         <div className="container">
           <div className="ind-hero-content">
             <span className="ind-hero-path">Industry / Healthcare</span>
-            <span className="ind-hero-title-tag">Perpetually Adaptive Enterprise</span>
+            <span className="ind-hero-title-tag">Secure Clinical Operations</span>
             <h1 className="ind-hero-title">
-              Healthcare next: Immersive, personalized, connected
+              Architecting Resilient Healthcare Databases & Patient Portals
             </h1>
             <p className="ind-hero-subtitle">
-              We collaborate with institutions to transform healthcare with innovative digital solutions and best-in-class technology.
+              We engineer secure, scalable software systems for medical institutions, ensuring data interoperability and efficient care delivery.
             </p>
           </div>
         </div>

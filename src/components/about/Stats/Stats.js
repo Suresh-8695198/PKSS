@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { TrendingUp } from 'lucide-react';
+import { TrendingUp, Building2, Globe2, Clock } from 'lucide-react';
 import './Stats.css';
 
 // Simple lightweight React intersection count-up counter
@@ -69,16 +69,7 @@ export default function Stats() {
       desc: 'We design and deploy custom enterprise database engines, cloud integrations, and core software backends for logistics, healthcare, and retail leaders.',
       image: '/images/about/stats_projects.png',
       cardBg: '#f3faf4', // Soft corporate mint green background tint
-      icon: (
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="corp-svg">
-          <polygon points="12 2 22 8.5 12 15 2 8.5 12 2" fill="rgba(40, 88, 23, 0.1)" />
-          <line x1="12" y1="15" x2="12" y2="22" />
-          <line x1="2" y1="8.5" x2="2" y2="15.5" />
-          <line x1="22" y1="8.5" x2="22" y2="15.5" />
-          <polyline points="2 15.5 12 22 22 15.5" />
-          <polyline points="12 11 22 17.5 12 24 2 17.5 12 11" opacity="0.35" />
-        </svg>
-      ),
+      icon: <Building2 size={26} strokeWidth={2} />,
       accentColor: '#285817', // Deep forest green
       accentRgb: '40, 88, 23',
       metrics: [
@@ -93,13 +84,7 @@ export default function Stats() {
       desc: 'Serving corporate clients across North America, Europe, and the APAC region with dedicated onshore and offshore delivery teams.',
       image: '/images/about/stats_clients.png',
       cardBg: '#f0f6fc', // Soft corporate blue/slate background tint
-      icon: (
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="corp-svg">
-          <circle cx="12" cy="12" r="10" fill="rgba(40, 88, 23, 0.1)" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          <path d="M2 12h20" />
-        </svg>
-      ),
+      icon: <Globe2 size={26} strokeWidth={2} />,
       accentColor: '#1a5fb4', // High contrast blue
       accentRgb: '26, 95, 180',
       metrics: [
@@ -114,13 +99,7 @@ export default function Stats() {
       desc: 'Round-the-clock infrastructure monitoring, system health checks, and direct engineer access with guaranteed response times.',
       image: '/images/about/stats_support.png',
       cardBg: '#faf8f2', // Soft corporate warm sand background tint
-      icon: (
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="corp-svg">
-          <circle cx="12" cy="12" r="10" fill="rgba(40, 88, 23, 0.1)" />
-          <polyline points="12 6 12 12 16 14" />
-          <path d="M12 2a10 10 0 1 0 10 10" strokeDasharray="3 3" />
-        </svg>
-      ),
+      icon: <Clock size={26} strokeWidth={2} />,
       accentColor: '#c05621', // Clean warm bronze
       accentRgb: '192, 86, 33',
       metrics: [

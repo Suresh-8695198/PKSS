@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 /* Background video layer */
@@ -182,6 +183,7 @@
 
 /* ── Headline ── */
 .hero-title {
+  font-family: 'ABeeZee', sans-serif !important;
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 600;
   line-height: 1.1;
@@ -204,6 +206,7 @@
 
 /* ── Sub-copy ── */
 .hero-subtitle {
+  font-family: 'ABeeZee', sans-serif !important;
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-secondary);

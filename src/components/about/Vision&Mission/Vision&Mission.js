@@ -15,8 +15,8 @@ export default function VisionMission({ preview = false }) {
           /* Homepage Specific Made in India Stats Layout */
           <div className="about-home-stats-layout">
             <h2 className="made-in-india-title">
-              <span>Made in India.</span>
-              <span>Made for the World.</span>
+              <span>Innovative Software.</span>
+              <span>Global Impact.</span>
             </h2>
             <div className="title-underline"></div>
 

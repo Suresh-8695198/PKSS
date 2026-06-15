@@ -23,10 +23,10 @@ export default function ManufacturingIndustries() {
             <span className="ind-hero-path">Industry / Manufacturing</span>
             <span className="ind-hero-title-tag">Connected Smart Operations</span>
             <h1 className="ind-hero-title">
-              Manufacturing next: Integrated, autonomous, optimized
+              Empowering Manufacturing with Real-Time ERP Integrations
             </h1>
             <p className="ind-hero-subtitle">
-              We integrate legacy ERP databases with real-time IoT device telemetry to build highly-available, smart supply chains.
+              We build highly-available software supply chains, integrating legacy systems with modern cloud infrastructure to optimize production.
             </p>
           </div>
         </div>
