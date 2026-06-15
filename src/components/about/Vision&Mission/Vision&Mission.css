@@ -3,11 +3,11 @@
    ========================================================================== */
 .about-section {
     padding: 100px 0;
-    background: #002ea6 !important; /* Premium brand blue background */
+    background: #002ea6 !important;
+    /* Premium brand blue background */
     color: #ffffff !important;
     position: relative;
     overflow: hidden;
-    font-family: 'ABeeZee', sans-serif;
 }
 
 .about-pattern-bg {
@@ -86,19 +86,17 @@
 }
 
 .card-tag {
-    font-size: 0.82rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.18em;
-    color: var(--accent-color);
+    /* Force bright white so VISION/COMMITMENT are always visible on the dark blue card */
+    color: #ffffff !important;
     margin-bottom: 0.85rem;
     display: inline-block;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card-heading {
-    font-size: 1.65rem;
-    font-weight: 900;
     line-height: 1.25;
     color: #ffffff;
     margin: 0;
@@ -111,9 +109,9 @@
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                opacity 0.5s ease, 
-                margin-top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease,
+        margin-top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-interactive-card:hover .card-hover-desc {
@@ -123,8 +121,6 @@
 }
 
 .about-section .value-description {
-    font-size: 0.98rem;
-    font-weight: 500;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.95) !important;
     margin-bottom: 1.5rem;
@@ -147,9 +143,17 @@
 }
 
 @keyframes slide-arrow {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .about-interactive-card:hover .expand-link .arrow-icon {
@@ -167,8 +171,8 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                opacity 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease;
 }
 
 /* Hover Action for all cards: slides to bottom-right corner and shrinks */
@@ -229,5 +233,23 @@
 @media (max-width: 768px) {
     .brand-values-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* On mobile, only show content when card is tapped (card-expanded class) */
+    .about-interactive-card.card-expanded .card-hover-desc {
+        max-height: 300px !important;
+        opacity: 1 !important;
+        margin-top: 1.25rem !important;
+    }
+
+    /* Push graphic to corner on expanded card */
+    .about-interactive-card.card-expanded .card-graphic-container {
+        transform: translate(32%, 32%) scale(0.5) !important;
+        opacity: 0.2 !important;
+    }
+
+    /* Cursor pointer hint to tap */
+    .about-interactive-card {
+        cursor: pointer;
     }
 }

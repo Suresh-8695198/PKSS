@@ -5,8 +5,7 @@
    ========================================================================== */
 
 .careers-page-wrapper {
-  background-color: #ffffff;
-  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  background-color: #f4f6f8;
   padding-bottom: 0;
   min-height: 100vh;
   overflow-x: hidden;
@@ -65,8 +64,7 @@
 }
 
 .careers-hero-content h1 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 3rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
@@ -74,7 +72,7 @@
 }
 
 .careers-hero-content p {
-  font-size: 1.2rem;
+  /* font properties handled globally in globals.css */
   font-weight: 400;
   line-height: 1.6;
   opacity: 0.9;
@@ -125,7 +123,7 @@
 }
 
 .job-department-badge {
-  font-size: 0.85rem;
+  /* font properties handled globally in globals.css */
   font-weight: 600;
   color: #64748b;
   text-transform: uppercase;
@@ -137,7 +135,7 @@
   color: #0284c7;
   padding: 0.4rem 1rem;
   border-radius: 50px;
-  font-size: 0.8rem;
+  /* font properties handled globally in globals.css */
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -145,8 +143,7 @@
 }
 
 .job-card h3 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.4rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   color: #0f172a;
   margin-bottom: 1rem;
@@ -163,13 +160,13 @@
   align-items: center;
   gap: 0.5rem;
   color: #64748b;
-  font-size: 0.9rem;
+  /* font properties handled globally in globals.css */
 }
 
 .job-card p {
   color: #475569;
   line-height: 1.6;
-  font-size: 0.95rem;
+  /* font properties handled globally in globals.css */
   margin-bottom: 2rem;
   flex-grow: 1;
 }
@@ -182,7 +179,7 @@
   color: #0057D9;
   /* PKSS Blue */
   font-weight: 600;
-  font-size: 1rem;
+  /* font properties handled globally in globals.css */
   border: none;
   cursor: pointer;
   padding: 0;
@@ -211,8 +208,7 @@
 }
 
 .culture-title {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 2.2rem;
+  /* font properties handled globally in globals.css */
   color: #0f172a;
   text-align: center;
   margin-bottom: 3rem;
@@ -262,8 +258,7 @@
 }
 
 .benefit-card h3 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.25rem;
+  /* font properties handled globally in globals.css */
   color: #0f172a;
   margin-bottom: 1rem;
 }
@@ -271,7 +266,7 @@
 .benefit-card p {
   color: #64748b;
   line-height: 1.6;
-  font-size: 0.95rem;
+  /* font properties handled globally in globals.css */
 }
 
 /* --- APPLICATION FORM VIEW --- */
@@ -309,8 +304,7 @@
 }
 
 .application-header h2 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, #000000 35%, #74c044 100%);
@@ -322,7 +316,7 @@
 
 .application-header p.application-meta {
   color: #64748b;
-  font-size: 1.1rem;
+  /* font properties handled globally in globals.css */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -334,8 +328,7 @@
 }
 
 .career-form .form-section-title {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.25rem;
+  /* font properties handled globally in globals.css */
   color: #0f172a;
   margin-bottom: 1.5rem;
   display: flex;
@@ -369,7 +362,7 @@
 }
 
 .career-form label {
-  font-size: 0.85rem;
+  /* font properties handled globally in globals.css */
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 0.5rem;
@@ -383,8 +376,7 @@
   border-radius: 8px;
   border: 1px solid #e2e8f0;
   background-color: #f8fafc;
-  font-family: inherit;
-  font-size: 0.95rem;
+  /* font properties handled globally in globals.css */
   color: #0f172a;
   transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
@@ -458,7 +450,7 @@
 }
 
 .drag-upload-content h4 {
-  font-size: 1.1rem;
+  /* font properties handled globally in globals.css */
   font-weight: 600;
   color: #0f172a;
   margin: 0;
@@ -466,7 +458,7 @@
 
 .drag-upload-content p {
   color: #64748b;
-  font-size: 0.9rem;
+  /* font properties handled globally in globals.css */
   margin: 0;
 }
 
@@ -479,7 +471,7 @@
   background-color: #74c044;
   /* PKSS Green */
   color: #ffffff;
-  font-size: 1.1rem;
+  /* font properties handled globally in globals.css */
   font-weight: 700;
   border: none;
   border-radius: 8px;
@@ -516,15 +508,14 @@
 }
 
 .career-success-state h3 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 2rem;
+  /* font properties handled globally in globals.css */
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
 .career-success-state p {
   color: #64748b;
-  font-size: 1.1rem;
+  /* font properties handled globally in globals.css */
   max-width: 500px;
   margin: 0 auto 2.5rem auto;
   line-height: 1.6;

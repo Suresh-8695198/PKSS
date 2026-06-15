@@ -36,10 +36,10 @@ const AnimatedCounter = ({ target, suffix = "" }) => {
     let start = 0;
     const end = parseInt(target);
     if (isNaN(end)) return;
-    
+
     const duration = 1200; // 1.2 seconds animation
     const increment = end / (duration / 16); // ~60fps
-    
+
     const timer = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -69,7 +69,7 @@ export default function Stats() {
       desc: 'We design and deploy custom enterprise database engines, cloud integrations, and core software backends for logistics, healthcare, and retail leaders.',
       image: '/images/about/stats_projects.png',
       cardBg: '#f3faf4', // Soft corporate mint green background tint
-      icon: <Building2 size={26} strokeWidth={2} />,
+      icon: <img src="/images/about/enterprise.png" alt="Enterprise" width={40} height={40} className="corp-svg" />,
       accentColor: '#285817', // Deep forest green
       accentRgb: '40, 88, 23',
       metrics: [
@@ -84,7 +84,7 @@ export default function Stats() {
       desc: 'Serving corporate clients across North America, Europe, and the APAC region with dedicated onshore and offshore delivery teams.',
       image: '/images/about/stats_clients.png',
       cardBg: '#f0f6fc', // Soft corporate blue/slate background tint
-      icon: <Globe2 size={26} strokeWidth={2} />,
+      icon: <img src="/images/about/Global.png" alt="Global" width={40} height={40} className="corp-svg" />,
       accentColor: '#1a5fb4', // High contrast blue
       accentRgb: '26, 95, 180',
       metrics: [
@@ -99,7 +99,7 @@ export default function Stats() {
       desc: 'Round-the-clock infrastructure monitoring, system health checks, and direct engineer access with guaranteed response times.',
       image: '/images/about/stats_support.png',
       cardBg: '#faf8f2', // Soft corporate warm sand background tint
-      icon: <Clock size={26} strokeWidth={2} />,
+      icon: <img src="/images/about/support.png" alt="Support" width={40} height={40} className="corp-svg" />,
       accentColor: '#c05621', // Clean warm bronze
       accentRgb: '192, 86, 33',
       metrics: [
@@ -138,10 +138,10 @@ export default function Stats() {
 
         <div className="stats-grid">
           {statsData.map((item, idx) => (
-            <div 
-              className="stat-card" 
+            <div
+              className="stat-card"
               key={idx}
-              style={{ 
+              style={{
                 '--accent-color': item.accentColor,
                 '--accent-rgb': item.accentRgb,
                 '--card-bg': item.cardBg
@@ -149,10 +149,10 @@ export default function Stats() {
             >
               {/* Card Image with curved wave bottom cut */}
               <div className="stat-card-image-wrap">
-                <Image 
-                  src={item.image} 
-                  alt={item.title} 
-                  className="stat-card-img" 
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  className="stat-card-img"
                   fill
                   sizes="(max-width: 768px) 100vw, 30vw"
                   style={{ objectFit: 'cover' }}

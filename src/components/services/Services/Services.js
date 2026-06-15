@@ -19,7 +19,7 @@ export default function Services({ preview = false }) {
       id: 'app-dev',
       title: 'Application Development',
       tag: '01 / ARCHITECTURE',
-      desc: 'Bespoke, component-driven web architectures and responsive mobile experiences. Scalable microservices engineered for sub-100ms response times.',
+      desc: 'Custom, component-driven web architectures and responsive mobile experiences. Scalable microservices engineered for sub-100ms response times.',
       capability: 'Core Engine: Next.js + Go RESTful APIs',
       tech: 'Next.js · React · Go · Flutter · PostgreSQL',
       imageName: 'app_dev.png',
@@ -60,70 +60,53 @@ export default function Services({ preview = false }) {
       )
     },
     {
-      id: 'salesforce',
-      title: 'Salesforce Consulting',
-      tag: '03 / CUSTOMER CORE',
-      desc: 'Certified Lightning Web Component (LWC) configurations, custom Apex triggers, and transactional database integrations.',
-      capability: 'Core Engine: Apex + LWC Framework',
-      tech: 'Salesforce · Apex · LWC · MuleSoft · ERP Sync',
+      id: 'erp-dev',
+      title: 'ERP Development',
+      tag: '03 / INTEGRATION',
+      desc: 'Full-cycle ERP implementations across Zoho CRM, HubSpot, Salesforce, Odoo, and Microsoft Dynamics 365  each configured precisely to your business workflow and data model.',
+      capability: 'Core Engine: Multi-Platform ERP Suite',
+      tech: 'Zoho CRM · HubSpot · Salesforce · Odoo · Dynamics 365',
       imageName: 'salesforce.png',
-      colors: ['#00a1e0', '#005fb2'], // Salesforce Blue & Deep Blue
+      colors: ['#00a1e0', '#7928ca'],
       illustration: (
         <svg viewBox="0 0 200 120" className="active-srv-svg">
-          <rect x="20" y="20" width="160" height="80" rx="6" fill="none" stroke="currentColor" strokeWidth="1.2" opacity="0.15" />
-          <rect x="35" y="35" width="40" height="50" rx="3" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <rect x="85" y="35" width="80" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <rect x="85" y="54" width="80" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <rect x="85" y="73" width="80" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="55" y1="45" x2="55" y2="75" stroke="currentColor" strokeWidth="1.2" strokeDasharray="2 2" />
+          <rect x="10" y="45" width="38" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="81" y="20" width="38" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="81" y="70" width="38" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="152" y="45" width="38" height="30" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <line x1="48" y1="60" x2="81" y2="35" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="48" y1="60" x2="81" y2="85" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="119" y1="35" x2="152" y2="60" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="119" y1="85" x2="152" y2="60" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
         </svg>
       )
     },
     {
-      id: 'hubspot',
-      title: 'HubSpot CRM',
-      tag: '04 / WORKFLOWS',
-      desc: 'Pipeline optimization and marketing automation hooks, linking pipeline pipelines directly to custom developer backends.',
-      capability: 'Core Engine: HubSpot Webhooks & APIs',
-      tech: 'HubSpot CRM · REST Webhooks · Node.js · OAuth',
-      imageName: 'hubspot.png',
-      colors: ['#ff7a59', '#ff9800'], // HubSpot Orange & Amber
-      illustration: (
-        <svg viewBox="0 0 200 120" className="active-srv-svg">
-          <circle cx="40" cy="60" r="12" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <circle cx="100" cy="60" r="12" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <circle cx="160" cy="60" r="12" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="52" y1="60" x2="88" y2="60" stroke="currentColor" strokeWidth="1.2" />
-          <line x1="112" y1="60" x2="148" y2="60" stroke="currentColor" strokeWidth="1.2" />
-          <circle cx="70" cy="60" r="3" fill="currentColor" className="moving-dot-hs" />
-          <circle cx="130" cy="60" r="3" fill="currentColor" className="moving-dot-hs" />
-        </svg>
-      )
-    },
-    {
-      id: 'zoho',
-      title: 'Zoho Development',
-      tag: '05 / AUTOMATION',
-      desc: 'End-to-end setups of the Zoho One suite using custom Deluge scripting and Creator app layouts.',
-      capability: 'Core Engine: Zoho Creator + Deluge',
-      tech: 'Deluge · Zoho Creator · Zoho CRM · Zoho Books',
+      id: 'custom-erp',
+      title: 'Custom ERP',
+      tag: '04 / ARCHITECTURE',
+      desc: 'Ground-up enterprise resource planning systems with custom modules, role-based access controls, and real-time operational dashboards built for your exact processes.',
+      capability: 'Core Engine: Custom Modules + API Layer',
+      tech: 'React · Node.js · PostgreSQL · REST APIs · Role-Based Access',
       imageName: 'zoho.png',
-      colors: ['#e2231a', '#f4b400'], // Zoho Red & Yellow
+      colors: ['#7928ca', '#002ea6'],
       illustration: (
         <svg viewBox="0 0 200 120" className="active-srv-svg">
-          <rect x="30" y="30" width="60" height="60" rx="6" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <rect x="110" y="30" width="60" height="60" rx="6" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <path d="M 90,60 H 110" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
-          <polyline points="105,55 110,60 105,65" fill="none" stroke="currentColor" strokeWidth="1.2" />
-          <text x="60" y="64" fontSize="8" textAnchor="middle" fill="currentColor" fontFamily="monospace">INPUT</text>
-          <text x="140" y="64" fontSize="8" textAnchor="middle" fill="currentColor" fontFamily="monospace">LOGIC</text>
+          <rect x="20" y="15" width="160" height="22" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="20" y="49" width="160" height="22" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <rect x="20" y="83" width="160" height="22" rx="4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+          <line x1="100" y1="37" x2="100" y2="49" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+          <line x1="100" y1="71" x2="100" y2="83" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+          <rect x="30" y="22" width="35" height="8" rx="2" fill="currentColor" opacity="0.2" />
+          <rect x="30" y="56" width="55" height="8" rx="2" fill="currentColor" opacity="0.2" />
+          <rect x="30" y="90" width="45" height="8" rx="2" fill="currentColor" opacity="0.2" />
         </svg>
       )
     },
     {
       id: 'cloud',
       title: 'Cloud Engineering',
-      tag: '06 / SCALE',
+      tag: '05 / SCALE',
       desc: 'Provision highly available server topologies on AWS and Azure using Terraform and Kubernetes container nodes.',
       capability: 'Core Engine: Terraform & Kubernetes',
       tech: 'AWS · Azure · Kubernetes · Terraform · CI/CD',
@@ -145,7 +128,7 @@ export default function Services({ preview = false }) {
     {
       id: 'data-analytics',
       title: 'Data Analytics',
-      tag: '07 / TELEMETRY',
+      tag: '06 / TELEMETRY',
       desc: 'Orchestrating secure data lakes, ETL pipelines, and interactive dashboards to convert performance logs into insights.',
       capability: 'Core Engine: ETL + Power BI Telemetry',
       tech: 'Power BI · ETL Pipelines · Snowflake · SQL Server',
@@ -162,7 +145,7 @@ export default function Services({ preview = false }) {
     {
       id: 'consulting',
       title: 'Consultancy Services',
-      tag: '08 / COMPLIANCE',
+      tag: '07 / COMPLIANCE',
       desc: 'Comprehensive code audits, database index tuning, and performance profiling to eliminate application latency.',
       capability: 'Core Engine: System Auditing & SLA Tuning',
       tech: 'Code Audits · Latency Tuning · Database Indexing',
@@ -181,7 +164,7 @@ export default function Services({ preview = false }) {
     {
       id: 'outsourcing',
       title: 'Outsourcing Solutions',
-      tag: '09 / DECK CAPACITY',
+      tag: '08 / CAPACITY',
       desc: 'Augment team velocities with dedicated offshore software squads running under strict Agile SLAs.',
       capability: 'Core Engine: Dedicated offshore sprints',
       tech: 'Agile Augmentation · Pod Scaling · Code Quality Reviews',
@@ -200,7 +183,7 @@ export default function Services({ preview = false }) {
     {
       id: 'training',
       title: 'Corporate Training',
-      tag: '10 / SKILLS',
+      tag: '09 / SKILLS',
       desc: 'Placement cohorts and upskilling tracks to integrate certified technical talent directly into operational workloads.',
       capability: 'Core Engine: Placement-driven upskilling',
       tech: 'Certified CRM Paths · Live Projects · Tech Training',
@@ -258,7 +241,7 @@ export default function Services({ preview = false }) {
         }}
       >
         <div className="container srv-showcase-container">
-          
+
           {/* Header Title Section (matches screenshot layout) */}
           <div className="srv-showcase-hdr">
             <h2 className="srv-showcase-title-new">Solutions we<br />provide</h2>
@@ -269,11 +252,11 @@ export default function Services({ preview = false }) {
 
           {/* Interactive Split Showcase (matches screenshot) */}
           <div className="home-services-split-showcase">
-            
+
             {/* Left: Tilted active image display */}
             <div className="home-services-visual-col">
               <div className="home-services-accent-bg" style={{ '--accent-theme': activeSrv.colors[0] }} />
-              
+
               <div className="home-services-image-frame">
                 {services.map((item, idx) => (
                   <div
@@ -312,10 +295,10 @@ export default function Services({ preview = false }) {
                   <span className="home-service-item-num">
                     {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                   </span>
-                  
+
                   <h3 className="home-service-item-title">{item.title}</h3>
                   <p className="home-service-item-desc">{item.desc}</p>
-                  
+
                   <div className="home-service-item-arrow">
                     <ArrowUpRight size={26} strokeWidth={2.5} />
                   </div>
@@ -367,7 +350,7 @@ export default function Services({ preview = false }) {
             />
           </div>
           <p className="srv-showcase-subtitle-new">
-            Bespoke application systems, intelligent database workflows, and scalable cloud structures built to streamline your business velocity.
+            Custom-built application systems, intelligent database workflows, and scalable cloud structures engineered to accelerate your business velocity.
           </p>
         </div>
 
@@ -526,8 +509,8 @@ export default function Services({ preview = false }) {
                   animate={{ opacity: 1, scale: 1, rotateY: 0, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, rotateY: 15, y: -15 }}
                   transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ 
-                    scale: 1.03, 
+                  whileHover={{
+                    scale: 1.03,
                     rotateY: 6,
                     rotateX: -2,
                     boxShadow: "0 30px 60px rgba(0,0,0,0.12)",

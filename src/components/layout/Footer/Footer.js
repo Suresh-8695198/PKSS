@@ -76,124 +76,129 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="main-footer">
-      {/* Top Overlapping White Card (Half Inside, Half Outside) */}
-      <div className="container">
-        <div className="footer-overlapping-card">
-          <div className="overlapping-card-content">
-            <div className="accent-logo-wrapper">
-              <img 
-                src="/logo.png" 
-                alt="PK Software Solutions" 
-                style={{ height: '36px', width: 'auto', objectFit: 'contain' }} 
-              />
-            </div>
+    <>
+      {/* Banner design to show on all pages */}
+      <div className="footer-banner-section"></div>
 
-            <div className="accent-social-wrapper">
-              <span className="accent-label">Follow Us</span>
-              <div className="social-squares">
-                <a href="#" className="social-square" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.8M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.4 9.94v-8.37H5.47v8.37h2.81z"/>
-                  </svg>
-                </a>
-                <a href="#" className="social-square" aria-label="Twitter">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.54v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.6 8.6 0 0 1-5.3 1.83c-.35 0-.69-.02-1.03-.06 1.95 1.25 4.27 1.97 6.75 1.97 8.09 0 12.51-6.7 12.51-12.52 0-.19 0-.38-.01-.57.87-.62 1.63-1.4 2.22-2.28z"/>
-                  </svg>
-                </a>
-                <a href="#" className="social-square" aria-label="YouTube">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                    <path d="M21.58 7.3a2.86 2.86 0 0 0-2-2C17.78 4.75 12 4.75 12 4.75s-5.78 0-7.58.5a2.86 2.86 0 0 0-2 2C2 9.08 2 12 2 12s0 2.92.42 4.7a2.86 2.86 0 0 0 2 2c1.8.5 7.58.5 7.58.5s5.78 0 7.58-.5a2.86 2.86 0 0 0 2-2C22 14.92 22 12 22 12s0-2.92-.42-4.7zM9.75 15.02V8.98L15 12l-5.25 3.02z"/>
-                  </svg>
-                </a>
+      <footer className="main-footer">
+        {/* Top Overlapping White Card (Half Inside, Half Outside) */}
+        <div className="container">
+          <div className="footer-overlapping-card">
+            <div className="overlapping-card-content">
+              <div className="accent-logo-wrapper">
+                <img
+                  src="/logo.png"
+                  alt="PK Software Solutions"
+                  style={{ height: '60px', width: 'auto', objectFit: 'contain' }}
+                />
               </div>
-            </div>
 
-            <div className="accent-cta-wrapper">
-              <span className="accent-label">Quick Connect</span>
-              <div className="cta-buttons">
-                <a href="/contact" className="accent-cta-btn text-btn">Schedule Consultation</a>
-                <a href="mailto:info@pksoftwaresolutions.com" className="accent-cta-btn email-btn">Email Inquiry</a>
+              <div className="accent-social-wrapper">
+                <span className="accent-label">Follow Us</span>
+                <div className="social-squares">
+                  <a href="#" className="social-square" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.8M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.4 9.94v-8.37H5.47v8.37h2.81z" />
+                    </svg>
+                  </a>
+                  <a href="#" className="social-square" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.54v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.6 8.6 0 0 1-5.3 1.83c-.35 0-.69-.02-1.03-.06 1.95 1.25 4.27 1.97 6.75 1.97 8.09 0 12.51-6.7 12.51-12.52 0-.19 0-.38-.01-.57.87-.62 1.63-1.4 2.22-2.28z" />
+                    </svg>
+                  </a>
+                  <a href="#" className="social-square" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M21.58 7.3a2.86 2.86 0 0 0-2-2C17.78 4.75 12 4.75 12 4.75s-5.78 0-7.58.5a2.86 2.86 0 0 0-2 2C2 9.08 2 12 2 12s0 2.92.42 4.7a2.86 2.86 0 0 0 2 2c1.8.5 7.58.5 7.58.5s5.78 0 7.58-.5a2.86 2.86 0 0 0 2-2C22 14.92 22 12 22 12s0-2.92-.42-4.7zM9.75 15.02V8.98L15 12l-5.25 3.02z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div className="accent-cta-wrapper">
+                <span className="accent-label">Quick Connect</span>
+                <div className="cta-buttons">
+                  <a href="/contact" className="accent-cta-btn text-btn">Schedule Consultation</a>
+                  <a href="mailto:info@pksoftwaresolutions.com" className="accent-cta-btn email-btn">Email Inquiry</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container footer-content-wrapper" style={{ paddingTop: '80px' }}>
-        <h3 className="footer-section-title">Site Links</h3>
-        
-        {/* Footer Link Matrix */}
-        <div className="footer-grid">
-          <div className="footer-links-col">
-            <h4>Core Services</h4>
-            <ul>
-              <li><a href="/services">Application Development</a></li>
-              <li><a href="/services#salesforce">Salesforce Consulting</a></li>
-              <li><a href="/services#zoho">Zoho Development</a></li>
-              <li><a href="/services#cloud">Cloud Engineering</a></li>
-            </ul>
+        <div className="container footer-content-wrapper" style={{ paddingTop: '80px' }}>
+          <h3 className="footer-section-title">Site Links</h3>
+
+          {/* Footer Link Matrix */}
+          <div className="footer-grid">
+            <div className="footer-links-col">
+              <h4>Core Services</h4>
+              <ul>
+                <li><a href="/services">Application Development</a></li>
+                <li><a href="/services#erp">ERP Development</a></li>
+                <li><a href="/services#custom-erp">Custom ERP Development</a></li>
+                <li><a href="/services#cloud">Cloud Engineering</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>Solutions</h4>
+              <ul>
+                <li><a href="/services#data-analytics">Data Analytics</a></li>
+                <li><a href="/services#hubspot">HubSpot CRM Setup</a></li>
+                <li><a href="/services#consulting">IT Consultancy</a></li>
+                <li><a href="/services#ai-automation">Intelligent AI Automation</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>Company Directory</h4>
+              <ul>
+                <li><a href="/about">About PKSS</a></li>
+                <li><a href="/about#transformation">Methodology Blueprint</a></li>
+                <li><a href="/careers">Careers Portal</a></li>
+                <li><a href="/contact">Contact Support</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>Headquarters</h4>
+              <p className="footer-addr">
+                Plot No.4, Karumbalai,<br />
+                Karuppur Main road, Karuppur,<br />
+                Salem - 636012, Tamilnadu, India.
+              </p>
+            </div>
           </div>
 
-          <div className="footer-links-col">
-            <h4>Solutions</h4>
-            <ul>
-              <li><a href="/services#data-analytics">Data Analytics</a></li>
-              <li><a href="/services#hubspot">HubSpot CRM Setup</a></li>
-              <li><a href="/services#consulting">IT Consultancy</a></li>
-              <li><a href="/services#ai-automation">Intelligent AI Automation</a></li>
-            </ul>
-          </div>
+          {/* Separator Line */}
+          <div className="footer-separator"></div>
 
-          <div className="footer-links-col">
-            <h4>Company Directory</h4>
-            <ul>
-              <li><a href="/about">About PKSS</a></li>
-              <li><a href="/about#transformation">Methodology Blueprint</a></li>
-              <li><a href="/careers">Careers Portal</a></li>
-              <li><a href="/contact">Contact Support</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-col">
-            <h4>Headquarters</h4>
-            <p className="footer-addr">
-              Plot No.4, Karumbalai,<br />
-              Karuppur Main road, Karuppur,<br />
-              Salem - 636012, Tamilnadu, India.
-            </p>
-          </div>
-        </div>
-
-        {/* Separator Line */}
-        <div className="footer-separator"></div>
-
-        {/* Grayscale Corporate Partners Grid */}
-        <div className="footer-partners-grid">
+          {/* Grayscale Corporate Partners Grid */}
+          {/* <div className="footer-partners-grid">
           {partnerLogos.map((partner, idx) => (
             <div className="footer-partner-item" key={idx}>
               {partner.svg}
             </div>
           ))}
+        </div> */}
         </div>
-      </div>
 
-      {/* Bottom Accent Bar Section */}
-      <div className="footer-bottom-accent-bar">
-        <div className="container">
-          <div className="accent-bottom-row">
-            <p>&copy; {new Date().getFullYear()} PK Software Solutions. All Rights Reserved. Salem, Tamilnadu, India.</p>
-            <div className="accent-legal-links">
-              <a href="#">Privacy Policy</a>
-              <span>|</span>
-              <a href="#">Terms of Use</a>
-              <span>|</span>
-              <a href="#">SLA Assurances</a>
+        {/* Bottom Accent Bar Section */}
+        <div className="footer-bottom-accent-bar">
+          <div className="container">
+            <div className="accent-bottom-row">
+              <p>&copy; {new Date().getFullYear()} PK Software Solutions. All Rights Reserved. Salem, Tamilnadu, India.</p>
+              <div className="accent-legal-links">
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Use</a>
+                <span>|</span>
+                <a href="#">SLA Assurances</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

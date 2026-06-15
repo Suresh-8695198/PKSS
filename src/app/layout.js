@@ -1,6 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
 import CustomCursor from "../components/layout/CustomCursor/CustomCursor";
+import ScrollToTop from "../components/layout/ScrollToTop/ScrollToTop";
 
 export const metadata = {
   title: "PK Software Solutions | Enterprise CRM, Cloud & Corporate Training Salem",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <CustomCursor />
+          <ScrollToTop />
           {children}
         </ThemeProvider>
       </body>
