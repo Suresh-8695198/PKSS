@@ -8,7 +8,9 @@
     position: relative;
     background-color: var(--bg-dark);
     width: 100%;
-    overflow: hidden;
+    /* overflow:clip instead of hidden — clips visually but doesn't create a scroll
+       container, so position:sticky on children still works correctly */
+    overflow: clip;
 }
 
 /* ==========================================================================
@@ -58,16 +60,20 @@
    ========================================================================== */
 .home-page-container .services-showcase-section {
     padding: 100px 0 !important;
-    background-color: #121212 !important; /* Pure black/charcoal background */
+    background-color: #121212 !important; /* Dark default */
     background-image: none !important;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    /* Must NOT be overflow:hidden — that would trap sticky inside and break it */
+    overflow: clip;
 }
 
+/* ─── LIGHT THEME OVERRIDE — full surface + typography flip ─── */
 .home-page-container .services-showcase-section.light-theme {
-    background-color: #121212 !important; /* Forces black bg in light theme too */
+    background-color: #f5f7fa !important; /* Soft white-grey surface */
     background-image: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: clip;
 }
 
 .home-page-container .srv-showcase-hdr {
@@ -83,6 +89,7 @@
     font-size: clamp(2.2rem, 4.5vw, 3.2rem) !important;
     line-height: 1.15 !important;
     font-weight: 800 !important;
+    /* Dark mode: white-to-cool gradient */
     background: linear-gradient(135deg, #ffffff 40%, #c4c7db 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -91,12 +98,26 @@
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Light mode title: dark-to-brand-green gradient */
+.home-page-container .services-showcase-section.light-theme .srv-showcase-title-new {
+    background: linear-gradient(135deg, #0f172a 40%, #285817 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #0f172a !important;
+    text-shadow: none;
+}
+
 .home-page-container .srv-showcase-subtitle-new {
     font-size: 1.05rem !important;
     line-height: 1.7 !important;
     color: rgba(255, 255, 255, 0.55) !important;
     max-width: 650px;
     margin: 0;
+}
+
+/* Light mode subtitle */
+.home-page-container .services-showcase-section.light-theme .srv-showcase-subtitle-new {
+    color: rgba(0, 0, 0, 0.55) !important;
 }
 
 @media (min-width: 1024px) {
@@ -112,7 +133,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    align-items: center;
+    /* align-items MUST be start (not center/stretch) for position:sticky to work */
+    align-items: start;
     margin-top: 3.5rem;
 }
 
@@ -120,10 +142,11 @@
     .home-page-container .home-services-split-showcase {
         grid-template-columns: 4.8fr 7.2fr; /* Perfect split ratio */
         gap: 5rem;
+        align-items: start; /* CRITICAL: must stay start for sticky to work */
     }
 }
 
-/* Left Column: Tilted Active Image + Colored Accent backing */
+/* Left Column: Sticky Active Image + Colored Accent backing */
 .home-page-container .home-services-visual-col {
     position: relative;
     width: 100%;
@@ -131,6 +154,16 @@
     justify-content: center;
     align-items: center;
     min-height: 480px;
+}
+
+/* On desktop: pin the left image so it stays visible while right list scrolls */
+@media (min-width: 1024px) {
+    .home-page-container .home-services-visual-col {
+        position: sticky;
+        /* Center the image vertically in the viewport */
+        top: calc(50vh - 260px);
+        align-self: start; /* Required alongside align-items:start on parent */
+    }
 }
 
 .home-page-container .home-services-image-frame {
@@ -183,10 +216,19 @@
     cursor: pointer;
     transition: border-color 0.3s ease;
     position: relative;
+    text-decoration: none;
 }
 
 .home-page-container .home-service-item:first-child {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Light mode borders */
+.home-page-container .services-showcase-section.light-theme .home-service-item {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+.home-page-container .services-showcase-section.light-theme .home-service-item:first-child {
+    border-top-color: rgba(0, 0, 0, 0.08);
 }
 
 .home-page-container .home-service-item-num {
@@ -200,12 +242,22 @@
     padding-top: 0rem;
 }
 
+/* Light mode number */
+.home-page-container .services-showcase-section.light-theme .home-service-item-num {
+    color: rgba(0, 0, 0, 0.25);
+}
+
 .home-page-container .home-service-item-title {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 600;
     color: rgba(255, 255, 255, 0.55);
     margin: 0;
     transition: color 0.3s ease, font-weight 0.2s ease;
+}
+
+/* Light mode title */
+.home-page-container .services-showcase-section.light-theme .home-service-item-title {
+    color: rgba(0, 0, 0, 0.55);
 }
 
 .home-page-container .home-service-item-desc {
@@ -219,6 +271,11 @@
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
+/* Light mode description */
+.home-page-container .services-showcase-section.light-theme .home-service-item-desc {
+    color: rgba(0, 0, 0, 0.45);
+}
+
 .home-page-container .home-service-item-arrow {
     display: flex;
     align-items: center;
@@ -228,7 +285,12 @@
     align-self: center;
 }
 
-/* Active Service States */
+/* Light mode arrow */
+.home-page-container .services-showcase-section.light-theme .home-service-item-arrow {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Active states — dark mode ─── */
 .home-page-container .home-service-item.active {
     border-color: rgba(255, 255, 255, 0.25);
 }
@@ -250,6 +312,36 @@
 .home-page-container .home-service-item.active .home-service-item-arrow {
     color: var(--accent-theme, #0070f3) !important;
     animation: arrow-bounce-up-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Active states — light mode ─── */
+.home-page-container .services-showcase-section.light-theme .home-service-item.active {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.home-page-container .services-showcase-section.light-theme .home-service-item.active .home-service-item-num {
+    color: #0f172a;
+}
+
+.home-page-container .services-showcase-section.light-theme .home-service-item.active .home-service-item-title {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.home-page-container .services-showcase-section.light-theme .home-service-item.active .home-service-item-desc {
+    opacity: 1;
+    color: #374151;
+}
+
+.home-page-container .services-showcase-section.light-theme .home-service-item.active .home-service-item-arrow {
+    color: var(--accent-theme, #002ea6) !important;
+    animation: arrow-bounce-up-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Light mode image frame border */
+.home-page-container .services-showcase-section.light-theme .home-services-image-frame {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -283,11 +375,15 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.85); /* Dark mode: white */
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.home-page-container .services-showcase-section.light-theme .srv-view-all-link {
+    color: rgba(0, 0, 0, 0.75); /* Light mode: dark */
 }
 
 .home-page-container .srv-view-all-link:hover {

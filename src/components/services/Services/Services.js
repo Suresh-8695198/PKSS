@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,6 +13,27 @@ export default function Services({ preview = false }) {
   const { theme } = useTheme();
   // Active card index state
   const [activeIndex, setActiveIndex] = useState(0);
+  // Refs for each service row (used by IntersectionObserver in preview/sticky mode)
+  const itemRefs = useRef([]);
+
+  // Scroll-driven activation: watches each service row entering the viewport center
+  useEffect(() => {
+    if (!preview) return;
+    const observers = [];
+    itemRefs.current.forEach((el, idx) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveIndex(idx);
+        },
+        // Fires when item crosses into the middle band of the viewport
+        { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, [preview]);
 
   const servicesData = [
     {
@@ -300,12 +321,13 @@ export default function Services({ preview = false }) {
               </div>
             </div>
 
-            {/* Right: Numbered vertical accordion hover list */}
+            {/* Right: Numbered vertical list — scrolls while left image stays sticky */}
             <div className="home-services-list-col">
               {services.map((item, idx) => (
                 <Link
                   key={item.id}
                   href={`/services#${item.id}`}
+                  ref={el => { itemRefs.current[idx] = el; }}
                   className={`home-service-item ${idx === activeIndex ? 'active' : ''}`}
                   onMouseEnter={() => setActiveIndex(idx)}
                 >
