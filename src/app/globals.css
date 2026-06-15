@@ -2061,6 +2061,30 @@ ul {
     color: var(--text-primary);
 }
 
+.client-logo-img {
+    height: 65px;
+    width: auto;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    object-fit: contain;
+}
+
+.marquee-item:hover .client-logo-img {
+    opacity: 1;
+}
+
+.dark .client-logo-img {
+    filter: brightness(0) invert(0.85);
+}
+
+.trust-marquee-section .section-micro-title {
+    color: #000000;
+}
+
+.dark .trust-marquee-section .section-micro-title {
+    color: #ffffff;
+}
+
 /* ==========================================================================
    3. ABOUT SECTION
    ========================================================================== */

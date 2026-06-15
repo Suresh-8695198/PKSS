@@ -193,17 +193,6 @@ export default function Stats() {
                 </div>
 
                 <p className="stat-desc-text">{item.desc}</p>
-                
-                <div className="stat-card-divider" />
-
-                <div className="stat-metrics-subgrid">
-                  {item.metrics.map((met, mIdx) => (
-                    <div className="stat-sub-unit" key={mIdx}>
-                      <span className="stat-sub-val">{met.value}</span>
-                      <span className="stat-sub-lbl">{met.label}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
