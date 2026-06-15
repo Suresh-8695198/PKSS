@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
 :root {
     /* Transitions */
     --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,6 +79,8 @@ html {
 body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
+    /* Global font-family: ABeeZee is used across all pages (About, Industries, Services, etc.) */
+    font-family: 'ABeeZee', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -3147,4 +3151,381 @@ ul {
 .dark .service-card.card-green-tint {
     background: #081208 !important;
     border: 1px solid rgba(89, 167, 0, 0.15) !important;
+}
+
+/* ==========================================================================
+   ABOUT PAGE GLOBAL TYPOGRAPHY (USER REQUESTED STANDARDIZATION)
+   ========================================================================== */
+
+/* GROUP 1: Main Section Titles */
+.about-section .section-title,
+.methodology-title,
+.stats-title {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: clamp(2rem, 4.5vw, 2.7rem) !important;
+    font-weight: 850 !important;
+    letter-spacing: -0.03em !important;
+}
+
+/* GROUP 2: Badges & Tags */
+.about-section .section-tag,
+.card-tag,
+.tech-srv-tag {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+}
+
+/* GROUP 3: Feature / Card Headings */
+.card-heading,
+.stat-title-label {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.45rem !important;
+    font-weight: 700 !important;
+}
+
+/* GROUP 4: Step Headings */
+.serpentine-card h3 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.35rem !important;
+    font-weight: 650 !important;
+}
+
+/* GROUP 5: All Description Paragraphs */
+.section-subtitle,
+.value-description,
+.methodology-subtitle,
+.serpentine-card p,
+.stats-subtitle,
+.stat-desc-text,
+.srv-showcase-subtitle-new,
+.active-srv-desc,
+.home-service-item-desc,
+.tech-srv-subtitle,
+.tech-srv-card-desc,
+.footer-addr,
+.footer-links-col a,
+.contact-info-desc,
+.contact-detail-text p,
+.premium-success-state p,
+.careers-hero-content p,
+.job-card p,
+.benefit-card p,
+.drag-upload-content p,
+.career-success-state p,
+.contact-hero-content p {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+/* ==========================================================================
+   SERVICES PAGE — GLOBAL TYPOGRAPHY
+   All font-family & font-size for Services components are centralised here.
+   Matches the ABeeZee-based type system used throughout the About page.
+   ========================================================================== */
+
+/* ── Section Main Titles ──
+   "Our Core Services"  (Services.js → .srv-showcase-title-new)
+   "Our Development & Integration Stack"  (TechEcosystemServices.js → .tech-srv-title)
+*/
+.srv-showcase-title-new,
+.tech-srv-title {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: clamp(1.8rem, 4.5vw, 2.7rem);
+}
+
+/* ── Section Tag Labels ──
+   "Technical Competency"  (.tech-srv-tag)
+*/
+.tech-srv-tag {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 0.82rem;
+}
+
+/* ── Carousel Card Titles ──
+   "Application Development" … all 10 carousel cards  (.carousel-card-title)
+*/
+.carousel-card-title {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 1.35rem;
+}
+
+/* ── ARCHITECTURE Tag Number ──
+   "01", "02" … number badge inside green circle  (.active-srv-tag-number)
+*/
+.active-srv-tag-number {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 0.95rem;
+}
+
+/* ── ARCHITECTURE Tag Label ──
+   "ARCHITECTURE", "INTELLIGENCE" … all 10 uppercase labels  (.active-srv-tag-label)
+*/
+.active-srv-tag-label {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.15rem !important;
+}
+
+/* ── Active Service Detail Heading ──
+   Large service title inside the expanded detail card  (.active-srv-heading)
+*/
+.active-srv-heading {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+}
+
+/* ── Tech Stack Card Names ──
+   "Salesforce", "HubSpot" … all 12 tech grid cards  (.tech-srv-card-name)
+*/
+.tech-srv-card-name {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* ── Secondary details sizing (Group A: 0.85rem) ──
+   Used for: capability value (cap-val), tech-row, and efficiency labels (footer-spec-dot)
+*/
+.cap-val,
+.active-srv-tech-row,
+.footer-spec-dot {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.85rem !important;
+}
+
+/* ── Secondary tags and labels (Group B: 0.72rem) ──
+   Used for: capability label (cap-label), and category tag (tech-srv-category-tag)
+*/
+.cap-label,
+.tech-srv-category-tag {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.72rem !important;
+}
+
+/* ==========================================================================
+   FOOTER SECTION — GLOBAL TYPOGRAPHY
+   All font-family & font-size configurations for the Footer are centralised here.
+   ========================================================================== */
+
+/* ── Overlapping Card Labels ──
+   "Follow Us", "Quick Connect" (.accent-label)
+*/
+.accent-label {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.85rem !important;
+}
+
+/* ── Site Links Title ──
+   "Site Links" (.footer-section-title)
+*/
+.footer-section-title {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.1rem !important;
+}
+
+/* ── Footer Link Column Titles ──
+   "Core Services", "Solutions", "Company Directory", "Headquarters" (.footer-links-col h4)
+*/
+.footer-links-col h4 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.05rem !important;
+}
+
+/* ── Bottom Accent Row Copyright & Legal Links ──
+   "© 2026 PK Software Solutions. All Rights Reserved...", "Privacy Policy", etc.
+*/
+.accent-bottom-row p,
+.accent-legal-links a,
+.accent-cta-btn {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.85rem !important;
+}
+
+/* ==========================================================================
+   CONTACT & CAREERS PAGES — GLOBAL TYPOGRAPHY
+   ========================================================================== */
+
+/* ── Hero Headings ── */
+.contact-hero-content h1,
+.careers-hero-content h1 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 3rem !important;
+}
+
+/* ── Section / Article Headings (H2 level) ── */
+.contact-info-col h2,
+.contact-form-col h2,
+.culture-title,
+.application-header h2 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+}
+
+/* ── Card/State Headings (H3) ── */
+.job-card h3,
+.benefit-card h3,
+.premium-success-state h3,
+.career-success-state h3 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.3rem !important;
+}
+
+/* ── Block Titles & Sub-Section Titles (H4 / Section Titles) ── */
+.contact-detail-text h4,
+.social-media-block h4,
+.career-form .form-section-title,
+.drag-upload-content h4 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+}
+
+/* ── Form Labels, Badges & Meta Text ── */
+.premium-form label,
+.career-form label,
+.job-department-badge,
+.job-type-badge,
+.job-meta-item,
+.application-meta {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.85rem !important;
+}
+
+/* ── Form Inputs ── */
+.premium-form input,
+.premium-form textarea,
+.career-form input,
+.career-form select,
+.career-form textarea {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 0.95rem !important;
+}
+
+/* ── CTA Buttons ── */
+.btn-premium-send,
+.btn-submit-app,
+.btn-apply-trigger {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+/* ==========================================================================
+   SHARED PAGE BACKGROUND — SERVICES · ABOUT · INDUSTRIES
+   Services page uses #f4f6f8 on .services-page-main.
+   All 5 industry tabs (Healthcare, Manufacturing, Retail, Education, Logistics)
+   share the same CSS class names below for their page-level sections.
+   ========================================================================== */
+
+/* ── All industry sub-page section backgrounds ──
+   .ind-intro-section   → Section 2: Short Intro
+   .ind-study-section   → Section 3: Detailed Study Block
+   .ind-trends-section  → Section 5: Articles / Trends Grid
+*/
+.ind-intro-section,
+.ind-study-section,
+.ind-trends-section {
+    background: #f4f6f8 !important;
+}
+
+.dark .ind-intro-section,
+.dark .ind-study-section,
+.dark .ind-trends-section {
+    background: var(--bg-dark) !important;
+}
+
+/* ── Preview mode Industries section (homepage widget) ── */
+.industries-section {
+    background: #f4f6f8 !important;
+}
+
+.dark .industries-section {
+    background: var(--bg-dark) !important;
+}
+
+/* ── Page-level <main> wrappers ── */
+main:has(.ind-intro-section),
+main:has(.industries-section),
+main:has(.about-section) {
+    background-color: #f4f6f8;
+}
+
+.dark main:has(.ind-intro-section),
+.dark main:has(.industries-section),
+.dark main:has(.about-section) {
+    background-color: var(--bg-dark);
+}
+
+/* About page: sections that don't have own explicit bg */
+.about-section~section,
+.about-timeline-section,
+.about-stats-section {
+    background-color: #f4f6f8;
+}
+
+/* ==========================================================================
+   INDUSTRIES PAGE — GLOBAL TYPOGRAPHY
+   Font-family is inherited from body { font-family: 'ABeeZee' } above.
+   Only font-SIZE overrides are set here — matching the About page exactly.
+   ========================================================================== */
+
+/* ── Section Tag ("INDUSTRIES WE SERVE" label) — matches .section-tag global ── */
+.industries-section .section-tag {
+    font-size: 0.8rem;
+}
+
+/* ── Main Section Title — matches About .section-title ── */
+.industries-section .section-title {
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+}
+
+/* ── Section Subtitle — matches About .section-subtitle ── */
+.industries-section .section-subtitle {
+    font-size: 1.1rem;
+}
+
+/* ── Tab Navigation Buttons ── */
+.industries-section .tab-btn {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ── Tab Pane H3 — same scale as About section-title ── */
+.industries-section .pane-content-info h3 {
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+}
+
+/* ── Tab Pane body text — same as About section-subtitle ── */
+.industries-section .pane-content-info p,
+.intro-desc-p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* ── Checklist items ── */
+.industries-section .pane-checklist li {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ── Value / Brand Card Titles ── */
+.industries-section .value-card h3,
+.industries-section .value-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* ── Value / Brand Card Descriptions ── */
+.industries-section .value-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* ── CTA Button inside Industries pane ── */
+.industries-section .pane-cta-btn .btn {
+    font-size: 0.95rem;
 }

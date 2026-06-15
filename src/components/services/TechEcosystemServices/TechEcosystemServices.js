@@ -36,6 +36,30 @@ export default function TechEcosystemServices() {
       color: '#e2231a'
     },
     {
+      name: 'Odoo',
+      cat: 'crm',
+      desc: 'Modular ERP & CRM apps',
+      icon: '/images/services/logos/odoo-logo.png',
+      efficiency: 'Modular Suite',
+      color: '#a24689'
+    },
+    {
+      name: 'Dynamics 365',
+      cat: 'crm',
+      desc: 'Microsoft cloud ERP solutions',
+      icon: '/images/services/logos/dynamic-logo.png',
+      efficiency: 'Enterprise Ready',
+      color: '#5024b3'
+    },
+    {
+      name: 'Custom ERP',
+      cat: 'crm',
+      desc: 'Tailored solutions for exact workflows',
+      icon: '/images/services/logos/custom-erp-logo.png',
+      efficiency: '100% Custom',
+      color: '#74c044'
+    },
+    {
       name: 'Azure',
       cat: 'cloud',
       desc: 'Enterprise Cloud Systems',
@@ -131,22 +155,22 @@ export default function TechEcosystemServices() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 15 },
+    hidden: { opacity: 0, y: 45, scale: 0.96 },
     show: {
       opacity: 1,
-      scale: 1,
       y: 0,
+      scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 15
+        stiffness: 110,
+        damping: 14
       }
     },
     exit: {
       opacity: 0,
-      scale: 0.95,
-      y: -20,
-      transition: { duration: 0.2 }
+      y: -30,
+      scale: 0.96,
+      transition: { duration: 0.18 }
     }
   };
 
@@ -201,7 +225,7 @@ export default function TechEcosystemServices() {
 
         {/* Dynamic Cards Grid */}
         <motion.div
-          layout
+          key={filter}
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -210,7 +234,6 @@ export default function TechEcosystemServices() {
           <AnimatePresence mode="popLayout">
             {filteredTech.map((tech, idx) => (
               <motion.div
-                layout
                 key={tech.name}
                 variants={cardVariants}
                 initial="hidden"

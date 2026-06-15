@@ -83,31 +83,12 @@ export default function Timeline() {
       step: '06',
       title: 'Success',
       desc: 'Achieving stable production launch with zero downtime, robust CRM integration validation, and scalable cloud performance monitoring.',
-      // Custom target with exactly ONE arrow on the top-right side (matches Mission graphic)
       icon: (
-        <svg 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2.2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          className="success-archery-icon"
-        >
-          {/* Target outer ring */}
-          <circle cx="10" cy="14" r="7" />
-          {/* Target inner ring */}
-          <circle cx="10" cy="14" r="3.5" />
-          {/* Bullseye center */}
-          <circle cx="10" cy="14" r="0.75" fill="currentColor" />
-          {/* Single Arrow on one side (from center 10,14 to top-right 19,5) */}
-          <line x1="10" y1="14" x2="19" y2="5" />
-          {/* Arrow feathers/fletching at top-right (19,5) */}
-          <path d="M19 5l-2.5-1" />
-          <path d="M19 5l1 2.5" />
-          <path d="M16.5 7.5l-2.5-1" />
-          <path d="M16.5 7.5l1 2.5" />
-        </svg>
+        <img
+          src="/images/about/Goal.png"
+          alt="Success"
+          style={{ width: '28px', height: '28px', objectFit: 'contain' }}
+        />
       )
     }
   ];
@@ -188,11 +169,9 @@ export default function Timeline() {
                   <div className="serpentine-col col-content-left">
                     {!isEven && (
                       <div className={`serpentine-card glass-card ${isActive ? 'active-card' : ''}`}>
-                        {isActive && (
-                          <div className="border-beam-container">
-                            <div className="border-beam-spinning" />
-                          </div>
-                        )}
+                        <div className="border-beam-container">
+                          <div className="border-beam-spinning" />
+                        </div>
                         <span className="card-step-badge">{item.step}</span>
                         <h3>{item.title}</h3>
                         <p>{item.desc}</p>
@@ -232,11 +211,9 @@ export default function Timeline() {
                   <div className="serpentine-col col-content-right">
                     {isEven && (
                       <div className={`serpentine-card glass-card ${isActive ? 'active-card' : ''}`}>
-                        {isActive && (
-                          <div className="border-beam-container">
-                            <div className="border-beam-spinning" />
-                          </div>
-                        )}
+                        <div className="border-beam-container">
+                          <div className="border-beam-spinning" />
+                        </div>
                         <span className="card-step-badge">{item.step}</span>
                         <h3>{item.title}</h3>
                         <p>{item.desc}</p>

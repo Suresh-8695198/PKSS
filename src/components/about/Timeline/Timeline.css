@@ -45,10 +45,6 @@
 }
 
 .methodology-title {
-    font-family: 'ABeeZee', sans-serif;
-    font-size: clamp(1.8rem, 4.5vw, 2.7rem);
-    font-weight: 850;
-    letter-spacing: -0.03em;
     text-align: center;
     line-height: 1.25;
     width: 100%;
@@ -91,8 +87,6 @@
 }
 
 .methodology-subtitle {
-    font-family: 'ABeeZee', sans-serif;
-    font-size: 1.05rem;
     color: var(--text-secondary);
     max-width: 650px;
     margin-top: 0.5rem;
@@ -247,16 +241,12 @@
 }
 
 .serpentine-card h3 {
-    font-size: 1.35rem;
-    font-weight: 850;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
 }
 
 .serpentine-card p {
-    font-size: 0.92rem;
-    line-height: 1.6;
     color: var(--text-secondary);
 }
 
@@ -273,7 +263,7 @@
     z-index: 12; /* Sits ABOVE the animated border beam so the numbers are never crossed */
 }
 
-/* Currently Looked Stage - Card Outline Border with previous spinning border beam animation */
+/* Currently active card — glowing animated border beam */
 .active-card {
     border-color: transparent !important;
     transform: translateY(-8px);
@@ -284,6 +274,8 @@
     border-color: transparent !important;
 }
 
+/* Border beam is ALWAYS in the DOM to prevent animation restart on re-mount */
+/* Hidden by default, shown only when parent card is active */
 .border-beam-container {
     position: absolute;
     inset: -1.5px;
@@ -292,12 +284,17 @@
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;
-    padding: 1.5px; /* Matched precisely to border width */
+    padding: 1.5px;
     pointer-events: none;
     z-index: 10;
     overflow: hidden;
-    transform: translateZ(0); /* Hardware acceleration to prevent mask glitches */
-    -webkit-transform: translateZ(0);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+/* Show only when active */
+.active-card .border-beam-container {
+    opacity: 1;
 }
 
 .border-beam-spinning {
@@ -309,8 +306,8 @@
     background: conic-gradient(
         from 0deg,
         transparent 50%,
-        #00B8FF 75%, /* Cyan blue */
-        #002ea6 92%, /* Brand deep blue */
+        #00B8FF 75%,
+        #002ea6 92%,
         transparent 100%
     );
     animation: border-beam-spin 3s linear infinite;
@@ -382,6 +379,16 @@
     color: #ffffff; /* White icon */
     transform: scale(1.12);
     border-color: #ffffff; /* High contrast white outline */
+}
+
+/* Invert image icons inside active blue markers so they appear white */
+.row-active .serpentine-marker.road-marker img {
+    filter: invert(1) brightness(2);
+}
+
+/* Also invert on hover for desktop */
+.serpentine-row:hover .serpentine-marker.road-marker img {
+    filter: invert(1) brightness(2);
 }
 
 /* Mobile Scroll Traveler - Initial desktop state is hidden */

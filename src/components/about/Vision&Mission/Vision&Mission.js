@@ -1,11 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import './Vision&Mission.css';
 
 export default function VisionMission({ preview = false }) {
+  const [expandedCard, setExpandedCard] = useState(null);
+
+  const handleCardClick = (cardId) => {
+    setExpandedCard(prev => prev === cardId ? null : cardId);
+  };
+
   return (
     <section className="about-section" id="about">
       {/* Background Animated SVG Illustration - Subpage Only */}
@@ -66,7 +72,11 @@ export default function VisionMission({ preview = false }) {
 
             <div className="brand-values-grid">
               {/* Card 1: Vision */}
-              <div className="about-interactive-card card-vision" style={{ '--accent-color': '#3cd0ff' }}>
+              <div
+                className={`about-interactive-card card-vision ${expandedCard === 'vision' ? 'card-expanded' : ''}`}
+                style={{ '--accent-color': '#3cd0ff' }}
+                onClick={() => handleCardClick('vision')}
+              >
                 <div className="card-top-content">
                   <span className="card-tag">VISION</span>
                   <h3 className="card-heading">Inspiring Global Innovation</h3>
@@ -92,7 +102,11 @@ export default function VisionMission({ preview = false }) {
               </div>
 
               {/* Card 2: Mission */}
-              <div className="about-interactive-card card-mission" style={{ '--accent-color': '#4ade80' }}>
+              <div
+                className={`about-interactive-card card-mission ${expandedCard === 'mission' ? 'card-expanded' : ''}`}
+                style={{ '--accent-color': '#4ade80' }}
+                onClick={() => handleCardClick('mission')}
+              >
                 <div className="card-top-content">
                   <span className="card-tag">MISSION</span>
                   <h3 className="card-heading">Leading Software Development</h3>
@@ -118,7 +132,11 @@ export default function VisionMission({ preview = false }) {
               </div>
 
               {/* Card 3: Commitment */}
-              <div className="about-interactive-card card-commitment" style={{ '--accent-color': '#a855f7' }}>
+              <div
+                className={`about-interactive-card card-commitment ${expandedCard === 'commitment' ? 'card-expanded' : ''}`}
+                style={{ '--accent-color': '#a855f7' }}
+                onClick={() => handleCardClick('commitment')}
+              >
                 <div className="card-top-content">
                   <span className="card-tag">COMMITMENT</span>
                   <h3 className="card-heading">Delivering Certified Accuracy</h3>

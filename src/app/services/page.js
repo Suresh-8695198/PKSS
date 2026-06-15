@@ -10,7 +10,7 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: '80px' }}>
+      <main className="services-page-main">
         <Services preview={false} />
         <TechEcosystemServices />
       </main>

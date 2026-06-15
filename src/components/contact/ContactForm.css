@@ -5,9 +5,7 @@
    ========================================================================== */
 
 .contact-page-wrapper {
-  background-color: #f8fafc;
-  /* Light gray background */
-  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  background-color: #f4f6f8;
   padding-bottom: 0;
 }
 
@@ -64,8 +62,7 @@
 }
 
 .contact-page-wrapper .contact-hero-content h1 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 3rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
@@ -73,7 +70,7 @@
 }
 
 .contact-page-wrapper .contact-hero-content p {
-  font-size: 1.15rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   line-height: 1.6;
   opacity: 0.9;
@@ -104,8 +101,7 @@
 
 .contact-page-wrapper .contact-info-col h2,
 .contact-page-wrapper .contact-form-col h2 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, #000000 35%, #74c044 100%);
@@ -129,7 +125,7 @@
 }
 
 .contact-page-wrapper .contact-info-desc {
-  font-size: 0.95rem;
+  /* font properties handled globally in globals.css */
   color: #000000 !important;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -183,15 +179,14 @@
 }
 
 .contact-page-wrapper .contact-detail-text h4 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.05rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   color: #000000 !important;
   margin-bottom: 0.25rem;
 }
 
 .contact-page-wrapper .contact-detail-text p {
-  font-size: 0.9rem;
+  /* font properties handled globally in globals.css */
   color: #000000 !important;
   line-height: 1.5;
   margin: 0;
@@ -199,8 +194,7 @@
 }
 
 .contact-page-wrapper .social-media-block h4 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.05rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   color: #000000 !important;
   margin-bottom: 1rem;
@@ -225,6 +219,8 @@
   transition: background-color 0.2s;
   opacity: 0;
   animation: fadeInUp 0.4s ease forwards;
+  position: relative;
+  z-index: 20;
 }
 
 .contact-page-wrapper .social-icon-btn:nth-child(1) {
@@ -283,7 +279,7 @@
 }
 
 .contact-page-wrapper .premium-form label {
-  font-size: 0.85rem;
+  /* font properties handled globally in globals.css */
   font-weight: 600;
   color: #000000 !important;
   margin-bottom: 0.5rem;
@@ -296,8 +292,7 @@
   border-radius: 8px;
   border: 1px solid #e2e8f0;
   background-color: #f8fafc;
-  font-family: inherit;
-  font-size: 0.95rem;
+  /* font properties handled globally in globals.css */
   color: #000000 !important;
   transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
@@ -325,7 +320,7 @@
   background-color: #74c044;
   /* PKSS Green */
   color: #ffffff;
-  font-size: 1rem;
+  /* font properties handled globally in globals.css */
   font-weight: 700;
   border: none;
   border-radius: 50px;
@@ -333,6 +328,8 @@
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
   box-shadow: 0 4px 12px rgba(116, 192, 68, 0.25);
   margin-top: 0.5rem;
+  position: relative;
+  z-index: 20;
 }
 
 .contact-page-wrapper .btn-premium-send:hover {
@@ -354,8 +351,7 @@
 }
 
 .contact-page-wrapper .premium-success-state h3 {
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 1.5rem;
+  /* font properties handled globally in globals.css */
   font-weight: 500;
   color: #10b981;
   margin: 1rem 0;
@@ -577,19 +573,19 @@
   margin-left: -21rem;
   width: calc(100% + 21rem);
   position: relative;
-  z-index: 15;
+  /* Lower than social icons (z-index: 20) so rocket never blocks hover */
+  z-index: 5;
+  /* Purely decorative - must NOT intercept any mouse events */
+  pointer-events: none;
 }
 
 .contact-form-bottom-rocket {
   max-width: 280px;
   height: auto;
   opacity: 0.95;
-  pointer-events: auto;
+  /* Never intercept clicks or hovers */
+  pointer-events: none;
   display: block;
-}
-
-.contact-form-bottom-rocket:hover {
-  opacity: 1;
 }
 
 .dark .contact-form-bottom-rocket {

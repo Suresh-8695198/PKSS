@@ -146,7 +146,7 @@ export default function ContactForm({ preview = false }) {
               </div>
               <div className="contact-detail-text">
                 <h4>Call Us</h4>
-                <p>Phone : +91 97918 40836<br />Phone : 0427-2919022</p>
+                <p>+91 97918 40836<br />0427-2919022</p>
               </div>
             </div>
           </div>
@@ -284,9 +284,6 @@ export default function ContactForm({ preview = false }) {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-
-      {/* CONTACT BANNER SECTION */}
-      <div className="contact-banner-section"></div>
     </div>
   );
 }
