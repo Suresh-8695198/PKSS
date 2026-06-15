@@ -70,9 +70,9 @@
 
 /* ─── LIGHT THEME OVERRIDE — full surface + typography flip ─── */
 .home-page-container .services-showcase-section.light-theme {
-    background-color: #f5f7fa !important; /* Soft white-grey surface */
+    background-color: #e0f2fe !important; /* Sky blue */
     background-image: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.15);
     overflow: clip;
 }
 
