@@ -3501,7 +3501,11 @@ main:has(.about-section) {
 
 /* ── Tab Pane body text — same as About section-subtitle ── */
 .industries-section .pane-content-info p,
-.intro-desc-p {
+.intro-left-content p,
+.ind-hero-content p,
+.callout-overlay-header p,
+.overlay-header p,
+.quote-right-content p {
     font-size: 1.05rem;
     line-height: 1.75;
 }
@@ -3528,4 +3532,51 @@ main:has(.about-section) {
 /* ── CTA Button inside Industries pane ── */
 .industries-section .pane-cta-btn .btn {
     font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   INDUSTRIES — UNIFIED SECONDARY LABEL & ACTION FONT SIZE
+   All these elements share the same font-size: 0.85rem
+   Applies across ALL 5 industry tabs (Healthcare, Manufacturing,
+   Retail, Education, Logistics) — they all share these CSS class names.
+
+   Text → CSS Class mapping:
+   "Reimagining Healthcare Experiences"  → .callout-card-header, .callout-overlay-category
+   "Secure Clinical Operations"          → .ind-hero-title-tag
+   "Explore Workflows"                   → .callout-overlay-readlink span
+   "Connect PK"                          → .study-connect-btn span
+   "Clinical Systems Director / Partner" → .quote-author-role
+   "Research Report / Perspective / etc."→ .trend-card-category, .overlay-category
+   "READ MORE"                           → .overlay-readlink span
+   ========================================================================== */
+
+/* ── Category labels on card face & hover overlay ── */
+.trend-card-category,
+.overlay-category,
+.callout-card-header,
+.callout-overlay-category {
+    font-size: 0.85rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+}
+
+/* ── Hero section tag ("Secure Clinical Operations") ── */
+.ind-hero-title-tag {
+    font-size: 0.85rem !important;
+}
+
+/* ── Author / role label ("Clinical Systems Director", "Healthcare Partner") ── */
+.quote-author-role {
+    font-size: 0.85rem !important;
+}
+
+/* ── Action links ("Explore Workflows", "Read More") ── */
+.callout-overlay-readlink,
+.overlay-readlink {
+    font-size: 0.85rem !important;
+}
+
+/* ── CTA button text ("Connect PK") ── */
+.study-connect-btn {
+    font-size: 0.85rem !important;
 }
