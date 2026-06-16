@@ -34,11 +34,7 @@
   background-size: cover;
   background-position: center;
   z-index: 0;
-  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.contact-page-wrapper .contact-hero:hover .contact-hero-bg {
-  transform: scale(1.05);
+  animation: smoothBgZoom 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .contact-page-wrapper .contact-hero::before {
@@ -191,6 +187,8 @@
   line-height: 1.5;
   margin: 0;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .contact-page-wrapper .social-media-block h4 {
@@ -594,11 +592,6 @@
 
 @media (max-width: 768px) {
   .contact-form-bottom-rocket-wrapper {
-    justify-content: flex-end;
-    margin-top: -3rem;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: -1rem;
-    width: calc(100% + 1rem);
+    display: none !important;
   }
 }

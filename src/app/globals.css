@@ -3646,3 +3646,13 @@ main:has(.about-section) {
 .study-connect-btn {
     font-size: 0.85rem !important;
 }
+
+/* ── Smooth Hero BG Zoom-in Animation ── */
+@keyframes smoothBgZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
