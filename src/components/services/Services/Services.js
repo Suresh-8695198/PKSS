@@ -495,8 +495,8 @@ export default function Services({ preview = false }) {
             className="active-service-details-card"
           >
             {/* Spinning Laser Outline Border Beam element */}
-            <div className="border-beam-container">
-              <div className="border-beam-spinning" />
+            <div className="services-border-beam-container">
+              <div className="services-border-beam-spinning" />
             </div>
 
             {/* Top Centered Tag Heading with Green Circle and Blue Number */}

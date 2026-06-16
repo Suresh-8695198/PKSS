@@ -3173,7 +3173,7 @@ ul {
 .tech-srv-tag {
     font-family: 'Poppins', sans-serif !important;
     font-size: 0.82rem !important;
-    font-weight: 900 !important;
+    font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.15em !important;
 }
@@ -3220,6 +3220,84 @@ ul {
     font-size: 1.05rem !important;
     line-height: 1.6 !important;
     font-weight: 400 !important;
+}
+
+/* ==========================================================================
+   HOMEPAGE GLOBAL TYPOGRAPHY (USER REQUESTED STANDARDIZATION)
+   ========================================================================== */
+
+/* GROUP 1: Main Section Titles */
+.hero-title,
+.made-in-india-title,
+.srv-showcase-title-new,
+.values-title,
+.home-page-container .section-title {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: clamp(2rem, 4.5vw, 2.7rem) !important;
+    font-weight: 850 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* GROUP 2: Badges & Tags / Sub-headings */
+.partners-label,
+.section-micro-title,
+.home-page-container .section-tag {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+}
+
+/* GROUP 2.5: Made in India Section Stats (Big Numbers & Bold Labels) */
+.home-page-container .stat-value {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: clamp(2.2rem, 4.5vw, 3rem) !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+}
+
+.home-page-container .stat-label {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+}
+
+/* GROUP 3: Feature / Card Headings */
+.value-name,
+.home-service-item-title,
+.acad-headline,
+.home-page-container h4 {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.45rem !important;
+    font-weight: 700 !important;
+}
+
+/* GROUP 4: All Description Paragraphs */
+.home-page-container p,
+.hero-subtitle,
+.srv-showcase-subtitle-new,
+.home-service-item-desc,
+.value-desc {
+    font-family: 'ABeeZee', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+/* GROUP 5: Unified Buttons & Action Links */
+.home-page-container .btn,
+.home-page-container .more-btn,
+.home-page-container .read-story-btn,
+.home-page-container .filter-btn,
+.home-page-container .srv-view-all-link {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
 }
 
 /* ==========================================================================
@@ -3536,18 +3614,6 @@ main:has(.about-section) {
 
 /* ==========================================================================
    INDUSTRIES — UNIFIED SECONDARY LABEL & ACTION FONT SIZE
-   All these elements share the same font-size: 0.85rem
-   Applies across ALL 5 industry tabs (Healthcare, Manufacturing,
-   Retail, Education, Logistics) — they all share these CSS class names.
-
-   Text → CSS Class mapping:
-   "Reimagining Healthcare Experiences"  → .callout-card-header, .callout-overlay-category
-   "Secure Clinical Operations"          → .ind-hero-title-tag
-   "Explore Workflows"                   → .callout-overlay-readlink span
-   "Connect PK"                          → .study-connect-btn span
-   "Clinical Systems Director / Partner" → .quote-author-role
-   "Research Report / Perspective / etc."→ .trend-card-category, .overlay-category
-   "READ MORE"                           → .overlay-readlink span
    ========================================================================== */
 
 /* ── Category labels on card face & hover overlay ── */

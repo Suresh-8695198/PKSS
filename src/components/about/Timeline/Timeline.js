@@ -169,8 +169,8 @@ export default function Timeline() {
                   <div className="serpentine-col col-content-left">
                     {!isEven && (
                       <div className={`serpentine-card glass-card ${isActive ? 'active-card' : ''}`}>
-                        <div className="border-beam-container">
-                          <div className="border-beam-spinning" />
+                        <div className="timeline-border-beam-container">
+                          <div className="timeline-border-beam-spinning" />
                         </div>
                         <span className="card-step-badge">{item.step}</span>
                         <h3>{item.title}</h3>
@@ -211,8 +211,8 @@ export default function Timeline() {
                   <div className="serpentine-col col-content-right">
                     {isEven && (
                       <div className={`serpentine-card glass-card ${isActive ? 'active-card' : ''}`}>
-                        <div className="border-beam-container">
-                          <div className="border-beam-spinning" />
+                        <div className="timeline-border-beam-container">
+                          <div className="timeline-border-beam-spinning" />
                         </div>
                         <span className="card-step-badge">{item.step}</span>
                         <h3>{item.title}</h3>

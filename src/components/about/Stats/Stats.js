@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { TrendingUp, Building2, Globe2, Clock } from 'lucide-react';
+import { Award, Building2, Globe2, Clock } from 'lucide-react';
 import './Stats.css';
 
 // Simple lightweight React intersection count-up counter
@@ -115,7 +115,7 @@ export default function Stats() {
         {/* Section Header */}
         <div className="stats-hdr">
           <div className="tech-srv-tag-wrap">
-            <TrendingUp className="tech-tag-icon" size={16} />
+            <Award className="tech-tag-icon" size={16} />
             <span className="tech-srv-tag">OUR IMPACT</span>
           </div>
           <h2 className="stats-title">

@@ -278,7 +278,7 @@
 
 
 /* Conic Spinning laser outline border beam (Magic UI style replica) */
-.border-beam-container {
+.services-border-beam-container {
   position: absolute;
   inset: -1px; /* matches border wrap exactly */
   border-radius: 40px 8px 40px 8px; /* matches card radius */
@@ -292,7 +292,7 @@
   overflow: hidden;
 }
 
-.border-beam-spinning {
+.services-border-beam-spinning {
   position: absolute;
   width: 240%;
   height: 240%;
@@ -305,10 +305,10 @@
     #002ea6 92%,
     transparent 100%
   );
-  animation: border-beam-spin 4s linear infinite;
+  animation: services-border-beam-spin 4s linear infinite;
 }
 
-@keyframes border-beam-spin {
+@keyframes services-border-beam-spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }

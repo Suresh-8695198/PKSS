@@ -276,7 +276,7 @@
 
 /* Border beam is ALWAYS in the DOM to prevent animation restart on re-mount */
 /* Hidden by default, shown only when parent card is active */
-.border-beam-container {
+.timeline-border-beam-container {
     position: absolute;
     inset: -1.5px;
     border-radius: 10px 45px 10px 45px;
@@ -293,11 +293,11 @@
 }
 
 /* Show only when active */
-.active-card .border-beam-container {
+.active-card .timeline-border-beam-container {
     opacity: 1;
 }
 
-.border-beam-spinning {
+.timeline-border-beam-spinning {
     position: absolute;
     width: 200%;
     height: 200%;
@@ -310,11 +310,11 @@
         #002ea6 92%,
         transparent 100%
     );
-    animation: border-beam-spin 3s linear infinite;
+    animation: timeline-border-beam-spin 3s linear infinite;
     will-change: transform;
 }
 
-@keyframes border-beam-spin {
+@keyframes timeline-border-beam-spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }

@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   transition: background-color 0.4s ease;
-  font-family: 'ABeeZee', sans-serif;
 }
 
 /* Background video layer */
@@ -91,7 +90,6 @@
 .hero-section .btn-primary {
   border-radius: 0px !important;
   padding: 0.75rem 1.6rem !important;
-  font-size: 0.95rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em !important;
   background: linear-gradient(135deg, #0057D9 0%, #002EE6 100%) !important;
@@ -115,7 +113,6 @@
 .hero-section .btn-secondary {
   border-radius: 0px !important;
   padding: 0.75rem 1.6rem !important;
-  font-size: 0.95rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.02em !important;
   background: rgba(255, 255, 255, 0.04) !important;
@@ -176,8 +173,6 @@
 
 /* ── Headline ── */
 .hero-title {
-  font-family: 'ABeeZee', sans-serif !important;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -.03em;
@@ -199,8 +194,6 @@
 
 /* ── Sub-copy ── */
 .hero-subtitle {
-  font-family: 'ABeeZee', sans-serif !important;
-  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 1.2rem;
@@ -239,14 +232,10 @@
 .hero-partners {
   margin-top: 1.2rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border-glass);
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 .partners-label {
-  font-size: .72rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.75) !important;
   margin-bottom: 1.1rem;
   display: block;
 }
@@ -261,8 +250,8 @@
 .partner-logo-img {
   height: 22px;
   width: auto;
-  opacity: 0.95 !important;
-  filter: none !important;
+  opacity: 0.8 !important;
+  filter: brightness(0) invert(0.85) !important;
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: auto;
   cursor: pointer;

@@ -77,8 +77,6 @@
 }
 
 .home-page-container .srv-showcase-title-new {
-    font-family: 'ABeeZee', sans-serif !important;
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem) !important;
     line-height: 1.15 !important;
     font-weight: 800 !important;
     /* Dark mode: white-to-cool gradient */
@@ -100,7 +98,6 @@
 }
 
 .home-page-container .srv-showcase-subtitle-new {
-    font-size: 1.05rem !important;
     line-height: 1.7 !important;
     color: rgba(255, 255, 255, 0.55) !important;
     max-width: 650px;
@@ -224,11 +221,9 @@
 }
 
 .home-page-container .home-service-item-num {
-    font-size: 1.85rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.25);
     margin-right: 1.5rem;
-    font-family: 'ABeeZee', sans-serif;
     width: 45px;
     transition: color 0.3s ease;
     padding-top: 0rem;
@@ -240,7 +235,6 @@
 }
 
 .home-page-container .home-service-item-title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 600;
     color: rgba(255, 255, 255, 0.55);
     margin: 0;
@@ -253,7 +247,6 @@
 }
 
 .home-page-container .home-service-item-desc {
-    font-size: 0.95rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.45);
     margin: 0;
@@ -370,7 +363,6 @@
     color: rgba(255, 255, 255, 0.85); /* Dark mode: white */
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
     transition: color 0.2s ease, opacity 0.2s ease;
 }
 
@@ -474,8 +466,6 @@
 }
 
 .home-page-container .made-in-india-title {
-    font-family: 'ABeeZee', sans-serif !important;
-    font-size: clamp(2rem, 4.8vw, 3.2rem) !important;
     line-height: 1.25 !important;
     font-weight: 500 !important; /* Elegant medium weight, not over-bolded */
     letter-spacing: -0.01em !important;
@@ -514,16 +504,12 @@
 }
 
 .home-page-container .stat-value {
-    font-family: 'ABeeZee', sans-serif !important;
-    font-size: clamp(2.2rem, 4.5vw, 3rem) !important;
     font-weight: 600 !important;
     color: #ffffff !important;
     line-height: 1;
 }
 
 .home-page-container .stat-label {
-    font-family: 'ABeeZee', sans-serif !important;
-    font-size: 0.82rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.75);
     margin-top: 0.75rem;
@@ -552,8 +538,6 @@
     color: #ffffff !important;
     border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
     padding: 0.8rem 2.25rem;
-    font-family: 'ABeeZee', sans-serif;
-    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
