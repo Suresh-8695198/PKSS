@@ -39,20 +39,25 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentWordIdx]);
 
+  const backgroundVideo = React.useMemo(() => (
+    <video
+      className="hero-bg-video"
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      poster="/images/home/hero_bg.jpg"
+    >
+      <source src="/images/home/hero_vid.mp4" type="video/mp4" />
+    </video>
+  ), []);
+
   return (
     <section className="hero-section" id="hero">
       {/* ── Background Video Layer ── */}
-      <video
-        className="hero-bg-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src="/images/home/hero_vid.mp4" type="video/mp4" />
-      </video>
-      <div className="hero-bg-overlay" />
+      {backgroundVideo}
+
 
       <div className="modern-bg-element bg-shape-1" />
       <div className="modern-bg-element bg-shape-2" />

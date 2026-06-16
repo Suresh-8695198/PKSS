@@ -22,7 +22,6 @@ export default function Home() {
         {/* Professionals Banner (fixed reveal window) */}
         <div className="professionals-banner-wrapper">
           <div className="professionals-banner-bg" />
-          <div className="sticky-image-overlay" />
         </div>
 
         {/* Vision & Mission (About) */}

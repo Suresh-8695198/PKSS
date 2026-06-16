@@ -15,7 +15,6 @@ export default function CorporateValues() {
             alt="PKSS Corporate Workspace" 
             className="banner-image"
           />
-          <div className="banner-overlay"></div>
         </div>
         <div className="banner-content">
           <h2 className="banner-logo-title">PKSS TOGETHER 2026</h2>
